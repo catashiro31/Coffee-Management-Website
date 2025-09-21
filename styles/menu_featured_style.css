@@ -71,11 +71,6 @@ body {
     background: #333; 
 }
 
-
-
-
-
-
 main h1 {
     font-weight: bold;
     font-size: 36px;
@@ -189,14 +184,6 @@ main .items .foods .info button {
     border-radius: 20px;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
 
 .footer {
     padding: 0px 30px 0px 30px;
