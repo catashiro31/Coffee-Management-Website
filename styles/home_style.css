@@ -313,3 +313,133 @@ body {
 .footer .footer-legal a:hover {
     text-decoration: underline;
 }
+
+
+/* ==== RESPONSIVE ADD-ON ==== */
+
+/* 1) Laptop ≤1200px: nới rộng không gian & bo bớt padding cứng */
+@media (max-width: 1200px) {
+  .navbar img { padding-left: 20px; }
+  .actions { padding-right: 20px; }
+  .main { padding: 20px; }
+
+  /* đoạn văn trung tâm: thay padding lớn bằng max-width */
+  .main .passage p {
+    padding: 0 20px;
+    max-width: 800px;
+    margin: 40px auto 0;
+  }
+
+  /* footer đỡ chật */
+  .footer { padding: 0 20px; }
+  .footer .footer-social { padding: 20px 0; }
+}
+
+/* 2) Tablet ≤992px: xếp cột, chữ & nút nhỏ lại chút */
+@media (max-width: 992px) {
+  /* Navbar co lại và cho phép xuống dòng */
+  .navbar {
+    height: auto;
+    padding: 10px 0;
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  .navbar img { padding-left: 16px; max-width: 140px; }
+  .navbar .menu a { font-size: 16px; padding: 5px 10px; }
+  .actions { padding-right: 16px; }
+  .navbar .actions .btn.black,
+  .navbar .actions .btn.white {
+    padding: 8px 12px;
+    border-radius: 18px;
+    font-size: 14px;
+  }
+
+  /* Hero blocks: chuyển sang 1 cột, căn giữa */
+  .main .hero_1,
+  .main .hero_2,
+  .main .hero_3,
+  .main .hero_4,
+  .main .hero_5 {
+    flex-direction: column;
+    text-align: center;
+  }
+  .main .hero_1 .hero-right,
+  .main .hero_2 .hero-left,
+  .main .hero_3 .hero-right,
+  .main .hero_4 .hero-left,
+  .main .hero_5 .hero-right {
+    padding: 40px 24px;
+  }
+  .main img { width: 100%; height: auto; }
+
+  /* Nút trong hero nhỏ đi một chút */
+  .main .btn { font-size: 15px; padding: 8px 14px; }
+
+  /* Footer chia cột mềm hơn */
+  .footer .footer-container {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+  .footer .footer-container .footer-column {
+    width: calc(50% - 12px); /* 2 cột */
+    min-width: 240px;
+  }
+}
+
+/* 3) Mobile ≤576px: một cột, full-width, chữ to vừa đọc */
+@media (max-width: 576px) {
+  body { font-size: 15px; }
+
+  /* Navbar: xếp 1 cột, mọi thứ giữa */
+  .navbar { justify-content: center; }
+  .navbar img { padding-left: 0; }
+  .navbar .menu, .actions { width: 100%; text-align: center; padding: 0; }
+  .navbar .menu a { display: inline-block; padding: 6px 8px; font-size: 15px; }
+  .actions a { margin-right: 8px; font-size: 13px; }
+  .navbar .actions .btn.black,
+  .navbar .actions .btn.white {
+    width: auto;
+    padding: 8px 12px;
+    margin: 6px 4px 0;
+  }
+
+  /* Main spacing */
+  .main { padding: 14px; }
+
+  /* Hero copy */
+  .main .hero_1 .hero-right,
+  .main .hero_2 .hero-left,
+  .main .hero_3 .hero-right,
+  .main .hero_4 .hero-left,
+  .main .hero_5 .hero-right {
+    padding: 26px 16px;
+    font-size: 16px;
+  }
+  .main .hero_5 .hero-right h1 { font-size: 40px; }
+
+  /* Button full-width tùy bối cảnh */
+  .main .btn { width: 100%; max-width: 320px; margin: 0 auto; }
+
+  /* Passage: đọc dễ, sát lề vừa phải */
+  .main .passage p {
+    padding: 0 14px;
+    max-width: 640px;
+    margin: 24px auto 0;
+    text-align: left; /* đọc dễ trên mobile; nếu muốn giữa, thay lại center */
+  }
+
+  /* Footer: 1 cột, icon nhỏ lại */
+  .footer { padding: 0 14px; }
+  .footer .footer-container .footer-column {
+    width: 100%;
+  }
+  .footer .footer-social {
+    gap: 10px;
+  }
+  .footer .footer-social a {
+    width: 34px; height: 34px; font-size: 16px;
+  }
+  .footer .footer-legal a {
+    padding: 10px 0;
+  }
+}
