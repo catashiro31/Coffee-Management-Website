@@ -26,7 +26,7 @@ main .form {
 }
 
 main .form .button {
-    /* max-width: 20px; */
+    max-width: 20px;
 }
 
 .footer {

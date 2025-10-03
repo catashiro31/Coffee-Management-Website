@@ -2,6 +2,8 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
+/* Header */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -71,15 +73,7 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
-
+/* Main */
 main .path {
     position: sticky;
     top: 0;
@@ -274,18 +268,7 @@ main .custom .right .cus-res .res {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* Footer */
 .footer {
     padding: 0px 30px 0px 30px;
     border-top: 2px solid #E5E5E5;
