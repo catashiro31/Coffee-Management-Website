@@ -216,141 +216,94 @@ body {
 }
 
 
+.sub-header {
+    background-color: #F9F9F9;
+    padding: 5px 50px 5px 50px;
+    border-bottom: 2px solid #d5d4d3;
+}
 
+.sub-header .sub-nav-list {
+    display: flex;
+    gap: 25px;
+}
 
-/* Main */
-main h1 {
+.sub-header .sub-nav-list li {
+    list-style: none;
+}
+
+.sub-header .sub-nav-list .sub-nav-item {
+    text-decoration: none;
+    padding: 5px 0px 5px 0px;
+    color: black;
+}
+
+.sub-header .sub-nav-list .sub-nav-item.active {
     font-weight: bold;
-    font-size: 36px;
-    text-align: center;
-    padding: 20px;
+    border-bottom: 1px solid black;
 }
 
-main .items {
-    padding: 25px;
-}
-
-main .items .drinks {
-    display: grid;
-    grid-template-columns: auto auto;
+.main .menu-section {
+    display: flex;
+    padding-left: 80px;
     gap: 20px;
-    row-gap: 25px;
 }
 
-main .items .drinks img {
-    display: block;
-    width: 100%;
-    border-bottom: 1px solid white;
-    margin: 0px;
-}
-
-main .items .drinks .item .info {
-    text-align: center;
-    align-items: center;
-    background: #61381C;
-    padding: 25px 50px 25px 50px;
-    word-wrap: break-word;
-    height: 200px;
-    align-content: center;
-}
-
-main .items .drinks .item-final .info {
-    text-align: center;
-    align-items: center;
-    background: #32462F;
-    padding: 25px 50px 25px 50px;
-    word-wrap: break-word;
-    height: 200px;
-    align-content: center;
-}
-
-main .items .drinks .info h2 {
-    display: block;
-    color: white;
-    text-align: center;
-    margin-top: 0px;
-}
-
-main .items .drinks .info p {
-    color: white;
-    text-align: center;
-}
-
-main .items .drinks .info button {
-    background: transparent;
-    padding: 7px 14px;
-    border-radius: 20px;
-    border: 1px solid white;
-    color: white;
-    cursor: pointer;
-}
-
-main .items .foods .item-top {
-    display: flex;
-    padding: 20px 0px 0px 0px;
-    text-align: center;
-}
-
-main .items .foods .item-top .info {
-    h2, p {
-        color: white;
+.main .menu-section .menu-left {
+    width: 25%;
+    padding-top: 10px;
+    .category-list {
+        padding-left: 0px;
     }
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 20px 0px 20px;
-    width: 50%;
-    word-wrap: break-word;
-    background-color: #32462F;
-}
-
-main .items .foods .item-top img {
-    width: 50%;
-    object-fit: cover;
-}
-
-main .items .foods .item-bottom {
-    display: flex;
-    padding: 20px 0px 0px 0px;
-    text-align: center;
-}
-
-main .items .foods .item-bottom .info {
-    h2, p {
-        color: white;
+    .category-list li {
+        list-style: none;
+        padding: 5px 0px 5px 0px;
     }
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 20px 0px 20px;
-    margin: 0 auto;
-    width: 50%;
-    word-wrap: break-word;
-    background-color: #61381C;
+
+    .category-list li a {
+        text-decoration: none;
+        color: #836B6B
+    }
 }
 
-main .items .foods .item-bottom img {
-    width: 50%;
-    object-fit: cover;
+.main .menu-section .menu-right {
+    width: 75%;
+    padding-top: 20px;
+    padding-right: 8%;
+    .path {
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+    h3 {
+        padding: 20px 0px 20px 0px;
+        border-bottom: 2px solid #d5d4d3;
+    }
+    .items-grid {
+        padding: 20px 0px 25px 0px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 6%;
+        a {
+            text-decoration: none;
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+            }
+            p {
+                text-align: center;
+                width: 120px;
+                color: black;
+                word-wrap: break-word;
+            }
+        }
+    }
 }
-
-
-
-
-main .items .foods .info button {
-    padding: 7px 14px;
-    border: 1px solid white;
-    background: transparent;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-
-
-
 
 .footer {
     padding: 0 30px 0 30px;
@@ -430,8 +383,6 @@ main .items .foods .info button {
     padding: 16px 0;
 }
 
-
-
 /* Responsive Design */
 
 /* Tablet (max-width: 1000px) */
@@ -443,6 +394,28 @@ main .items .foods .info button {
 
     .navbar .navbar__actions {
         gap: 10px;
+    }
+
+    .menu-section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-left {
+        display: none;
+    }
+
+    .main .menu-section .menu-right {
+        width: 90%;
+        .items-grid .item {
+            img {
+                max-width: 100px;
+                max-height: 100px;
+            }
+            p {
+                max-width: 100px;
+            }
+        }
     }
 
 
@@ -526,19 +499,27 @@ main .items .foods .info button {
         border: 0;
     }
 
-    main .items .drinks {
-        display: grid;
-        grid-template-columns: auto;
+    .sub-header {
+        padding-left: 0px;
+    }
+    .main .menu-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .main .menu-section .menu-right {
+        width: 100%;
+        padding-left: 0px;
+        h3 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .items-grid {
+            grid-template-columns: auto auto auto;
+            padding-bottom: 30px;
+            /* justify-content: space-between; */
+        }
     }
 
-    main .items .foods {
-        h2 {
-            font-size: 18px;
-        }
-        p {
-            display: none;
-        }
-    }
     
 
     /* Footer */

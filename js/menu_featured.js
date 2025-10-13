@@ -1,63 +1,3 @@
-// Carousel JavaScript
-(function () {
-    const carousel = document.querySelector('.carousel');
-    const items = carousel.querySelectorAll('.carousel__item');
-    const dotsContainer = document.querySelector('.carousel__dots');
-    const prevBtn = document.querySelector('.carousel__btn--prev');
-    const nextBtn = document.querySelector('.carousel__btn--next');
-    let currentIndex = 0;
-
-    // Create dots dynamically
-    items.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.classList.add('carousel__dot');
-        dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-        dot.setAttribute('role', 'tab');
-        dot.dataset.index = index;
-        if (index === 0) dot.classList.add('active');
-        dotsContainer.appendChild(dot);
-    });
-
-    const dots = dotsContainer.querySelectorAll('.carousel__dot');
-
-    // Function to update carousel state
-    function updateCarousel(index) {
-        items.forEach((item, i) => {
-            item.classList.toggle('active', i === index);
-        });
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-            dot.setAttribute('aria-selected', i === index);
-        });
-        currentIndex = index;
-    }
-
-    // Event listeners for navigation buttons
-    prevBtn.addEventListener('click', () => {
-        const newIndex = (currentIndex - 1 + items.length) % items.length;
-        updateCarousel(newIndex);
-    });
-
-    nextBtn.addEventListener('click', () => {
-        const newIndex = (currentIndex + 1) % items.length;
-        updateCarousel(newIndex);
-    });
-
-    // Event listener for dots
-    dots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-            const index = parseInt(dot.dataset.index, 10);
-            updateCarousel(index);
-        });
-    });
-
-    // Optional: Auto-play carousel (uncomment to enable)
-    setInterval(() => {
-        const newIndex = (currentIndex + 1) % items.length;
-        updateCarousel(newIndex);
-    }, 10000); // Change slide every 5 seconds
-})();
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const burger = document.getElementById('burger');
@@ -131,3 +71,5 @@ document.addEventListener('DOMContentLoaded', () => {
     mql.addEventListener('change', handleMediaQueryChange);
     handleMediaQueryChange(mql);
 });
+
+

@@ -3,249 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles\home_style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description" content="Coffee - Explore our menu, join rewards, and find a store near you.">
     <title>Starbucks</title>
+    <link rel="stylesheet" href="styles/home_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Navbar -->
     <header class="navbar">
-        <div class="logo">
-            <a href="home.html">
-                <img src="./assets/images/DoVanTien_24130858/home_logo.png" alt="Starbucks Logo" width="50" height="50">
+        <div class="navbar__logo">
+            <a href="home.html" aria-label="Starbucks Home">
+                <img src="assets\images\DoVanTien_24130858\logo.png" alt="Starbucks Logo">
             </a>
         </div>
-        <nav class="menu">
-            <a href="pages\menu.html">Menu</a>
-            <a href="#">Rewards</a>
-            <a href="#">Gift Cards</a>
+        <nav class="navbar__menu" aria-label="Main navigation">
+            <a href="pages/menu.html">Menu</a>
+            <a href="pages/rewards.html">Rewards</a>
+            <a href="pages/gift-cards.html">Gift Cards</a>
         </nav>
-        <div class="actions">
-            <a href="#">Find a store</a>
-            <a href="pages\login.html">
-                <button class="btn white">Sign in</button>
+        <div class="navbar__actions">
+            <a href="pages/find-store.html">Find a store</a>
+            <a href="pages/login.html">
+                <button class="btn btn--white">Sign in</button>
             </a>
-            <a href="#">
-                <button class="btn black">Join now</button>
+            <a href="pages/join.html">
+                <button class="btn btn--black">Join now</button>
             </a>
+        </div>
+        <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay">
+            <span></span>
+        </button>
+        <div class="menu-overlay" id="overlay" aria-hidden="true">
+            <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+                <h2 id="menu-title" class="sr-only">Mobile Menu</h2>
+                <img class="logo" src="assets\images\DoVanTien_24130858\logo.png" alt="Starbucks Logo" width="50" height="50">
+                <nav class="menu-links" aria-label="Mobile navigation">
+                    <a href="pages/menu.html">Menu</a>
+                    <a href="pages/rewards.html">Rewards</a>
+                    <a href="pages/gift-cards.html">Gift Cards</a>
+                </nav>
+                <div class="actions-overlay">
+                    <a href="pages/find-store.html">Find a store</a>
+                    <a href="pages/login.html"><button class="btn white">Sign in</button></a>
+                    <a href="pages/join.html"><button class="btn black">Join now</button></a>
+                </div>
+            </aside>
         </div>
     </header>
 
-
-
-    <!-- Subheader -->
-    <a href="pages\menu.html">
-        <div class="sub-nav">
-            Start an order
-        </div>
-    </a>
+    <!-- Sub-Navbar -->
+    <section class="sub-nav">
+        <a href="pages/menu.html" aria-label="Start an order">Start an order</a>
+    </section>
 
     <!-- Carousel -->
-    <div class="carousel-container">
+    <section class="carousel-container" aria-label="Promotional carousel">
         <div class="carousel">
-            <div class="item active">
-                <img src="assets\images\DoVanTien_24130858\home_crs_1.png" alt="Image 1" />
-                <h1 class="caption">Caption for Image 1</h1>
+            <div class="carousel__item active">
+                <img src="assets\images\DoVanTien_24130858\home\carousel_1.png" alt="Promotional image 1">
+                <h2 class="carousel__item--caption">Fall Favorites</h2>
             </div>
-
-            <div class="item">
-                <img src="assets\images\DoVanTien_24130858\home_crs_2.png" alt="Image 2" />
-                <h1 class="caption">Caption for Image 2</h1>
+            <div class="carousel__item">
+                <img src="assets\images\DoVanTien_24130858\home\carousel_2.png" alt="Promotional image 2">
+                <h2 class="carousel__item--caption">New Drinks</h2>
             </div>
-            
-            <div class="item">
-                <img src="assets\images\DoVanTien_24130858\home_crs_3.png" alt="Image 3" />
-                <h1 class="caption">Caption for Image 3<h2>
+            <div class="carousel__item">
+                <img src="assets\images\DoVanTien_24130858\home\carousel_3.png" alt="Promotional image 3">
+                <h2 class="carousel__item--caption">Seasonal Specials</h2>
             </div>
         </div>
-        <button class="btn prev">
+        <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">
             <i class="fa-solid fa-chevron-left fa-2xl" style="color: #0a660c;"></i>
         </button>
-        <button class="btn next">
+        <button class="carousel__btn carousel__btn--next" aria-label="Next slide">
             <i class="fa-solid fa-chevron-right fa-2xl" style="color: #0a660c;"></i>
         </button>
-        <div class="dots"></div>
-    </div>
+        <div class="carousel__dots" role="tablist"></div>
+    </section>
 
-
-    <!-- Main -->
+    <!-- Main Content -->
     <main class="main">
-        <section class="hero_1">
-            <div class="hero-left">
-                <img src="assets\images\DoVanTien_24130858\home_img_1.png" alt="Coffe Drinks" width="700" height="400">
+        <section class="main__hero main__hero--1">
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_1.png" alt="Fall coffee drinks" width="700" height="400">
             </div>
-            <div class="hero-right">
+            <div class="main__hero-content">
                 <h1>Fall. Starts. Now.</h1>
                 <p>
-                    Our fall flavors are officially here. Time for all
-                    things pumpkin and pecan, including the new Pecan
-                    Oatmilk Cortado.
+                    Our fall flavors are officially here. Time for all things pumpkin and pecan, 
+                    including the new Pecan Oatmilk Cortado.
                 </p>
-                <a href="pages\menu.html">
+                <a href="pages/menu.html">
                     <button class="btn">View the menu</button>
                 </a>
             </div>
         </section>
-        
-        <section class="hero_2">
-            <div class="hero-left">
-                <h1>Love it ? Get it free.</h1>
+
+        <section class="main__hero main__hero--2">
+            <div class="main__hero-content">
+                <h1>Love it? Get it free.</h1>
                 <p>
-                    Just join Starbucks&reg Rewards and enjoy a free
-                    drink with a qualifying purchase during you first week.*
+                    Just join Starbucks&reg; Rewards and enjoy a free drink with a qualifying 
+                    purchase during your first week.*
                 </p>
-                <button class="btn">Join & order</button>
+                <a href="pages/join.html">
+                    <button class="btn">Join & order</button>
+                </a>
             </div>
-            <div class="hero-right">
-                <img src="assets\images\DoVanTien_24130858\home_img_2.png" alt="Iced Brown Sugar Oatmilk Shaken Espresso" width="700" height="400">
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_2.png" alt="Iced Brown Sugar Oatmilk Shaken Espresso" width="700" height="400">
             </div>
         </section>
 
-        <section class="hero_3">
-            <div class="hero-left">
-                <img src="assets\images\DoVanTien_24130858\home_img_3.png" alt="Pumpkin Spice Latte" width="700" height="400">
+        <section class="main__hero main__hero--3">
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_3.png" alt="Pumpkin Spice Latte" width="700" height="400">
             </div>
-            <div class="hero-right">
+            <div class="main__hero-content">
                 <h1>For the PSL fans</h1>
                 <p>
-                    Celebrate the season of Pumpkin Spice Latte 
-                    by sending a festive Starbucks eGift.
+                    Celebrate the season of Pumpkin Spice Latte by sending a festive Starbucks eGift.
                 </p>
-                <button class="btn">
-                    Send a eGift
-                </button>
+                <a href="pages/gift-cards.html">
+                    <button class="btn">Send an eGift</button>
+                </a>
             </div>
         </section>
 
-        <section class="hero_4">
-            <div class="hero-left">
+        <section class="main__hero main__hero--4">
+            <div class="main__hero-content">
                 <h1>Our enchanting new collection</h1>
                 <p>
-                    American artist Mike Wilcox honors
-                    coffee-growing regions with captivating
+                    American artist Mike Wilcox honors coffee-growing regions with captivating 
                     Art Deco symbolism. For a limited time.
                 </p>
-                <button class="btn">Learn more</button>
+                <a href="pages/collection.html">
+                    <button class="btn">Learn more</button>
+                </a>
             </div>
-            <div class="hero-right">
-                <img src="assets\images\DoVanTien_24130858\home_img_4.png" alt="New collection" width="700" height="400">
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_4.png" alt="New collection" width="700" height="400">
             </div>
         </section>
 
-        <section class="hero_5">
-            <div class="hero-left">
-                <img src="assets\images\DoVanTien_24130858\home_img_5.png" alt="Coffee" width="700" height="550">
+        <section class="main__hero main__hero--5">
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_5.png" alt="Coffee" width="700" height="550">
             </div>
-            <div class="hero-right">
+            <div class="main__hero-content">
                 <h1>Free refills while you stay</h1>
                 <p>
-                    When you stay to enjoy our handcrafted beverage, refills
-                    of hot or iced brewed coffee or tea are on us.** including
-                    the returning seasonal favorite, Guatemala Casi Cielo&reg , with
-                    notes of bright Meyer lemon and cocoa nibs.
+                    When you stay to enjoy our handcrafted beverage, refills of hot or iced brewed 
+                    coffee or tea are on us.** Including the returning seasonal favorite, 
+                    Guatemala Casi Cielo&reg;, with notes of bright Meyer lemon and cocoa nibs.
                 </p>
-                <button class="btn">Order now</button>
+                <a href="pages/menu.html">
+                    <button class="btn">Order now</button>
+                </a>
             </div>
         </section>
 
-        <section class="passage">
+        <section class="main__passage">
             <p>
-                *Valid for new Starbucks Rewards members for 7 days from 
-                sign up. Coupon will be available in the offers tab of 
-                your Starbucks app following sign up and may take up to 
-                48 hours to arrive. Good at participating U.S. stores 
-                for a handcrafted menu-sized beverage ($8 max value) 
-                with qualifying purchase. Qualifying purchase excludes 
-                alcohol, Starbucks Card and Card reloads. Limit one. 
-                Cannot be combined with other offers or discounts. 
-                Excludes delivery services. Sign up by 9/28/2025.
+                *Valid for new Starbucks Rewards members for 7 days from sign up. Coupon will be 
+                available in the offers tab of your Starbucks app following sign up and may take 
+                up to 48 hours to arrive. Good at participating U.S. stores for a handcrafted 
+                menu-sized beverage ($8 max value) with qualifying purchase. Qualifying purchase 
+                excludes alcohol, Starbucks Card, and Card reloads. Limit one. Cannot be combined 
+                with other offers or discounts. Excludes delivery services. Sign up by 9/28/2025.
             </p>
-            <br><br>
             <p>
-                **Free refills of hot and iced brewed coffee and tea 
-                during same store visit. Excludes Cold Brew, Nitro Cold 
-                Brew, Iced Tea Lemonade, and flavored Iced Tea and 
-                Starbucks Refreshers® base. At participating stores.
+                **Free refills of hot and iced brewed coffee and tea during same store visit. 
+                Excludes Cold Brew, Nitro Cold Brew, Iced Tea Lemonade, and flavored Iced Tea and 
+                Starbucks Refreshers&reg; base. At participating stores.
             </p>
         </section>
     </main>
-    
-
-
 
     <!-- Footer -->
     <footer class="footer">
-    <div class="footer-container">
-        <div class="footer-column">
-        <h3>About Us</h3>
-        <a href="#">Our Company</a>
-        <a href="#">Our Coffee</a>
-        <a href="#">About Starbucks</a>
-        <a href="#">Starbucks Archive</a>
-        <a href="#">Investor Relations</a>
-        <a href="#">Customer Service</a>
-        <a href="#">Contact Us</a>
+        <div class="footer__container">
+            <div class="footer__column">
+                <h3>About Us</h3>
+                <a href="pages/about/company.html">Our Company</a>
+                <a href="pages/about/coffee.html">Our Coffee</a>
+                <a href="pages/about/starbucks.html">About Starbucks</a>
+                <a href="pages/about/archive.html">Starbucks Archive</a>
+                <a href="pages/about/investors.html">Investor Relations</a>
+                <a href="pages/about/customer-service.html">Customer Service</a>
+                <a href="pages/about/contact.html">Contact Us</a>
+            </div>
+            <div class="footer__column">
+                <h3>Careers</h3>
+                <a href="pages/careers/culture.html">Culture and Values</a>
+                <a href="pages/careers/belonging.html">Belonging at Starbucks</a>
+                <a href="pages/careers/college-plan.html">College Achievement Plan</a>
+                <a href="pages/careers/alumni.html">Alumni Community</a>
+                <a href="pages/careers/us.html">U.S. Careers</a>
+                <a href="pages/careers/international.html">International Careers</a>
+            </div>
+            <div class="footer__column">
+                <h3>Social Impact</h3>
+                <a href="pages/social-impact/communities.html">Communities</a>
+                <a href="pages/social-impact/foundation.html">Starbucks Foundation</a>
+                <a href="pages/social-impact/sustainability.html">Sustainability</a>
+                <a href="pages/social-impact/reporting.html">Environmental and Social Impact Reporting</a>
+            </div>
+            <div class="footer__column">
+                <h3>For Business Partners</h3>
+                <a href="pages/business/landlord.html">Landlord Support Center</a>
+                <a href="pages/business/suppliers.html">Suppliers</a>
+                <a href="pages/business/gift-cards.html">Corporate Gift Card Sales</a>
+                <a href="pages/business/foodservice.html">Office and Foodservice Coffee</a>
+            </div>
+            <div class="footer__column">
+                <h3>Order and Pick Up</h3>
+                <a href="pages/order/app.html">Order on the App</a>
+                <a href="pages/order/web.html">Order on the Web</a>
+                <a href="pages/order/delivery.html">Delivery</a>
+                <a href="pages/order/pickup.html">Order and Pick Up Options</a>
+                <a href="pages/order/home-coffee.html">Explore and Find Coffee for Home</a>
+            </div>
         </div>
-
-        <div class="footer-column">
-        <h3>Careers</h3>
-        <a href="#">Culture and Values</a>
-        <a href="#">Belonging at Starbucks</a>
-        <a href="#">College Achievement Plan</a>
-        <a href="#">Alumni Community</a>
-        <a href="#">U.S. Careers</a>
-        <a href="#">International Careers</a>
+        <div class="footer__social">
+            <a href="https://spotify.com" aria-label="Starbucks on Spotify">
+                <i class="fa-brands fa-spotify"></i>
+            </a>
+            <a href="https://facebook.com" aria-label="Starbucks on Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://pinterest.com" aria-label="Starbucks on Pinterest">
+                <i class="fa-brands fa-pinterest"></i>
+            </a>
+            <a href="https://instagram.com" aria-label="Starbucks on Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" aria-label="Starbucks on YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com" aria-label="Starbucks on Twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
         </div>
-
-        <div class="footer-column">
-        <h3>Social Impact</h3>
-        <a href="#">Communities</a>
-        <a href="#">Starbucks Foundation</a>
-        <a href="#">Sustainability</a>
-        <a href="#">Environmental and Social Impact Reporting</a>
+        <div class="footer__legal">
+            <a href="pages/legal/privacy.html">Privacy Notice</a>
+            <a href="pages/legal/health-privacy.html">Consumer Health Privacy Notice</a>
+            <a href="pages/legal/terms.html">Terms of Use</a>
+            <a href="pages/legal/do-not-sell.html">Do Not Sell or Share My Personal Information</a>
+            <a href="pages/legal/supply-chain.html">CA Supply Chain Act</a>
+            <a href="pages/legal/accessibility.html">Accessibility</a>
+            <a href="pages/legal/cookies.html">Cookie Preferences</a>
         </div>
-
-        <div class="footer-column">
-        <h3>For Business Partners</h3>
-        <a href="#">Landlord Support Center</a>
-        <a href="#">Suppliers</a>
-        <a href="#">Corporate Gift Card Sales</a>
-        <a href="#">Office and Foodservice Coffee</a>
-        </div>
-
-        <div class="footer-column">
-        <h3>Order and Pick Up</h3>
-        <a href="#">Order on the App</a>
-        <a href="#">Order on the Web</a>
-        <a href="#">Delivery</a>
-        <a href="#">Order and Pick Up Options</a>
-        <a href="#">Explore and Find Coffee for Home</a>
-        </div>
-    </div>
-
-    <div class="footer-social">
-        <a href="#"><i class="fa-brands fa-spotify"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-    </div>
-
-    <div class="footer-legal">
-    <a href="#">Privacy Notice</a>
-    <a href="#">Consumer Health Privacy Notice</a>
-    <a href="#">Terms of Use</a>
-    <a href="#">Do Not Sell or Share My Personal Information</a>
-    <a href="#">CA Supply Chain Act</a>
-    <a href="#">Accessibility</a>
-    <a href="#">Cookie Preferences</a>
-    </div>
-
-    <p class="copyright">
-    © 2025 Starbucks Coffee Company. All rights reserved.
-    </p>
+        <p class="footer__copyright">
+            &copy; 2025 Starbucks Coffee Company. All rights reserved.
+        </p>
     </footer>
-    <script src="js\home.js"></script>
+
+    <script src="js/home.js"></script>
 </body>
 </html>
