@@ -1,0 +1,336 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+/* Header */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 75px;
+    background: #fff;
+}
+
+.navbar img {
+    max-width: 100%;
+    height: auto;
+    padding-left: 50px;
+    object-fit: cover;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 15px;
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar .menu a:hover {
+    color: #00754a;
+}
+
+.actions {
+    padding-right: 50px;
+}
+
+.actions a {
+    text-decoration: none;
+    color: #000;
+    margin-right: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.actions a:hover {
+    color: #00754a;
+}
+
+.navbar .actions .btn.black, .btn.white {
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.navbar .actions .btn.white {
+    background: #fff;
+    color: #000;
+}
+
+.navbar .actions .btn.black {
+    background: #000;
+    color: #fff;
+    border: none;
+}
+
+.navbar .actions .btn.black:hover {
+    background: #333; 
+}
+
+
+/* Main */
+main .path {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 150px 20px 150px;
+    border-top: 2px solid #D8D8D8;
+    border-bottom: 2px solid #D8D8D8;
+    background: #F9F9F9;
+}
+
+main .path a {
+    text-decoration: none;
+    color: black;
+}
+
+main .path a:hover{
+    color: #03d387;
+}
+
+main .product {
+    background-color: #1F3933;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    padding: 20px 15% 20px 15%;
+}
+
+main .product img {
+    margin-right: 20%;
+}
+
+main .product .info {
+    color: white;
+}
+
+main .product .info label {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+main .product .info p button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid green;
+    border-radius: 50%;
+    color: green;
+}
+
+main .custom {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    padding: 20px 15% 20px 15%;
+}
+
+main .custom .left {
+    margin-right: 20%;
+}
+
+main .custom .left h3 {
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #D4E9E2;
+    margin-bottom: 0px;
+}
+
+main .custom .right h3 {
+    font-size: 24px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #D4E9E2;
+    margin-bottom: 0px;
+}
+
+main .custom .left h3 {
+    text-align: center;
+}
+
+main .custom .left .select-size {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+main .custom .right {
+    display: flex;
+    flex-direction: column;
+}
+
+main .custom .right .option {
+    margin-top: 25px;
+}
+
+main .custom .right .option fieldset {
+    border: 3px solid #D4E9E2;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+main .custom .right .option fieldset legend {
+    margin-left: 12px;
+    padding: 0px;
+    line-height: 1;
+}
+
+main .custom .right .option fieldset .legend-left {
+    background: #fff;
+    padding: 0 8px;
+    color: #6b7a75;
+    font-size: 14px;
+}
+
+main .custom .right .option select {
+    appearance: none; 
+    -webkit-appearance:none; 
+    -moz-appearance:none;
+    width: 100%;
+    font-size: 16px;
+    padding: 15px 10px 15px 10px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+}
+
+main .custom .right .option .options {
+    font-size: 16px;
+    padding: 0px 10px 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .custom .right .option .options i {
+    align-items: center;
+}
+
+main .custom .right .option .options .in-de{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+main .custom .right .option .options .in-de button {
+    padding:0; border:0; background:transparent;
+    display:inline-flex; align-items:center; justify-content:center;
+    line-height:0;
+    cursor: pointer;
+}
+
+main .custom .right .cus-res {
+    margin-top: 15px;
+    padding: 0px 40px 0px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items:center;
+}
+
+main .custom .right .cus-res .cus{
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    background-color: #1E3932;
+    border: 1px solid #1E3932;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+main .custom .right .cus-res .res {
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    background-color: #EDF5F2;
+    border: 1px solid #00754A;
+    color: #00754A;
+    font-weight: bold;
+    border-radius: 25px;
+}
+
+
+/* Footer */
+.footer {
+    padding: 0px 30px 0px 30px;
+    border-top: 2px solid #E5E5E5;
+}
+
+.footer .footer-social {
+    padding: 20px 30px 0px 30px;
+    border-top: 2px solid #E5E5E5;
+}
+
+.footer .footer-container {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0px 20px 0px;
+}
+
+.footer .footer-container .footer-column {
+    width: 225px;
+    display: inline-block;
+}
+
+.footer .footer-container h3 {
+    width: 100%;
+    display: inline-block;
+    font-weight: normal;
+    padding: 5px 0 5px 0;
+}
+
+.footer .footer-container a {
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+    color: #6B6B6B;
+    padding: 15px 0 15px 0;
+}
+
+.footer .footer-container a:hover {
+    color: #212145;
+}
+
+.footer .copyright {
+    color: #836B6B;
+    font-size: 14px;
+}
+
+.footer .footer-social {
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer .footer-social a {
+    width: 40px;
+    height: 40px;
+    background: #222;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background: #00754a;
+}
+
+.footer .footer-legal a {
+    display: flex;
+    text-decoration: none;
+    color: #080808;
+    padding: 15px 0 15px 0;
+}
+
+.footer .footer-legal a:hover {
+    text-decoration: underline;
+}
