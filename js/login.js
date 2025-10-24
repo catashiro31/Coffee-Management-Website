@@ -22,19 +22,24 @@ const loginForm = document.querySelector('.form-box.login form');
 const loginUsernameInput = document.querySelector('input[type = "text"]');
 const loginPasswordInput = document.querySelector('input[type = "password"]');
 
-loginForm.addEventListener('submit', (event) => {
-    event.preventDefault(); 
-    const username = loginUsernameInput.value;
-    const password = loginPasswordInput.value;
-
-    if (username === '' || password === '') {
-        alert('Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu!');
-    } else {
-        alert('Đăng nhập thành công! (Đây là demo)');
-        loginForm.reset(); 
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
+    const loginUsernameInput = document.getElementById('login-username');
+    const loginPasswordInput = document.getElementById('login-password');
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+        const username = loginUsernameInput.value;
+        const password = loginPasswordInput.value;
+        if (username === '' || password === '') {
+            alert('Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu!');
+        } else {    
+            alert('Đăng nhập thành công! Đang chuyển đến trang chủ...');
+            window.location.href = '../home.html';
+        }
+    }); 
 });
 const registerForm = document.querySelector('.form-box.register form');
+
 const registerUsernameInput = registerForm.querySelector('input[type="text"]');
 const registerEmailInput = registerForm.querySelector('input[type="email"]');
 const registerPasswordInput = registerForm.querySelector('input[type="password"]');
