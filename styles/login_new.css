@@ -7,12 +7,15 @@
     box-sizing: border-box;
 }
 body{
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-image: url("../assets/images/LUONGTRUNGTHANH_241230843/login_background2.jpg");
-    color: #fff;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .container{
     position: relative;
@@ -39,7 +42,7 @@ body{
     transition: .6s ease-in-out 1.2s,visibility 0s 1s;
 }
 .container.active .form-box{
-    right: 50%;
+    right: 50%; 
 
 }
 .form-box.register{
@@ -134,7 +137,6 @@ form{
     width: 300%;
     height: 100%;
     background: #974B00;
-    
     border-radius: 150px;
     z-index: 2;
     transition: 1.8s ease-in-out;
@@ -182,7 +184,9 @@ form{
     border: 2px solid #fff;
     box-shadow: none;
 }
-
+.toggle-panel.toggle-left{
+    text-indent: 20px;
+}
 
 
 @media screen and (max-width: 650px){
