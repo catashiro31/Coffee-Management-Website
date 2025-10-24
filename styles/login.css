@@ -136,7 +136,10 @@ form{
     left: -250%;
     width: 300%;
     height: 100%;
-    background: #974B00;
+    background-image: url('../assets/images/LUONGTRUNGTHANH_241230843/login-Coffee-Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #974B00;
     border-radius: 150px;
     z-index: 2;
     transition: 1.8s ease-in-out;
@@ -187,11 +190,22 @@ form{
 .toggle-panel.toggle-left{
     text-indent: 20px;
 }
-
-
-@media screen and (max-width: 650px){
-    .container{
-        height: 100vh;
-        
-    }
+.form-box .btn:hover{
+    background: #7c3d00;
+    cursor: pointer;
+}
+.form-box .btn:active{
+    background: #5a2c00;
+    transform: translateY(1px);
+    box-shadow: 0 0 5px rgba(0, 0,0, 0.2);
+}
+.toggle-panel .btn:hover{
+    background: #fff;
+    color: #974B00;
+    cursor: pointer;
+}
+.toggle-panel .btn:active{
+    background: #f0f0f0;
+    color: #974B00;
+    transform: scale(0.98);
 }
