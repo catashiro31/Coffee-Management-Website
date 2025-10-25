@@ -1,8 +1,8 @@
 // Lưu trữ trạng thái ban đầu của ảnh
 const initialImages = {
-    tall: '../assets/images/DoVanTien_24130858/product_img_2.png',
-    grande: '../assets/images/DoVanTien_24130858/product_img_3.png',
-    venti: '../assets/images/DoVanTien_24130858/product_img_4.png'
+    tall: '..\assets\images\DoVanTien_24130858\menu\menu\product_1\image_2.png',
+    grande: '..\assets\images\DoVanTien_24130858\menu\menu\product_1\image_3.png',
+    venti: '..\assets\images\DoVanTien_24130858\menu\menu\product_1\image_4.png'
 };
 
 let selectedSize = null; // Theo dõi kích thước đang được chọn
