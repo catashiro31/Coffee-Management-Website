@@ -187,19 +187,17 @@ body {
 .navbar__actions {
     display: flex;
     gap: 10px; /* Khoảng cách giữa các nút */
-}
-
-.btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* Loại bỏ gạch chân mặc định của a */
-    display: inline-block; /* Đảm bảo nút hoạt động như một khối inline */
+    .btn {
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        text-decoration: none; /* Loại bỏ gạch chân mặc định của a */
+        display: inline-block; /* Đảm bảo nút hoạt động như một khối inline */
+    }
 }
 
 .btn--white {
@@ -231,12 +229,6 @@ body {
     .navbar__actions {
         flex-direction: column;
         gap: 5px;
-    }
-
-    .btn {
-        padding: 6px 12px;
-        font-size: 12px;
-        width: 100%;
     }
 }
 
@@ -814,7 +806,11 @@ body.fast-order-open {
     width: 100%;
     height: 100%;
     display: none;
-    transition: 0.5s ease-in-out;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease-in-out; /* Hiệu ứng trượt mượt */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(100%); /* Trượt từ bên phải */
 }
 
 .carousel-container .carousel .carousel__item img {
@@ -826,21 +822,38 @@ body.fast-order-open {
 
 .carousel-container .carousel .carousel__item .carousel__item--caption {
     display: flex;
-    padding: 5px;
+    padding: 8px 15px;
     position: absolute;
-    top: 5%;
+    top: 3%; /* Giảm top để lệch lên một chút */
+    left: 15%; /* Lệch sang phải 15% chiều rộng container */
     text-transform: uppercase;
     text-align: center;
-    background-color: #ffffff;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
+    background: linear-gradient(90deg, rgba(255, 152, 0, 0.8), rgba(255, 202, 40, 0.8)); /* Gradient cam-vàng */
+    border-radius: 15px;
     font-size: 32px;
     font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    opacity: 0; /* Ban đầu ẩn */
+    transform: translateX(-20px) scale(0.95); /* Dịch trái và thu nhỏ */
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out, background 0.3s ease; /* Hiệu ứng mượt */
 }
 
 .carousel-container .carousel .carousel__item.active {
     opacity: 1;
     display: block;
+    transform: translateX(0); /* Trượt vào vị trí */
+}
+
+.carousel-container .carousel .carousel__item.active .carousel__item--caption {
+    opacity: 1; /* Hiển thị khi active */
+    transform: translateX(0) scale(1); /* Trở về vị trí và kích thước ban đầu */
+}
+
+.carousel-container .carousel .carousel__item.active:hover .carousel__item--caption {
+    transform: translateX(0) scale(1.1); /* Phóng to nhẹ khi hover */
+    background: linear-gradient(90deg, rgba(255, 202, 40, 0.9), rgba(255, 152, 0, 0.9)); /* Gradient đậm hơn */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Đổ bóng mạnh hơn */
 }
 
 .carousel-container .carousel__btn {
@@ -851,14 +864,15 @@ body.fast-order-open {
     outline: none;
     border: none;
     cursor: pointer;
-    background-color: #ffffff;
-    transition: transform 0.2s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-container .carousel__btn:active,
@@ -867,7 +881,8 @@ body.fast-order-open {
 }
 
 .carousel-container .carousel__btn:hover {
-    transform: translateY(-50%) scale(0.96);
+    transform: translateY(-50%) scale(1.05);
+    background-color: rgba(255, 202, 40, 0.9); /* Màu vàng nhạt khi hover */
 }
 
 .carousel-container .carousel__btn--prev {
@@ -1163,10 +1178,22 @@ body.fast-order-open {
     word-wrap: break-word;
 }
 
-.main .main__hero button {
-    padding: 5px 7px 5px 7px;
-    border-radius: 20px;
+.btn_item {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border-color: #00754a;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: inline-block;
 }
+.btn_item:hover {
+    background: #218838;
+    color: white;
+}
+
 
 .main .main__passage p {
     text-align: center;
