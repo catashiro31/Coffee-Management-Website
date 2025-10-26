@@ -194,3 +194,54 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const addrOverlay = document.getElementById('addr-overlay');
+    const openButton = document.getElementById('deliver_button');
+    const closeButton = document.querySelector('.close-delivery');
+    const confirmButton = document.querySelector('.confirm');
+    const addressInput = document.querySelector('.input input');
+    const addrDisplay = document.getElementById('addr'); // Phần tử để hiển thị địa chỉ
+
+    // Hàm hiển thị popup
+    function showPopup() {
+        if (!addrOverlay.classList.contains('active')) {
+            addrOverlay.classList.add('active');
+            addrOverlay.dataset.autoCloseTimer = autoCloseTimer;
+        }
+    }
+
+    // Hàm đóng popup
+    function closePopup() {
+        addrOverlay.classList.remove('active');
+        clearTimeout(addrOverlay.dataset.autoCloseTimer);
+        delete addrOverlay.dataset.autoCloseTimer;
+    }
+
+    // Kích hoạt popup khi nhấp vào nút "Giao hàng"
+    openButton.addEventListener('click', showPopup);
+
+    // Đóng popup khi nhấp nút đóng
+    closeButton.addEventListener('click', closePopup);
+
+    // Xử lý nút xác nhận và hiển thị địa chỉ
+    confirmButton.addEventListener('click', () => {
+        const address = addressInput.value.trim();
+        if (address) {
+            addrDisplay.textContent = address; // Cập nhật địa chỉ nếu không rỗng
+            localStorage.setItem('savedAddress', address); // Lưu địa chỉ
+        } else {
+            addrDisplay.textContent = "Chưa xác định"; // Hiển thị nếu trống
+            localStorage.removeItem('savedAddress'); // Xóa địa chỉ lưu nếu trống
+        }
+        closePopup();
+    });
+
+    // Lưu và khôi phục địa liệu từ localStorage
+    const savedAddress = localStorage.getItem('savedAddress') || '';
+    addrDisplay.textContent = savedAddress || "Chưa xác định"; // Hiển thị "Chưa xác định" nếu không có địa chỉ
+    addressInput.value = savedAddress;
+
+    addressInput.addEventListener('change', (e) => {
+        localStorage.setItem('savedAddress', e.target.value);
+    });
+});

@@ -17,11 +17,11 @@
             </a>
         </div>
         <nav class="navbar__menu" aria-label="Main navigation">
-            <button class="deliver">
+            <button class="deliver" id="deliver_button">
                 <img src="assets\images\DoVanTien_24130858\home\deliver.png" alt="Deliver" width="50px" height="50px">
                 <div class="info">
                     <p style="font-weight: bold;">Giao hàng</p>
-                    <p>Tại: <span class="addr" id="addr"></span></p>
+                    <p>Tại: <span class="addr" id="addr">Chưa xác định</span></p>
                 </div>
             </button>
             <a href="pages/menu.html">Thực đơn</a>
@@ -55,6 +55,22 @@
             </aside>
         </div>
     </header>
+
+    <div id="addr-overlay" class="addr-overlay">
+        <div class="addr-content">
+            <div class="deliver_logo">
+                <button>
+                    <img src="assets\images\DoVanTien_24130858\home\deliver.png" alt="Deliver" width="50px" height="50px">
+                    <p style="font-weight: bold;">Giao hàng</p>
+                </button>
+            </div>
+            <div class="input">
+                <input type="text" placeholder="Vui lòng nhập địa chỉ">
+            </div>
+            <button class="close-delivery">&times;</button> <!-- Nút đóng -->
+            <button class="confirm">Xác nhận</button>
+        </div>
+    </div>
 
     <!-- Sub-Navbar -->
     <section class="sub-nav">
