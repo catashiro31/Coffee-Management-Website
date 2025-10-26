@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coffee - Explore our menu, join rewards, and find a store near you.">
+    <title>Snacks</title>
+    <link rel="stylesheet" href="../styles/food.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar__logo">
+            <a href="../home.html" aria-label="Starbucks Home">
+                <img src="../assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Starbucks Logo">
+            </a>
+        </div>
+        <nav class="navbar__menu" aria-label="Main navigation">
+            <a href="menu.html">Menu</a>
+            <a href="#">Rewards</a>
+            <a href="#">Gift Cards</a>
+        </nav>
+        <div class="navbar__actions"> 
+            <a href="#">Find a store</a>
+            <a href="login.html">
+                <button class="btn btn--white">Sign in</button>
+            </a>
+            <a href="register.html">
+                <button class="btn btn--black">Join now</button>
+            </a>
+        </div>
+        <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay">
+            <span></span>
+        </button>
+        <div class="menu-overlay" id="overlay" aria-hidden="true">
+            <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+                <h2 id="menu-title" class="sr-only">Mobile Menu</h2>
+                <img class="logo" src="../assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Starbucks Logo" width="80" height="80">
+                <nav class="menu-links" aria-label="Mobile navigation">
+                    <a href="menu.html">Menu</a>
+                    <a href="#">Rewards</a>
+                    <a href="#">Gift Cards</a>
+                </nav>
+                <div class="actions-overlay">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#">Find a store</a>
+                    <a href="login.html"><button class="btn white">Sign in</button></a>
+                    <a href="register.html"><button class="btn black">Join now</button></a>
+                </div>
+            </aside>
+        </div>
+    </header>
+
+    <!-- Sub-nav -->
+    <div class="sub-header">
+        <ul class="sub-nav-list">
+            <li><a href="menu.html" class="sub-nav-item active">Menu</a></li>
+            <li><a href="menu_featured.html" class="sub-nav-item">Featured</a></li>
+            <li><a href="#" class="sub-nav-item">Previous</a></li>
+            <li><a href="#" class="sub-nav-item">Favorites</a></li>
+        </ul>
+    </div>
+    
+    <!-- Main -->
+    <main class="main">
+        <section class="menu-section">
+            <div class="menu-left">
+                <div class="category drinks">
+                    <h3>Drinks</h3>
+                    <ul class="category-list">
+                        <li><a href="../pages/menu_hot-coffee.html">Hot Coffee</a></li>
+                        <li><a href="#">Cold Coffee</a></li>
+                        <li><a href="#">Hot Tea</a></li>
+                        <li><a href="#">Cold Tea</a></li>
+                        <li><a href="#">Refreshers</a></li>
+                        <li><a href="#">Frappuccino Blended Beverage</a></li>
+                        <li><a href="#">Hot Chocolate, Lemonade & More</a></li>
+                        <li><a href="#">Bottled Beverages</a></li>
+                    </ul>
+                </div>
+                <div class="category food">
+                    <h3>Food</h3> 
+                    <ul class="category-list">
+                        <li><a href="../pages/Breakfast.html">Breakfast</a></li>
+                        <li><a href="../pages/Bakery.html">Bakery</a></li>
+                        <li><a href="../pages/Treats.html">Treats</a></li>
+                        <li><a href="../pages/Lunch.html">Lunch</a></li>
+                        <li><a href="../pages/Snacks.html">Snacks</a></li>
+                    </ul>
+                </div>
+                <div class="category at-home-coffee">
+                    <h3>At Home Coffee</h3>
+                    <ul class="category-list">
+                        <li><a href="../pages/whole_bean.html">Whole Bean</a></li>
+                        <li><a href="../pages/VIA_Instant.html">VIA® Instant</a></li>
+                        <li><a href="../pages/shopping_bag.html">Shopping Bag</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-right" aria-label="Menu Items">
+                <nav class="path">
+                    <p><a href="menu.html">Menu </a><b>/ Snacks</b></p>
+                </nav>
+                <h2>Snacks</h2>
+                <div class="category foods">
+                    <h3>Oishi</h3>
+                    <div class="items-grid">
+                        <a href="../pages/Oishi_Corn_Snack.html" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/oishi_bap.jpg" alt="Oishi Corn Snack">
+                                <p>Oishi Corn Snack</p>
+                            </div>
+                        </a>
+                        <a href="../pages/Oishi_Crab_Snack.html" class="item-link">          
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/oishi_cua.jpg" alt="Oishi Crab Snack">
+                                <p>Oishi Crab Snack</p>
+                            </div>
+                        </a>
+                        <a href="../pages/Oishi_Onion_Snack.html" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/oishi_hanh.jpg" alt="Oishi Onion Snack">
+                                <p>Oishi Onion Snack</p>
+                            </div>
+                        </a>
+                        <a href="../pages/Oishi_Octopus_Snack.html" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/oishi_muc.jpg" alt="Oishi Octopus Snack">
+                                <p>Oishi Octopus Snack</p>
+                            </div>
+                        </a>
+                        <a href="../pages/Oishi_Hot_Shrimp_Snack.html" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/oishi_tom_cay.jpg" alt="Oishi Hot Shrimp Snack">
+                                <p>Oishi Hot Shrimp Snack</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="category food">
+                    <h3>Lays</h3>
+                    <div class="items-grid">
+                        <a href="../pages/LaysKhoaiTâyVịGàCayPhôMaiHànQuốc.html" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/lays_ga_cay_pho_mai_han_quoc.jpg" alt="Lays Khoai Tây Vị Gà Cay Phô Mai Hàn Quốc">
+                                <p>Lays Khoai Tây Vị Gà Cay Phô Mai Hàn Quốc</p>
+                            </div>
+                        </a>
+                        <a href="../pages/LaysKhoaiTâyVịNguyênBản.html" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/lays_natural.jpg" alt="Lays Khoai Tây Vị Nguyên Bản">
+                                <p>Lays Khoai Tây Vị Nguyên Bản</p>
+                            </div>
+                        </a>
+                        <a href="../pages/lays_than_bo_nuong_texas.html" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/lays_than_bo_nuong_texas.jpg" alt="Lays Khoai Tây Vị Thăn Bò Nướng Texas">
+                                <p>Lays Khoai Tây Vị Thăn Bò Nướng Texas</p>
+                            </div>
+                        </a>
+                        <a href="../pages/lays_tom_hum_trung_muoi_hoang_kim.html" class="item-link">
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/lays_tom_hum_trung_muoi_hoang_kim.jpg" alt="Lays Khoai Tây Vị Tôm Hùm Nướng Muối Hoàng Kim">
+                                <p>Lays Khoai Tây Vị Tôm Hùm Nướng Muối Hoàng Kim</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__column">
+                <h3>About Us</h3>
+                <a href="pages/about/company.html">Our Company</a>
+                <a href="pages/about/coffee.html">Our Coffee</a>
+                <a href="pages/about/starbucks.html">About Starbucks</a>
+                <a href="pages/about/archive.html">Starbucks Archive</a>
+                <a href="pages/about/investors.html">Investor Relations</a>
+                <a href="pages/about/customer-service.html">Customer Service</a>
+                <a href="pages/about/contact.html">Contact Us</a>
+            </div>
+            <div class="footer__column">
+                <h3>Careers</h3>
+                <a href="pages/careers/culture.html">Culture and Values</a>
+                <a href="pages/careers/belonging.html">Belonging at Starbucks</a>
+                <a href="pages/careers/college-plan.html">College Achievement Plan</a>
+                <a href="pages/careers/alumni.html">Alumni Community</a>
+                <a href="pages/careers/us.html">U.S. Careers</a>
+                <a href="pages/careers/international.html">International Careers</a>
+            </div>
+            <div class="footer__column">
+                <h3>Social Impact</h3>
+                <a href="pages/social-impact/communities.html">Communities</a>
+                <a href="pages/social-impact/foundation.html">Starbucks Foundation</a>
+                <a href="pages/social-impact/sustainability.html">Sustainability</a>
+                <a href="pages/social-impact/reporting.html">Environmental and Social Impact Reporting</a>
+            </div>
+            <div class="footer__column">
+                <h3>For Business Partners</h3>
+                <a href="pages/business/landlord.html">Landlord Support Center</a>
+                <a href="pages/business/suppliers.html">Suppliers</a>
+                <a href="pages/business/gift-cards.html">Corporate Gift Card Sales</a>
+                <a href="pages/business/foodservice.html">Office and Foodservice Coffee</a>
+            </div>
+            <div class="footer__column">
+                <h3>Order and Pick Up</h3>
+                <a href="pages/order/app.html">Order on the App</a>
+                <a href="pages/order/web.html">Order on the Web</a>
+                <a href="pages/order/delivery.html">Delivery</a>
+                <a href="pages/order/pickup.html">Order and Pick Up Options</a>
+                <a href="pages/order/home-coffee.html">Explore and Find Coffee for Home</a>
+            </div>
+        </div>
+        <div class="footer__social">
+            <a href="https://spotify.com" aria-label="Starbucks on Spotify">
+                <i class="fa-brands fa-spotify"></i>
+            </a>
+            <a href="https://facebook.com" aria-label="Starbucks on Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://pinterest.com" aria-label="Starbucks on Pinterest">
+                <i class="fa-brands fa-pinterest"></i>
+            </a>
+            <a href="https://instagram.com" aria-label="Starbucks on Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" aria-label="Starbucks on YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com" aria-label="Starbucks on Twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+        </div>
+        <div class="footer__legal">
+            <a href="pages/legal/privacy.html">Privacy Notice</a>
+            <a href="pages/legal/health-privacy.html">Consumer Health Privacy Notice</a>
+            <a href="pages/legal/terms.html">Terms of Use</a>
+            <a href="pages/legal/do-not-sell.html">Do Not Sell or Share My Personal Information</a>
+            <a href="pages/legal/supply-chain.html">CA Supply Chain Act</a>
+            <a href="pages/legal/accessibility.html">Accessibility</a>
+            <a href="pages/legal/cookies.html">Cookie Preferences</a>
+        </div>
+        <p class="footer__copyright">
+            &copy; 2025 Starbucks Coffee Company. All rights reserved.
+        </p>
+    </footer>
+
+    <script src="../js/menu_hot_coffee.js"></script>
+</body>
+</html>
