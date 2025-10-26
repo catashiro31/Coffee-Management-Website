@@ -131,3 +131,66 @@ document.addEventListener('DOMContentLoaded', () => {
     mql.addEventListener('change', handleMediaQueryChange);
     handleMediaQueryChange(mql);
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const adOverlay = document.getElementById('ad-overlay');
+    const closeAdButton = document.getElementById('close-ad');
+    let adInterval;
+
+    // Hàm hiển thị quảng cáo
+    function showAd() {
+        // Chỉ hiển thị nếu quảng cáo đang ẩn
+        if (!adOverlay.classList.contains('active')) {
+            adOverlay.classList.add('active');
+            // Tự động đóng sau 10 giây
+            setTimeout(closeAd, 10000);
+        }
+    }
+
+    // Hàm đóng quảng cáo
+    function closeAd() {
+        adOverlay.classList.remove('active');
+    }
+
+    // Bắt đầu hiển thị quảng cáo mỗi 10 giây
+    function startAdInterval() {
+        showAd(); // Hiển thị lần đầu
+        adInterval = setInterval(showAd, 10000); // Lặp lại mỗi 10 giây
+    }
+
+    // Dừng hiển thị quảng cáo
+    function stopAdInterval() {
+        clearInterval(adInterval);
+    }
+
+    // Đóng quảng cáo khi nhấp nút đóng
+    closeAdButton.addEventListener('click', () => {
+        closeAd();
+        // Tạm dừng hiển thị quảng cáo trong 30 giây sau khi đóng
+        stopAdInterval();
+        setTimeout(startAdInterval, 30000);
+    });
+
+    // Đóng quảng cáo khi nhấp ra ngoài
+    adOverlay.addEventListener('click', (e) => {
+        if (e.target === adOverlay) {
+            closeAd();
+            stopAdInterval();
+            setTimeout(startAdInterval, 30000);
+        }
+    });
+
+    // Bắt đầu hiển thị quảng cáo
+    startAdInterval();
+
+    // Giới hạn số lần hiển thị (tùy chọn)
+    let adDisplayCount = parseInt(localStorage.getItem('adDisplayCount') || '0');
+    if (adDisplayCount < 3) { // Giới hạn tối đa 3 lần mỗi phiên
+        localStorage.setItem('adDisplayCount', adDisplayCount + 1);
+    } else {
+        stopAdInterval(); // Dừng quảng cáo nếu đã hiển thị đủ 3 lần
+    }
+});
+
+

@@ -31,8 +31,30 @@ body {
 }
 
 .navbar .navbar__menu {
+    width: 60%;
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 40px;
+    .deliver {
+        width: 40%;
+        padding-left: 12px;
+        border: 2px solid #007bff;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border: none;
+        background: rgba(4, 148, 16, 0.877);
+        .info {
+            width: 100%;
+            text-align: left;
+            color: white;
+            p {
+                margin: 10px 0 10px 0px;
+                font-size: 16px;
+            }
+        }
+    }
 }
 
 .navbar .navbar__menu a {
@@ -349,6 +371,79 @@ body {
     background-color: #00754a;
     transform: scale(1.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Lớp che mờ nền */
+.ad-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nội dung quảng cáo */
+.ad-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Nút đóng */
+.close-ad {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Hình ảnh quảng cáo */
+.ad-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Nút kêu gọi hành động */
+.ad-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Hiển thị quảng cáo khi có class active */
+.ad-overlay.active {
+    display: flex;
+}
+
+/* Hiệu ứng fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive cho thiết bị di động */
+@media (max-width: 600px) {
+    .ad-content {
+        max-width: 90%;
+        padding: 15px;
+    }
 }
 
 .main {

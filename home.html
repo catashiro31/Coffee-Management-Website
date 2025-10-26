@@ -17,8 +17,15 @@
             </a>
         </div>
         <nav class="navbar__menu" aria-label="Main navigation">
+            <button class="deliver">
+                <img src="assets\images\DoVanTien_24130858\home\deliver.png" alt="Deliver" width="50px" height="50px">
+                <div class="info">
+                    <p style="font-weight: bold;">Giao hàng</p>
+                    <p>Tại: <span class="addr" id="addr"></span></p>
+                </div>
+            </button>
             <a href="pages/menu.html">Thực đơn</a>
-            <a href="pages/about.html">Về chúng tôi</a>
+            <a href="pages/order.html">Đơn hàng</a>
         </nav>
         <div class="navbar__actions">
             <a href="pages/find-store.html">Tìm cửa hàng</a>
@@ -78,6 +85,16 @@
         </button>
         <div class="carousel__dots" role="tablist"></div>
     </section>
+
+    <div id="ad-overlay" class="ad-overlay">
+        <div class="ad-content">
+            <button id="close-ad" class="close-ad"></button>
+            <img src="assets\images\DoVanTien_24130858\home\advertise.png" alt="Quảng cáo">
+            <h2>Ưu đãi đặc biệt!</h2>
+            <p>Nhận ngay 20% giảm giá cho 500 đơn hàng đầu ngày với <b>Caffe Mocha</b>!</p>
+            <a href="../pages/Caffè Mocha.html" target="_blank" class="ad-button">Đặt ngay</a>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main class="main">
