@@ -25,10 +25,9 @@
                 </div>
             </button>
             <a href="pages/menu.html">Thực đơn</a>
-            <a href="pages/order.html">Đơn hàng</a>
+            <a href="#">Đơn hàng</a>
         </nav>
         <div class="navbar__actions">
-            <a href="pages/find-store.html">Tìm cửa hàng</a>
             <a href="pages/login.html">
                 <button class="btn btn--white">Đăng nhập</button>
             </a>
@@ -45,10 +44,9 @@
                 <img class="logo" src="assets\images\DoVanTien_24130858\logo.png" alt="Starbucks Logo" width="50" height="50">
                 <nav class="menu-links" aria-label="Mobile navigation">
                     <a href="pages/menu.html">Thực đơn</a>
-                    <a href="pages/about.html">Về chúng tôi</a>
+                    <a href="#">Đơn hàng</a>
                 </nav>
                 <div class="actions-overlay">
-                    <a href="pages/find-store.html">Find a store</a>
                     <a href="pages/login.html"><button class="btn white">Đăng nhập</button></a>
                     <a href="pages/join.html"><button class="btn black">Đăng kí</button></a>
                 </div>
@@ -74,8 +72,95 @@
 
     <!-- Sub-Navbar -->
     <section class="sub-nav">
-        <a href="pages/menu.html" aria-label="Start an order">Bắt đầu một đơn hàng</a>
+        <p>Bắt đầu nhanh (Fast Order)</p>
     </section>
+
+    <div id="fast-order-overlay" class="fast-order-overlay">
+        <div class="fast_order">
+            <button class="close_fast_order">&times;</button>
+            <h2><i class="fas fa-shopping-cart"></i> Fast Order</h2>
+
+            <!-- Danh sách sản phẩm -->
+            <div class="product-list">
+                <div class="product-item espresso-item">
+                    <h3>Espresso</h3>
+                    <p class="price">75.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_espresso()">Thêm ngay</button>
+                </div>
+                <div class="product-item latte-item">
+                    <h3>Latte</h3>
+                    <p class="price">120.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_latte()">Thêm ngay</button>
+                </div>
+                <div class="product-item cappuccino-item">
+                    <h3>Cappuccino</h3>
+                    <p class="price">98.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_cappuccino()">Thêm ngay</button>
+                </div>
+                <div class="product-item mocha-item">
+                    <h3>Mocha</h3>
+                    <p class="price">53.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_mocha()">Thêm ngay</button>
+                </div>
+                <div class="product-item americano-item">
+                    <h3>Americano</h3>
+                    <p class="price">64.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_americano()">Thêm ngay</button>
+                </div>
+            </div>
+
+            <div class="list_ordered">
+                <div class="ordered-item" id="espresso">
+                    <p>Espresso vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="espresso-value"></p>
+                        <button class="reset_order" onclick="reset_espresso()">&times;</button>
+                    </div>
+                </div>
+                <div class="ordered-item" id="latte">
+                    <p>Latte vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="latte-value"></p>
+                        <button class="reset_order" onclick="reset_latte()">&times;</button>
+                    </div>
+                </div>
+                <div class="ordered-item" id="cappuccino">
+                    <p>Cappuccino vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="cappuccino-value"></p>
+                        <button class="reset_order" onclick="reset_cappuccino()">&times;</button>
+                    </div>
+                </div>
+                <div class="ordered-item" id="mocha">
+                    <p>Mocha vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="mocha-value"></p>
+                        <button class="reset_order" onclick="reset_mocha()">&times;</button>
+                    </div>
+                </div>
+                <div class="ordered-item" id="americano">
+                    <p>Americano vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="americano-value"></p>
+                        <button class="reset_order" onclick="reset_americano()">&times;</button>
+                    </div>
+                </div>
+                <b class="cost"><span id="price_ordered">0</span> đồng</b>
+                <br>
+                <button class="pay_order" id="pay" onclick="showQrPopup()">Pay now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup QR -->
+    <div id="qr-overlay" class="qr-overlay">
+        <div class="show_QR">
+            <button class="close_qr">&times;</button>
+            <p style="font-weight: bold; font-size: 18px;">SỐ TIỀN BẠN CẦN THANH TOÁN LÀ <span id="price" style="font-weight: bold; color: red;"></span> ĐỒNG</p>
+            <p>QR thanh toán tồn tại trong: <span id="time"></span> giây</p>
+            <img src="assets/images/DoVanTien_24130858/home/qr.jpg" alt="qr">
+        </div>
+    </div>
 
     <!-- Carousel -->
     <section class="carousel-container" aria-label="Promotional carousel">

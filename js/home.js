@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleMediaQueryChange(mql);
 });
 
-
+let adDisplayCount = 0;
 document.addEventListener('DOMContentLoaded', () => {
     const adOverlay = document.getElementById('ad-overlay');
     const closeAdButton = document.getElementById('close-ad');
@@ -153,10 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
         adOverlay.classList.remove('active');
     }
 
-    // Bắt đầu hiển thị quảng cáo mỗi 10 giây
+    // Bắt đầu hiển thị quảng cáo mỗi 100 giây
     function startAdInterval() {
         showAd(); // Hiển thị lần đầu
-        adInterval = setInterval(showAd, 10000); // Lặp lại mỗi 10 giây
+        adInterval = setInterval(showAd, 100000); // Lặp lại mỗi 100 giây
     }
 
     // Dừng hiển thị quảng cáo
@@ -167,17 +167,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Đóng quảng cáo khi nhấp nút đóng
     closeAdButton.addEventListener('click', () => {
         closeAd();
-        // Tạm dừng hiển thị quảng cáo trong 30 giây sau khi đóng
+        // Tạm dừng hiển thị quảng cáo trong 300 giây sau khi đóng
+        adDisplayCount+=1;
         stopAdInterval();
-        setTimeout(startAdInterval, 30000);
+        setTimeout(startAdInterval, 300000);
     });
 
     // Đóng quảng cáo khi nhấp ra ngoài
     adOverlay.addEventListener('click', (e) => {
         if (e.target === adOverlay) {
+            adDisplayCount+=1;
             closeAd();
             stopAdInterval();
-            setTimeout(startAdInterval, 30000);
+            setTimeout(startAdInterval, 300000);
         }
     });
 
@@ -185,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startAdInterval();
 
     // Giới hạn số lần hiển thị (tùy chọn)
-    let adDisplayCount = parseInt(localStorage.getItem('adDisplayCount') || '0');
+
     if (adDisplayCount < 3) { // Giới hạn tối đa 3 lần mỗi phiên
         localStorage.setItem('adDisplayCount', adDisplayCount + 1);
     } else {
@@ -245,3 +247,149 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('savedAddress', e.target.value);
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const subNav = document.querySelector('.sub-nav');
+    const fastOrderOverlay = document.getElementById('fast-order-overlay');
+    const closeButton = document.querySelector('.close_fast_order');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+    // Hàm hiển thị popup
+    function showPopup() {
+        if (!fastOrderOverlay.classList.contains('active')) {
+            fastOrderOverlay.classList.add('active');
+            fastOrderOverlay.dataset.autoCloseTimer = autoCloseTimer;
+        }
+    }
+
+    // Hàm đóng popup
+    function closePopup() {
+        fastOrderOverlay.classList.remove('active');
+        clearTimeout(fastOrderOverlay.dataset.autoCloseTimer);
+        delete fastOrderOverlay.dataset.autoCloseTimer;
+    }
+
+    // Kích hoạt popup khi nhấp vào sub-nav
+    subNav.addEventListener('click', showPopup);
+
+    // Đóng popup khi nhấp nút đóng
+    closeButton.addEventListener('click', closePopup);
+
+    // Xử lý nút thêm vào giỏ (chỉ hiển thị thông báo đơn giản)
+    
+});
+
+let sl_espresso = 0, sl_latte = 0, sl_cappuccino = 0, sl_mocha = 0, sl_americano = 0;
+const espresso = document.getElementById("espresso");
+const latte = document.getElementById("latte");
+const cappuccino = document.getElementById("cappuccino");
+const mocha = document.getElementById("mocha");
+const americano = document.getElementById("americano"); // Thêm khai báo
+const pay = document.getElementById("pay");
+
+let price = 0;
+function update_ordered() {
+    // Cập nhật hiển thị dựa trên số lượng
+    espresso.style.display = sl_espresso > 0 ? "flex" : "none";
+    latte.style.display = sl_latte > 0 ? "flex" : "none";
+    cappuccino.style.display = sl_cappuccino > 0 ? "flex" : "none";
+    mocha.style.display = sl_mocha > 0 ? "flex" : "none";
+    americano.style.display = sl_americano > 0 ? "flex" : "none";
+
+    document.getElementById("espresso-value").textContent = sl_espresso;
+    document.getElementById("latte-value").textContent = sl_latte;
+    document.getElementById("cappuccino-value").textContent = sl_cappuccino;
+    document.getElementById("mocha-value").textContent = sl_mocha;
+    document.getElementById("americano-value").textContent = sl_americano;
+
+    price = sl_espresso * 75000 + sl_latte * 120000 + sl_cappuccino * 98000 + sl_mocha * 53000 + sl_americano * 64000;
+    document.getElementById("price_ordered").textContent = price.toLocaleString('vi-VN');
+    // Hiển thị nút "Pay now" nếu có ít nhất 1 sản phẩm
+    pay.style.display = (sl_espresso + sl_latte + sl_cappuccino + sl_mocha + sl_americano) > 0 ? "inline-flex" : "none";
+}
+
+function reset_espresso() {
+    sl_espresso = 0;
+    update_ordered();
+}
+
+function reset_latte() {
+    sl_latte = 0;
+    update_ordered();
+}
+
+function reset_cappuccino() {
+    sl_cappuccino = 0;
+    update_ordered()
+}
+
+function reset_mocha() {
+    sl_mocha = 0;
+    update_ordered();
+}
+
+function reset_americano() {
+    sl_americano = 0;
+    update_ordered();
+}
+
+function add_espresso() {
+    sl_espresso += 1;
+    update_ordered();
+}
+
+function add_latte() {
+    sl_latte += 1;
+    update_ordered();
+}
+
+function add_cappuccino() {
+    sl_cappuccino += 1;
+    update_ordered()
+}
+
+function add_mocha() {
+    sl_mocha += 1;
+    update_ordered();
+}
+
+function add_americano() {
+    sl_americano += 1;
+    update_ordered();
+}
+
+
+// Popup QR
+const qrOverlay = document.getElementById("qr-overlay");
+const priceElement = document.getElementById("price");
+const timeElement = document.getElementById("time");
+const closeQrButton = document.querySelector(".close_qr");
+
+function showQrPopup() {
+    if (!qrOverlay.classList.contains('active')) {
+        priceElement.textContent = price.toLocaleString('vi-VN');
+        qrOverlay.classList.add('active');
+        document.body.classList.add('fast-order-open');
+
+        let timeLeft = 30;
+        const timer = setInterval(() => {
+            timeElement.textContent = timeLeft;
+            timeLeft--;
+            if (timeLeft < 0) {
+                clearInterval(timer);
+                closeQrPopup();
+            }
+        }, 1000);
+        qrOverlay.dataset.timer = timer;
+    }
+}
+
+function closeQrPopup() {
+    qrOverlay.classList.remove('active');
+    document.body.classList.remove('fast-order-open');
+    clearInterval(qrOverlay.dataset.timer);
+    delete qrOverlay.dataset.timer;
+}
+
+closeQrButton.addEventListener('click', closeQrPopup);
