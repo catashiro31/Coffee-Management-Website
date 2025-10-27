@@ -1,140 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunch</title>
-    <link rel="stylesheet" href="../styles/food_product.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bơ nghiền Avocado Spread</title>
+  <link rel="stylesheet" href="../styles/food_product.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 </head>
 <body>
-    <!-- Header -->
-    <header class="navbar">
-        <a href="..\home.html">
-            <div class="logo">
-                <img src="/assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Starbucks Logo" width="100" height="100">
-            </div>
-        </a>
-        <nav class="menu">
-            <a href="menu.html">Menu</a>
-            <a href="#">Rewards</a>
-            <a href="#">Gift Cards</a>
-        </nav>
-        <div class="actions">
-            <a href="#">Find a store</a>
-            <a href="login.html">
-                <button class="btn white">Sign in</button>
-            </a>
-            <a href="#">
-                <button class="btn black">Join now</button>
-            </a>
-        </div>
-    </header>
-    <main>
-        <!-- Path -->
-        <div class="path">
-            <a href="menu.html">Menu</a> / <a href="/pages/Lunch.html">Lunch</a> / <span style="font-weight: bold;">Avocado Spread</span>
+  <!-- Header -->
+  <header class="navbar">
+    <a href="../home.html">
+      <div class="logo">
+        <img src="../assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Logo" width="100" height="100" />
+      </div>
+    </a>
+    <nav class="menu">
+      <a href="menu.html">Thực đơn</a>
+      <a href="#">Ưu đãi</a>
+      <a href="#">Thẻ quà tặng</a>
+    </nav>
+    <div class="actions">
+      <a href="#">Tìm cửa hàng</a>
+      <a href="login.html"><button class="btn white">Đăng nhập</button></a>
+      <a href="#"><button class="btn black">Tham gia ngay</button></a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Breadcrumb -->
+    <div class="path">
+      <a href="menu.html">Thực đơn</a> / <a href="../pages/Lunch.html">Bữa trưa</a> /
+      <span style="font-weight: bold;">Bơ nghiền Avocado Spread</span>
+    </div>
+
+    <!-- Product -->
+    <div class="product">
+      <img
+        src="../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg"
+        alt="Bơ nghiền"
+        width="300px"
+        height="300px"
+      />
+      <div class="info">
+        <h2>Bơ nghiền Avocado Spread</h2>
+        <p>
+          <span class="tooltip"
+            >360 calo<sup>i</sup>
+            <span class="tooltiptext"
+              >✨ Thông tin dinh dưỡng dựa trên công thức tiêu chuẩn và có thể thay đổi theo tùy chọn của bạn
+              <span class="close-btn">×</span></span
+            >
+          </span>
+        </p>
+        <p class="price">Giá: <span id="price">55.000</span> VNĐ</p>
+
+        <!-- Quantity Controls -->
+        <div class="quantity-control">
+          <button id="decrease"><i class="fa-solid fa-minus"></i></button>
+          <input type="number" id="quantity" value="1" min="1" />
+          <button id="increase"><i class="fa-solid fa-plus"></i></button>
         </div>
 
-        <!-- Product -->
-        <div class="product">
-            <img src="/assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg" alt="Avocado Spread" width="300px" height="300px">
-            <div class="info">
-                <label>Avocado Spread</label>
-                <p>
-                    <span class="tooltip">360 calories<sup>i</sup>
-                        <span class="tooltiptext">✨ Nutrition information is based on standard recipes and does not reflect customizations <span class="close-btn">×</span></span>
-                    </span>
-                </p>
-            </div>
-        </div>
+        <p class="total">
+          Tổng cộng: <span id="total">55.000</span> VNĐ
+        </p>
 
-        <!-- Custom -->
-        <div class="custom">
-            <div class="left">
-                <p>
-                    <span><i class="fa-solid fa-location-dot"></i></span>
-                    <span>Select a store to view availability</span>
-                </p>
-            </div>
-        </div>
-    </main>
+        <button class="btn black" id="addToCart">Thêm vào giỏ hàng</button>
+      </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Store selection -->
+    <div class="custom">
+      <p><i class="fa-solid fa-location-dot"></i> Vui lòng chọn cửa hàng để xem tình trạng sản phẩm.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="footer-container">
-        <div class="footer-column">
-        <h3>About Us</h3>
-        <a href="#">Our Company</a>
-        <a href="#">Our Coffee</a>
-        <a href="#">About Starbucks</a>
-        <a href="#">Starbucks Archive</a>
-        <a href="#">Investor Relations</a>
-        <a href="#">Customer Service</a>
-        <a href="#">Contact Us</a>
-        </div>
+      <div class="footer-column">
+        <h3>Về chúng tôi</h3>
+        <a href="#">Công ty</a>
+        <a href="#">Cà phê của chúng tôi</a>
+        <a href="#">Giới thiệu Starbucks</a>
+        <a href="#">Lưu trữ thương hiệu</a>
+        <a href="#">Quan hệ đầu tư</a>
+        <a href="#">Hỗ trợ khách hàng</a>
+        <a href="#">Liên hệ</a>
+      </div>
 
-        <div class="footer-column">
-        <h3>Careers</h3>
-        <a href="#">Culture and Values</a>
-        <a href="#">Belonging at Starbucks</a>
-        <a href="#">College Achievement Plan</a>
-        <a href="#">Alumni Community</a>
-        <a href="#">U.S. Careers</a>
-        <a href="#">International Careers</a>
-        </div>
+      <div class="footer-column">
+        <h3>Cơ hội nghề nghiệp</h3>
+        <a href="#">Văn hóa và giá trị</a>
+        <a href="#">Cộng đồng nhân viên</a>
+        <a href="#">Chương trình học bổng</a>
+        <a href="#">Cộng đồng cựu nhân viên</a>
+        <a href="#">Việc làm tại Mỹ</a>
+        <a href="#">Việc làm quốc tế</a>
+      </div>
 
-        <div class="footer-column">
-        <h3>Social Impact</h3>
-        <a href="#">Communities</a>
-        <a href="#">Starbucks Foundation</a>
-        <a href="#">Sustainability</a>
-        <a href="#">Environmental and Social Impact Reporting</a>
-        </div>
+      <div class="footer-column">
+        <h3>Tác động xã hội</h3>
+        <a href="#">Cộng đồng</a>
+        <a href="#">Quỹ Starbucks</a>
+        <a href="#">Phát triển bền vững</a>
+        <a href="#">Báo cáo tác động xã hội</a>
+      </div>
 
-        <div class="footer-column">
-        <h3>For Business Partners</h3>
-        <a href="#">Landlord Support Center</a>
-        <a href="#">Suppliers</a>
-        <a href="#">Corporate Gift Card Sales</a>
-        <a href="#">Office and Foodservice Coffee</a>
-        </div>
+      <div class="footer-column">
+        <h3>Đối tác kinh doanh</h3>
+        <a href="#">Trung tâm hỗ trợ chủ đất</a>
+        <a href="#">Nhà cung cấp</a>
+        <a href="#">Bán thẻ quà tặng doanh nghiệp</a>
+        <a href="#">Dịch vụ cà phê văn phòng</a>
+      </div>
 
-        <div class="footer-column">
-        <h3>Order and Pick Up</h3>
-        <a href="#">Order on the App</a>
-        <a href="#">Order on the Web</a>
-        <a href="#">Delivery</a>
-        <a href="#">Order and Pick Up Options</a>
-        <a href="#">Explore and Find Coffee for Home</a>
-        </div>
-    </div>
-
-    <div class="footer-social">
-        <a href="#"><i class="fa-brands fa-spotify"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-    </div>
-
-    <div class="footer-legal">
-    <a href="#">Privacy Notice</a>
-    <a href="#">Consumer Health Privacy Notice</a>
-    <a href="#">Terms of Use</a>
-    <a href="#">Do Not Sell or Share My Personal Information</a>
-    <a href="#">CA Supply Chain Act</a>
-    <a href="#">Accessibility</a>
-    <a href="#">Cookie Preferences</a>
+      <div class="footer-column">
+        <h3>Đặt hàng & Nhận hàng</h3>
+        <a href="#">Đặt hàng qua ứng dụng</a>
+        <a href="#">Đặt hàng trực tuyến</a>
+        <a href="#">Giao hàng tận nơi</a>
+        <a href="#">Tùy chọn nhận hàng</a>
+        <a href="#">Khám phá cà phê cho gia đình</a>
+      </div>
     </div>
 
     <p class="copyright">
-    © 2025 Starbucks Coffee Company. All rights reserved.
+      © 2025 Starbucks Việt Nam. Bảo lưu mọi quyền.
     </p>
-    </footer>
+  </footer>
 
-    <script src="..\js\product_.js"></script>
+  <script src="../js/product_price.js"></script>
 </body>
-    <script src="https://kit.fontawesome.com/040bed8739.js" crossorigin="anonymous"></script>
 </html>
