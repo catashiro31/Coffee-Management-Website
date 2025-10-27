@@ -234,13 +234,14 @@ body {
 
 .navbar #burger {
     display: none;
-    --bar-gap: -6px;
+    --bar-gap: 6px; /* Adjusted for better spacing */
     width: 40px;
     height: 40px;
     border: none;
-    background: #fff;
+    background: transparent;
     cursor: pointer;
     z-index: 1001;
+    padding: 8px; /* Added padding for better touch area */
 }
 
 .navbar #burger span,
@@ -248,31 +249,60 @@ body {
 .navbar #burger::after {
     content: "";
     display: block;
-    width: 20px;
-    height: 2px;
-    background: #6b7280;
-    border-radius: 2px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: 24px; /* Slightly wider bars for better visibility */
+    height: 3px; /* Thicker bars for a bolder look */
+    background: #333; /* Dark color for contrast (works on light backgrounds) */
+    border-radius: 3px; /* Softer, rounded edges */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 
 .navbar #burger::before {
-    transform: translateY(calc(-1 * var(--bar-gap)));
+    transform: translateY(calc(-1 * var(--bar-gap))); /* Position top bar */
 }
 
 .navbar #burger::after {
-    transform: translateY(var(--bar-gap));
+    transform: translateY(var(--bar-gap)); /* Position bottom bar */
 }
 
 .navbar #burger[aria-expanded="true"] span {
-    opacity: 0;
+    opacity: 0; /* Middle bar fades out */
 }
 
 .navbar #burger[aria-expanded="true"]::before {
-    transform: translateY(0) rotate(45deg);
+    transform: translateY(0) rotate(45deg); /* Top bar rotates to form "X" */
 }
 
 .navbar #burger[aria-expanded="true"]::after {
-    transform: translateY(0) rotate(-45deg);
+    transform: translateY(0) rotate(-45deg); /* Bottom bar rotates to form "X" */
+}
+
+/* Hover effect for interactivity */
+.navbar #burger:hover span,
+.navbar #burger:hover::before,
+.navbar #burger:hover::after {
+    background: #007bff; /* Blue color on hover for a modern feel */
+}
+
+/* Optional: Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .navbar #burger span,
+    .navbar #burger::before,
+    .navbar #burger::after {
+        background: #f1f1f1; /* Light color for dark backgrounds */
+    }
+
+    .navbar #burger:hover span,
+    .navbar #burger:hover::before,
+    .navbar #burger:hover::after {
+        background: #66b0ff; /* Lighter blue for hover in dark mode */
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .navbar #burger {
+        display: block; /* Show hamburger on mobile */
+    }
 }
 
 .navbar .menu-overlay {
@@ -349,9 +379,10 @@ body {
 .navbar .menu-overlay .drawer .actions-overlay .btn {
     padding: 10px 18px;
     border-radius: 10px;
-    font-weight: 800;
+    font-weight: bold;
     cursor: pointer;
     border: none;
+    font-family: Arial, sans-serif;
 }
 
 .navbar .menu-overlay .drawer .actions-overlay .btn.white {
@@ -373,7 +404,6 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Bóng nhẹ */
     overflow: hidden; /* Ẩn hiệu ứng tràn */
     transition: all 0.3s ease; /* Hiệu ứng mượt mà */
-    width: 100%; /* Chải rộng ra khắp khoảng trắng */
 }
 
 /* Gradient overlay khi hover */
@@ -403,7 +433,7 @@ body {
     color: white;
     position: relative; /* Để chồng lên gradient */
     z-index: 2; /* Đảm bảo chữ luôn hiển thị */
-    padding: 0 20px; /* Tăng padding ngang để chữ không chạm viền */
+    padding: 0 20px;
     text-transform: uppercase; /* Chữ in hoa để nổi */
     letter-spacing: 1px; /* Tăng khoảng cách chữ */
     transition: color 0.3s ease, text-shadow 0.3s ease; /* Hiệu ứng chữ */
@@ -641,6 +671,7 @@ body.fast-order-open {
     font-size: 16px;
     font-weight: bold;
     margin-top: 15px;
+    margin-bottom: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -1185,9 +1216,9 @@ body.fast-order-open {
     font-size: 16px;
     font-weight: bold;
     border-color: #00754a;
-    font-family: Arial, sans-serif;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     display: inline-block;
+    margin-bottom: 10px;
 }
 .btn_item:hover {
     background: #218838;
@@ -1434,11 +1465,6 @@ body.fast-order-open {
 
     .main .main__hero .main__hero-content p {
         padding: 0 10px 0 10px;
-    }
-
-    .main .main__hero button {
-        padding: 3px 5px 3px 5px;
-        font-size: 12px;
     }
 
     /* Main Passage */

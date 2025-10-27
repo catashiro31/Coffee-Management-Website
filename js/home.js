@@ -309,28 +309,28 @@ function update_ordered() {
     pay.style.display = (sl_espresso + sl_latte + sl_cappuccino + sl_mocha + sl_americano) > 0 ? "inline-flex" : "none";
 }
 
-function reset_espresso() {
-    sl_espresso = 0;
+function decrease_espresso() {
+    sl_espresso -= 1;
     update_ordered();
 }
 
-function reset_latte() {
-    sl_latte = 0;
+function decrease_latte() {
+    sl_latte -= 1;
     update_ordered();
 }
 
-function reset_cappuccino() {
-    sl_cappuccino = 0;
+function decrease_cappuccino() {
+    sl_cappuccino -= 1;
     update_ordered()
 }
 
-function reset_mocha() {
-    sl_mocha = 0;
+function decrease_mocha() {
+    sl_mocha -= 1;
     update_ordered();
 }
 
-function reset_americano() {
-    sl_americano = 0;
+function decrease_americano() {
+    sl_americano -= 1;
     update_ordered();
 }
 
