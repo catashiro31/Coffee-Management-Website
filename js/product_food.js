@@ -23,7 +23,7 @@ const products = [
     name: 'Bánh sandwich trứng và thịt xông khói với phô mai Gouda',
     calories: 520,
     price: 32000,
-    image: '../assets/images/MaiThiYenNhi_241230810/bacon_gruyere_egg_bites.jpg',
+    image: '../assets/images/MaiThiYenNhi_241230810/Bacon-Gouda-Egg-Sandwich.jpg',
     alt: 'Bánh sandwich trứng và thịt xông khói với phô mai Gouda',
   },
   {
