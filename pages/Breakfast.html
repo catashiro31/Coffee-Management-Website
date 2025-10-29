@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cà phê - Khám phá thực đơn, tham gia phần thưởng và tìm cửa hàng gần bạn.">
+    <title>Bữa sáng</title>
+    <link rel="icon" href="../assets\images\DoVanTien_24130858\logo.png" type="image/png">
+    <link rel="stylesheet" href="../styles/food.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Thanh điều hướng -->
+    <header class="navbar">
+        <div class="navbar__logo">
+            <a href="..\home.html" aria-label="Coffee Since 2025 Home">
+                <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav class="navbar__menu" aria-label="Điều hướng chính">
+            <a href="menu.html">Thực đơn</a>
+            <a href="#">Đơn hàng</a>
+        </nav>
+        <div class="navbar__actions">
+            <a href="login.html">
+                <button class="btn btn--white">Đăng nhập</button>
+            </a>
+            <a href="register.html">
+                <button class="btn btn--black">Đăng kí</button>
+            </a>
+        </div>
+        <button id="burger" aria-label="Chuyển đổi menu" aria-expanded="false" aria-controls="overlay">
+            <span></span>
+        </button>
+        <div class="menu-overlay" id="overlay" aria-hidden="true">
+            <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+                <h2 id="menu-title" class="sr-only">Menu di động</h2>
+                <img class="logo" src="../assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Logo Coffee Since 2025" width="80" height="80">
+                <nav class="menu-links" aria-label="Điều hướng di động">
+                    <a href="menu.html">Thực đơn</a>
+                    <a href="#">Đơn hàng</a>
+                </nav>
+                <div class="actions-overlay">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="login.html"><button class="btn white">Đăng nhập</button></a>
+                    <a href="register.html"><button class="btn black">Đăng kí</button></a>
+                </div>
+            </aside>
+        </div>
+    </header>
+
+    <!-- Thanh phụ -->
+    <div class="sub-header">
+        <ul class="sub-nav-list">
+            <li><a href="menu.html" class="sub-nav-item active">Thực đơn</a></li>
+            <li><a href="menu_featured.html" class="sub-nav-item">Nổi bật</a></li>
+        </ul>
+    </div>
+    
+    <!-- Nội dung chính -->
+    <main class="main">
+        <section class="menu-section">
+            <div class="menu-left">
+                <div class="category drinks">
+                    <h3>Đồ uống</h3>
+                    <ul class="category-list">
+                        <li><a href="menuhot.html">Cà phê nóng</a></li>
+                        <li><a href="menucold.html">Cà phê lạnh</a></li>
+                        <li><a href="menuhottea.html">Trà nóng</a></li>
+                        <li><a href="menucoldtea.html">Trà lạnh</a></li>
+                        <li><a href="refreshers.html">Nước trái cây tươi mát</a></li>
+                        <li><a href="Frappuccino® Blended Beverage.html">Đồ uống xay Frappuccino</a></li>
+                        <li><a href="hot-chocolate.html">Sô-cô-la nóng, nước chanh & Khác</a></li>
+                        <li><a href="Bottled-Beverages.html">Đồ uống đóng chai</a></li>
+                    </ul>
+                </div>
+                <div class="category food">
+                    <h3>Đồ ăn</h3> 
+                    <ul class="category-list">
+                        <li><a href="Breakfast.html">Bữa sáng</a></li>
+                        <li><a href="Bakery.html">Tiệm bánh</a></li>
+                        <li><a href="Treats.html">Món ngọt</a></li>
+                        <li><a href="Lunch.html">Bữa trưa</a></li>
+                        <li><a href="Snacks.html">Đồ ăn nhẹ</a></li>
+                    </ul>
+                </div>
+                <div class="category at-home-coffee">
+                    <h3>Cà phê tại nhà</h3>
+                    <ul class="category-list">
+                        <li><a href="whole_bean.html">Hạt cà phê nguyên chất</a></li>
+                        <li><a href="VIA_Instant.html">VIA® Cà phê hòa tan</a></li>
+                        <li><a href="shopping_bag.html">Túi mua sắm</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-right" aria-label="Món ăn trong thực đơn">
+                <nav class="path">
+                    <p><a href="menu.html">Thực đơn </a><b>/ Bữa sáng</b></p>
+                </nav>
+                <h2>Bữa sáng</h2>
+                <div class="category foods">
+                    <h3>Bánh mì kẹp bữa sáng</h3>
+                    <div class="items-grid">
+                        <a href="product_food.html?id=egg_pesto_mozzarella_sandwich" class="item-link">
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/Egg-Pesto_Mozzarella_Sandwich.jpg" alt="Bánh mì trứng, pesto & mozzarella">
+                                <p>Bánh mì trứng, pesto & mozzarella</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Bacon_Gouda_Egg_Sandwich" class="item-link">
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/Bacon-Gouda-Egg-Sandwich.jpg" alt="Bánh mì thịt xông khói, phô mai gouda & trứng">
+                                <p>Bánh mì thịt xông khói, phô mai gouda & trứng</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Double_Smoked_Bacon_Cheddar_Egg_Sandwich" class="item-link">  
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/Bacon_Cheddar_Egg_Sandwich.jpg" alt="Bánh mì thịt xông khói hun khói kép, phô mai cheddar & trứng">
+                                <p>Bánh mì thịt xông khói hun khói kép, phô mai cheddar & trứng</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Sausage_Cheddar_Egg_Sandwich" class="item-link">
+                            <div class="item">  
+                                <img src="../assets/images/MaiThiYenNhi_241230810/Sausage-Cheddar-Egg-Sandwich.jpg" alt="Bánh mì xúc xích, phô mai cheddar & trứng">
+                                <p>Bánh mì xúc xích, phô mai cheddar & trứng</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Turkey_Bacon_Cheddar_Egg_White_Sandwich" class="item-link">  
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/Turkey-Bacon-Cheddar-Egg-White-Sandwich.jpg" alt="Bánh mì thịt gà tây, phô mai cheddar & lòng trắng trứng">
+                                <p>Bánh mì thịt gà tây, phô mai cheddar & lòng trắng trứng</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Impossible_Breakfast_Sandwich" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/impossible_Breakfast_Sandwich.jpg" alt="Bánh mì bữa sáng Impossible">
+                                <p>Bánh mì bữa sáng Impossible</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Avocado_Spread" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg" alt="Bơ nghiền Avocado">
+                                <p>Bơ nghiền Avocado</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="category food">
+                    <h3>Bánh cuộn bữa sáng</h3>
+                    <div class="items-grid">
+                        <a href="product_food.html?id=Bacon_Sausage_Egg_Wrap" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/bacon_sausage_egg_wrap.jpg" alt="Cuộn thịt xông khói, xúc xích & trứng">
+                                <p>Cuộn thịt xông khói, xúc xích & trứng</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Spinach_Feta_Egg_White_Wrap" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/spinach_feta_egg_white.jpg" alt="Cuộn rau chân vịt, phô mai feta & lòng trắng trứng">
+                                <p>Cuộn rau chân vịt, phô mai feta & lòng trắng trứng</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Avocado_Spread" class="item-link">
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg" alt="Bơ nghiền Avocado">
+                                <p>Bơ nghiền Avocado</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="category food">
+                    <h3>Món trứng & nướng</h3>
+                    <div class="items-grid">
+                        <a href="product_food.html?id=Bacon_Gruyère_Egg_Bites" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/bacon_gruyere_egg_bites.jpg" alt="Trứng nướng với thịt xông khói & phô mai Gruyère">
+                                <p>Trứng nướng với thịt xông khói & phô mai Gruyère</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Egg_White_Roasted_Red_Pepper_Egg_Bites" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/egg_white_and-red_pepper_egg_bites_product.jpg" alt="Trứng nướng lòng trắng & ớt đỏ nướng">
+                                <p>Trứng nướng lòng trắng & ớt đỏ nướng</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Avocado_Spread" class="item-link">
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg" alt="Bơ nghiền Avocado">
+                                <p>Bơ nghiền Avocado</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="category food">
+                    <h3>Món cổ điển bữa sáng khác</h3>
+                    <div class="items-grid">        
+                        <a href="product_food.html?id=Rolled_Steel_Cut_Oatmeal" class="item-link">
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/oatmeal.jpg" alt="Yến mạch cán & yến mạch cắt thép">
+                                <p>Yến mạch cán & yến mạch cắt thép</p>
+                            </div>
+                        </a>
+                        <a href="product_food.html?id=Ellenos_Muesli_Yogurt" class="item-link">      
+                            <div class="item">
+                                <img src="../assets/images/MaiThiYenNhi_241230810/EllenosMuesli.jpg" alt="Sữa chua Muesli Ellenos">
+                                <p>Sữa chua Muesli Ellenos</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Chân trang -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__column">
+                <h3>Về chúng tôi</h3>
+                <a href="pages/about/company.html">Công ty của chúng tôi</a>
+                <a href="pages/about/coffee.html">Cà phê của chúng tôi</a>
+                <a href="pages/about/Coffee Since 2025.html">Giới thiệu về Coffee Since 2025</a>
+                <a href="pages/about/archive.html">Lưu trữ Coffee Since 2025</a>
+                <a href="pages/about/investors.html">Quan hệ nhà đầu tư</a>
+                <a href="pages/about/customer-service.html">Dịch vụ khách hàng</a>
+                <a href="pages/about/contact.html">Liên hệ với chúng tôi</a>
+            </div>
+            <div class="footer__column">
+                <h3>Nghề nghiệp</h3>
+                <a href="pages/careers/culture.html">Văn hóa và giá trị</a>
+                <a href="pages/careers/belonging.html">Cảm giác thuộc về tại Coffee Since 2025</a>
+                <a href="pages/careers/college-plan.html">Kế hoạch học tập đại học</a>
+                <a href="pages/careers/alumni.html">Cộng đồng cựu nhân viên</a>
+                <a href="pages/careers/us.html">Cơ hội nghề nghiệp tại Mỹ</a>
+                <a href="pages/careers/international.html">Cơ hội nghề nghiệp quốc tế</a>
+            </div>
+            <div class="footer__column">
+                <h3>Tác động xã hội</h3>
+                <a href="pages/social-impact/communities.html">Cộng đồng</a>
+                <a href="pages/social-impact/foundation.html">Quỹ Coffee Since 2025</a>
+                <a href="pages/social-impact/sustainability.html">Phát triển bền vững</a>
+                <a href="pages/social-impact/reporting.html">Báo cáo tác động xã hội & môi trường</a>
+            </div>
+            <div class="footer__column">
+                <h3>Dành cho đối tác kinh doanh</h3>
+                <a href="pages/business/landlord.html">Trung tâm hỗ trợ chủ mặt bằng</a>
+                <a href="pages/business/suppliers.html">Nhà cung cấp</a>
+                <a href="pages/business/gift-cards.html">Bán thẻ quà tặng doanh nghiệp</a>
+                <a href="pages/business/foodservice.html">Cà phê văn phòng & dịch vụ ăn uống</a>
+            </div>
+            <div class="footer__column">
+                <h3>Đặt hàng & Nhận hàng</h3>
+                <a href="pages/order/app.html">Đặt qua ứng dụng</a>
+                <a href="pages/order/web.html">Đặt qua website</a>
+                <a href="pages/order/delivery.html">Giao hàng</a>
+                <a href="pages/order/pickup.html">Tùy chọn đặt & nhận hàng</a>
+                <a href="pages/order/home-coffee.html">Khám phá cà phê cho gia đình</a>
+            </div>
+        </div>
+        <div class="footer__social">
+            <a href="https://spotify.com" aria-label="Coffee Since 2025 trên Spotify">
+                <i class="fa-brands fa-spotify"></i>
+            </a>
+            <a href="https://facebook.com" aria-label="Coffee Since 2025 trên Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://pinterest.com" aria-label="Coffee Since 2025 trên Pinterest">
+                <i class="fa-brands fa-pinterest"></i>
+            </a>
+            <a href="https://instagram.com" aria-label="Coffee Since 2025 trên Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" aria-label="Coffee Since 2025 trên YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com" aria-label="Coffee Since 2025 trên Twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+        </div>
+        <div class="footer__legal">
+            <a href="pages/legal/privacy.html">Chính sách bảo mật</a>
+            <a href="pages/legal/health-privacy.html">Thông báo bảo mật sức khỏe người tiêu dùng</a>
+            <a href="pages/legal/terms.html">Điều khoản sử dụng</a>
+            <a href="pages/legal/do-not-sell.html">Không bán hoặc chia sẻ thông tin cá nhân của tôi</a>
+            <a href="pages/legal/supply-chain.html">Đạo luật chuỗi cung ứng CA</a>
+            <a href="pages/legal/accessibility.html">Khả năng truy cập</a>
+            <a href="pages/legal/cookies.html">Tùy chọn cookie</a>
+        </div>
+        <p class="footer__copyright">
+            &copy; 2025 Công ty Cà phê Coffee Since 2025. Bảo lưu mọi quyền.
+        </p>
+    </footer>
+
+    <script src="../js/product_food.js"></script>
+</body>
+</html>
