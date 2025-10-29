@@ -728,15 +728,6 @@ body.fast-order-open {
     color: #ff0000;
 }
 
-/* .show_QR {
-    text-align: center;
-    img {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-    }
-} */
-
 .qr-overlay {
     display: none;
     position: fixed;
@@ -1204,7 +1195,14 @@ body.fast-order-open {
     text-align: center;
 }
 
+.main .main__hero .main__hero-content .title {
+    font-weight: bold;
+    font-size: 36px;
+    margin: 0px;
+}
+
 .main .main__hero .main__hero-content p {
+    font-size: 20px;
     padding: 0 40px 0 40px;
     word-wrap: break-word;
 }
@@ -1220,6 +1218,7 @@ body.fast-order-open {
     display: inline-block;
     margin-bottom: 10px;
 }
+
 .btn_item:hover {
     background: #218838;
     color: white;
@@ -1312,10 +1311,17 @@ body.fast-order-open {
 /* Responsive Design */
 
 /* Tablet (max-width: 768px) */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     /* Navbar */
     .navbar {
         padding: 10px 20px 10px 20px;
+    }
+
+    .navbar .navbar__menu {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
 
     .navbar .navbar__actions {
@@ -1338,18 +1344,38 @@ body.fast-order-open {
 
     /* Main Hero */
     .main .main__hero {
-        flex-direction: column;
         margin-bottom: 20px;
     }
 
     .main .main__hero .main__hero-image,
     .main .main__hero .main__hero-content {
-        flex: none;
+        /* flex: none; */
         width: 100%;
     }
 
+    .main .main__hero .main__hero-content .title {
+        font-weight: bold;
+        font-size: 24px;
+        margin: 2px;
+    }
+
     .main .main__hero .main__hero-content p {
-        padding: 0 20px 0 20px;
+        font-size: 16px;
+        padding: 0 40px 0 40px;
+        word-wrap: break-word;
+        margin: 4px;
+    }
+
+    .btn_item {
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        border-color: #00754a;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        display: inline-block;
+        margin-bottom: 10px;
     }
 
     /* Main Passage */
@@ -1374,7 +1400,7 @@ body.fast-order-open {
 }
 
 /* Mobile (max-width: 625px) */
-@media (max-width: 625px) {
+@media (max-width: 700px) {
     /* Navbar */
     .navbar {
         padding: 10px 15px 10px 15px;
