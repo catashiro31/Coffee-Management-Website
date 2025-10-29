@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Coffee - Explore our menu, join rewards, and find a store near you.">
-    <title>Starbucks</title>
+    <meta name="description" content="Cà phê - Khám phá thực đơn, tham gia chương trình thưởng và tìm cửa hàng gần bạn.">
+    <title>Coffee Since 2025</title>
+    <link rel="icon" href="../assets\images\DoVanTien_24130858\logo.png" type="image/png">
     <link rel="stylesheet" href="../styles/menu_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Thanh điều hướng -->
     <header class="navbar">
         <div class="navbar__logo">
-            <a href="../home.html" aria-label="Starbucks Home">
-                <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Starbucks Logo">
+            <a href="../home.html" aria-label="Trang chủ Coffee Since 2025">
+                <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo Coffee Since 2025">
             </a>
         </div>
-        <nav class="navbar__menu" aria-label="Main navigation">
+        <nav class="navbar__menu" aria-label="Điều hướng chính">
             <a href="menu.html">Thực đơn</a>
             <a href="#">Đơn hàng</a>
-            <!-- <a href="#">Gift Cards</a> -->
         </nav>
         <div class="navbar__actions">
             <a href="login.html">
                 <button class="btn btn--white">Đăng nhập</button>
             </a>
             <a href="register.html">
-                <button class="btn btn--black">Đăng kí</button>
+                <button class="btn btn--black">Đăng ký</button>
             </a>
         </div>
-        <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay">
+        <button id="burger" aria-label="Mở hoặc đóng menu" aria-expanded="false" aria-controls="overlay">
             <span></span>
         </button>
         <div class="menu-overlay" id="overlay" aria-hidden="true">
             <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
-                <h2 id="menu-title" class="sr-only">Mobile Menu</h2>
-                <img class="logo" src="..\assets\images\DoVanTien_24130858\logo.png" alt="Starbucks Logo" width="50" height="50">
-                <nav class="menu-links" aria-label="Mobile navigation">
+                <h2 id="menu-title" class="sr-only">Menu di động</h2>
+                <img class="logo" src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo Coffee Since 2025" width="50" height="50">
+                <nav class="menu-links" aria-label="Điều hướng di động">
                     <a href="menu.html">Thực đơn</a>
                     <a href="#">Đơn hàng</a>
                 </nav>
                 <div class="actions-overlay">
                     <a href="login.html"><button class="btn white">Đăng nhập</button></a>
-                    <a href="register.html"><button class="btn black">Đăng kí</button></a>
+                    <a href="register.html"><button class="btn black">Đăng ký</button></a>
                 </div>
             </aside>
         </div>
     </header>
 
-    <!-- Sub-nav -->
+    <!-- Thanh phụ -->
     <div class="sub-header">
         <ul class="sub-nav-list">
             <li><a href="menu.html" class="sub-nav-item active">Thực đơn</a></li>
@@ -56,151 +56,155 @@
         </ul>
     </div>
     
-    <!-- Main -->
+    <!-- Phần chính -->
     <main class="main">
         <section class="menu-section">
             <div class="menu-left">
                 <div class="category drinks">
                     <h3>Đồ uống</h3>
                     <ul class="category-list">
-                        <li><a href="../pages/menu_hot_coffee.html">Hot Coffee</a></li>
-                        <li><a href="#">Cold Coffee</a></li>
-                        <li><a href="#">Hot Tea</a></li>
-                        <li><a href="#">Cold Tea</a></li>
-                        <li><a href="#">Refreshers</a></li>
-                        <li><a href="#">Frappuccino Blended Beverage</a></li>
-                        <li><a href="#">Hot Chocolate, Lemonade & More</a></li>
-                        <li><a href="#">Bottled Beverages</a></li>
+                        <li><a href="menuhot.html">Cà phê nóng</a></li>
+                        <li><a href="menucold.html">Cà phê lạnh</a></li>
+                        <li><a href="menuhottea.html">Trà nóng</a></li>
+                        <li><a href="menucoldtea.html">Trà lạnh</a></li>
+                        <li><a href="refreshers.html">Nước trái cây tươi mát</a></li>
+                        <li><a href="Frappuccino® Blended Beverage.html">Đồ uống xay Frappuccino</a></li>
+                        <li><a href="hot-chocolate.html">Sô-cô-la nóng, nước chanh & Khác</a></li>
+                        <li><a href="Bottled-Beverages.html">Đồ uống đóng chai</a></li>
                     </ul>
                 </div>
                 <div class="category food">
-                    <h3>Đồ ăn</h3>
+                    <h3>Đồ ăn</h3> 
                     <ul class="category-list">
-                        <li><a href="../pages/Breakfast.html">Breakfast</a></li>
-                        <li><a href="../pages//Bakery.html">Bakery</a></li>
-                        <li><a href="../pages/Treats.html">Treats</a></li>
-                        <li><a href="../pages//Lunch.html">Lunch</a></li>
-                        <li><a href="../pages/Snacks.html">Snacks</a></li>
+                        <li><a href="Breakfast.html">Bữa sáng</a></li>
+                        <li><a href="Bakery.html">Tiệm bánh</a></li>
+                        <li><a href="Treats.html">Món ngọt</a></li>
+                        <li><a href="Lunch.html">Bữa trưa</a></li>
+                        <li><a href="Snacks.html">Đồ ăn vặt</a></li>
                     </ul>
                 </div>
                 <div class="category at-home-coffee">
-                    <h3>Cà phê ở nhà</h3>
+                    <h3>Cà phê tại nhà</h3>
                     <ul class="category-list">
-                        <li><a href="../pages/whole_bean.html">Whole Bean</a></li>
-                        <li><a href="../pages/VIA_Instant.html">VIA® Instant</a></li>
-                        <li><a href="../pages/shopping_bag.html">Shopping Bag</a></li>
+                        <li><a href="whole_bean.html">Hạt cà phê nguyên chất</a></li>
+                        <li><a href="VIA_Instant.html">VIA® Cà phê hòa tan</a></li>
+                        <li><a href="shopping_bag.html">Túi mua sắm</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="menu-right" aria-label="Menu Items">
+
+            <div class="menu-right" aria-label="Mục thực đơn">
                 <h2>Thực đơn</h2>
+
                 <div class="category drinks">
                     <h3>Đồ uống</h3>
                     <div class="items-grid">
-                        <a href="menu_hot-coffee.html" class="item-link">
+                        <a href="menuhot.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_1.png" alt="Hot Coffee">
-                                <p>Hot Coffee</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_1.png" alt="Cà phê nóng">
+                                <p>Cà phê nóng</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="menucold.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_2.png" alt="Cold Coffee">
-                                <p>Cold Coffee</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_2.png" alt="Cà phê lạnh">
+                                <p>Cà phê lạnh</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="menuhottea.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_3.png" alt="Hot Tea">
-                                <p>Hot Tea</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_3.png" alt="Trà nóng">
+                                <p>Trà nóng</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="menucoldtea.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_4.png" alt="Cold Tea">
-                                <p>Cold Tea</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_4.png" alt="Trà lạnh">
+                                <p>Trà lạnh</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="refreshers.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_5.png" alt="Refreshers">
-                                <p>Refreshers</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_5.png" alt="Nước trái cây tươi mát">
+                                <p>Nước trái cây tươi mát</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="Frappuccino® Blended Beverage.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_6.png" alt="Frappuccino Blended Beverage">
-                                <p>Frappuccino Blended Beverage</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_6.png" alt="Đồ uống xay Frappuccino">
+                                <p>Đồ uống xay Frappuccino</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="hot-chocolate.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_7.png" alt="Hot Chocolate, Lemonade & More">
-                                <p>Hot Chocolate, Lemonade & More</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_7.png" alt="Sô cô la nóng, Nước chanh & Khác">
+                                <p>Sô cô la nóng, Nước chanh & Khác</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="Bottled-Beverages.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_8.png" alt="Bottled Beverages">
-                                <p>Bottled Beverages</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_8.png" alt="Đồ uống đóng chai">
+                                <p>Đồ uống đóng chai</p>
                             </div>
                         </a>
                     </div>
                 </div>
+
                 <div class="category food">
                     <h3>Đồ ăn</h3>
                     <div class="items-grid">
-                        <a href="../pages/Breakfast.html" class="item-link">
+                        <a href="Breakfast.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_9.png" alt="Breakfast">
-                                <p>Breakfast</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_9.png" alt="Bữa sáng">
+                                <p>Bữa sáng</p>
                             </div>
                         </a>
-                        <a href="../pages/Bakery.html" class="item-link">
+                        <a href="Bakery.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_10.png" alt="Bakery">
-                                <p>Bakery</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_10.png" alt="Tiệm bánh">
+                                <p>Tiệm bánh</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="Treats.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_11.png" alt="Treats">
-                                <p>Treats</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_11.png" alt="Món ngọt">
+                                <p>Món ngọt</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="Lunch.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_12.png" alt="Lunch">
-                                <p>Lunch</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_12.png" alt="Bữa trưa">
+                                <p>Bữa trưa</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="Snacks.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_13.png" alt="Snacks">
-                                <p>Snacks</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_13.png" alt="Đồ ăn vặt">
+                                <p>Đồ ăn vặt</p>
                             </div>
                         </a>
                     </div>
                 </div>
+
                 <div class="category at-home-coffee">
-                    <h3>Cà phê ở nhà</h3>
+                    <h3>Cà phê tại nhà</h3>
                     <div class="items-grid">
-                        <a href="#" class="item-link">
+                        <a href="whole_bean.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_14.png" alt="Whole Bean">
-                                <p>Whole Bean</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_14.png" alt="Hạt cà phê nguyên chất">
+                                <p>Hạt cà phê nguyên chất</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="VIA_Instant.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_15.png" alt="VIA Instant">
-                                <p>VIA Instant</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_15.png" alt="VIA Cà phê hòa tan">
+                                <p>VIA® Cà phê hòa tan</p>
                             </div>
                         </a>
-                        <a href="#" class="item-link">
+                        <a href="shopping_bag.html" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_16.png" alt="Shopping Bag">
-                                <p>Shopping Bag</p>
+                                <img src="../assets/images/DoVanTien_24130858/menu/menu/image_16.png" alt="Túi mua sắm">
+                                <p>Túi mua sắm</p>
                             </div>
                         </a>
                     </div>
@@ -209,14 +213,14 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Chân trang -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__column">
                 <h3>Về chúng tôi</h3>
                 <a href="pages/about/company.html">Công ty của chúng tôi</a>
                 <a href="pages/about/coffee.html">Cà phê của chúng tôi</a>
-                <a href="pages/about/starbucks.html">Về Coffee Since 2025</a>
+                <a href="pages/about/Coffee Since 2025.html">Về Coffee Since 2025</a>
                 <a href="pages/about/archive.html">Thành tựu Coffee Since 2025</a>
                 <a href="pages/about/investors.html">Quan hệ nhà đầu tư</a>
                 <a href="pages/about/customer-service.html">Dịch vụ khách hàng</a>
@@ -224,65 +228,56 @@
             </div>
             <div class="footer__column">
                 <h3>Sự nghiệp</h3>
-                <a href="pages/careers/culture.html">Văn hóa và Giá trị</a>
+                <a href="pages/careers/culture.html">Văn hóa và giá trị</a>
                 <a href="pages/careers/belonging.html">Thuộc về Coffee Since 2025</a>
-                <a href="pages/careers/college-plan.html">Kế hoạch Thành tích đại học</a>
-                <a href="pages/careers/alumni.html">Cộng đồng đại học</a>
+                <a href="pages/careers/college-plan.html">Kế hoạch hỗ trợ học tập</a>
+                <a href="pages/careers/alumni.html">Cộng đồng cựu nhân viên</a>
                 <a href="pages/careers/us.html">Sự nghiệp tại Hoa Kỳ</a>
-                <a href="pages/careers/international.html">Sự nghiệp Quốc tế</a>
+                <a href="pages/careers/international.html">Sự nghiệp quốc tế</a>
             </div>
             <div class="footer__column">
-                <h3>Ảnh hưởng xã hội</h3>
+                <h3>Tác động xã hội</h3>
                 <a href="pages/social-impact/communities.html">Cộng đồng</a>
                 <a href="pages/social-impact/foundation.html">Quỹ Coffee Since 2025</a>
-                <a href="pages/social-impact/sustainability.html">Tính bền vững</a>
-                <a href="pages/social-impact/reporting.html">Báo cáo tác động môi trường và xã hội</a>
+                <a href="pages/social-impact/sustainability.html">Phát triển bền vững</a>
+                <a href="pages/social-impact/reporting.html">Báo cáo tác động môi trường & xã hội</a>
             </div>
             <div class="footer__column">
                 <h3>Dành cho đối tác kinh doanh</h3>
-                <a href="pages/business/landlord.html">Trung tâm hỗ trợ chủ nhà</a>
+                <a href="pages/business/landlord.html">Trung tâm hỗ trợ chủ mặt bằng</a>
                 <a href="pages/business/suppliers.html">Nhà cung cấp</a>
                 <a href="pages/business/gift-cards.html">Bán thẻ quà tặng doanh nghiệp</a>
-                <a href="pages/business/foodservice.html">Cà phê văn phòng và dịch vụ ăn uống</a>
+                <a href="pages/business/foodservice.html">Cà phê cho văn phòng & dịch vụ ăn uống</a>
             </div>
             <div class="footer__column">
-                <h3>Đặt hàng và nhận hàng</h3>
-                <a href="pages/order/app.html">Đặt trên Ứng dụng</a>
-                <a href="pages/order/web.html">Đặt trên Web</a>
+                <h3>Đặt hàng & Nhận hàng</h3>
+                <a href="pages/order/app.html">Đặt hàng qua ứng dụng</a>
+                <a href="pages/order/web.html">Đặt hàng qua website</a>
                 <a href="pages/order/delivery.html">Giao hàng</a>
-                <a href="pages/order/pickup.html">Tùy chọn đặt và nhận hàng</a>
-                <a href="pages/order/home-coffee.html">Khám phá và tìm kiếm cà phê cho gia đình</a>
+                <a href="pages/order/pickup.html">Tùy chọn đặt & nhận hàng</a>
+                <a href="pages/order/home-coffee.html">Khám phá cà phê cho gia đình</a>
             </div>
         </div>
+
         <div class="footer__social">
-            <a href="https://spotify.com" aria-label="Starbucks on Spotify">
-                <i class="fa-brands fa-spotify"></i>
-            </a>
-            <a href="https://facebook.com" aria-label="Starbucks on Facebook">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="https://pinterest.com" aria-label="Starbucks on Pinterest">
-                <i class="fa-brands fa-pinterest"></i>
-            </a>
-            <a href="https://instagram.com" aria-label="Starbucks on Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://youtube.com" aria-label="Starbucks on YouTube">
-                <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a href="https://twitter.com" aria-label="Starbucks on Twitter">
-                <i class="fa-brands fa-twitter"></i>
-            </a>
+            <a href="https://spotify.com" aria-label="Coffee Since 2025 trên Spotify"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://facebook.com" aria-label="Coffee Since 2025 trên Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://pinterest.com" aria-label="Coffee Since 2025 trên Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+            <a href="https://instagram.com" aria-label="Coffee Since 2025 trên Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://youtube.com" aria-label="Coffee Since 2025 trên YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://twitter.com" aria-label="Coffee Since 2025 trên Twitter"><i class="fa-brands fa-twitter"></i></a>
         </div>
+
         <div class="footer__legal">
-            <a href="pages/legal/privacy.html">Quyền riêng tư</a>
-            <a href="pages/legal/health-privacy.html">Quyền riêng tư về sức khỏe người tiêu dùng</a>
+            <a href="pages/legal/privacy.html">Chính sách quyền riêng tư</a>
+            <a href="pages/legal/health-privacy.html">Thông báo quyền riêng tư sức khỏe người tiêu dùng</a>
             <a href="pages/legal/terms.html">Điều khoản sử dụng</a>
             <a href="pages/legal/do-not-sell.html">Không bán hoặc chia sẻ thông tin cá nhân của tôi</a>
-            <a href="pages/legal/supply-chain.html">Đạo luật chuỗi cung ứng CA</a>
-            <a href="pages/legal/accessibility.html">Khả năng tiếp cận</a>
-            <a href="pages/legal/cookies.html">Tùy chọn Cookie</a>
+            <a href="pages/legal/supply-chain.html">Đạo luật chuỗi cung ứng California</a>
+            <a href="pages/legal/accessibility.html">Khả năng truy cập</a>
+            <a href="pages/legal/cookies.html">Tùy chọn cookie</a>
         </div>
+
         <p class="footer__copyright">
             &copy; 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.
         </p>

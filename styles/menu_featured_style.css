@@ -324,12 +324,68 @@ main .items .drinks .info p {
 }
 
 main .items .drinks .info button {
-    background: transparent;
-    padding: 7px 14px;
-    border-radius: 20px;
-    border: 1px solid white;
+    padding: 10px 20px;                     /* Tăng padding cho nút rộng rãi */
+    background: rgba(255, 255, 255, 0.1);   /* Nền mờ nhẹ (glassmorphism) */
+    border: 2px solid white;                /* Viền trắng đậm, nổi bật */
+    border-radius: 30px;                    /* Bo tròn hiện đại */
     color: white;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); /* Mượt như app Starbucks */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);             /* Hiệu ứng mờ nền (nếu trên hình) */
+    -webkit-backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;                               /* Khoảng cách nếu có icon */
+}
+
+/* Hover: Chuyển sang nền trắng + chữ xanh lá */
+main .items .drinks .info button:hover {
+    background: white;
+    color: #00704a;                         /* Màu xanh lá Starbucks */
+    border-color: white;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Active: Hiệu ứng nhấn */
+main .items .drinks .info button:active {
+    transform: translateY(-1px) scale(0.99);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* Ripple effect khi click */
+main .items .drinks .info button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    pointer-events: none;
+}
+
+main .items .drinks .info button:active::after {
+    width: 250px;
+    height: 250px;
+}
+
+/* Đảm bảo nội dung chữ luôn ở trên */
+main .items .drinks .info button span {
+    position: relative;
+    z-index: 1;
 }
 
 main .items .foods .item-top {
@@ -387,12 +443,61 @@ main .items .foods .item-bottom img {
 
 
 main .items .foods .info button {
-    padding: 7px 14px;
-    border: 1px solid white;
+    padding: 9px 18px;                    /* Tăng padding cho nút rộng rãi hơn */
+    border: 2px solid white;              /* Viền đậm hơn một chút */
     background: transparent;
     color: white;
-    border-radius: 20px;
+    border-radius: 30px;                  /* Bo tròn nhiều hơn → hiện đại */
     cursor: pointer;
+    font-weight: 600;                     /* Chữ đậm vừa phải */
+    font-size: 14px;                      /* Kích thước chữ rõ ràng */
+    letter-spacing: 0.5px;                /* Giãn chữ nhẹ */
+    text-transform: uppercase;            /* VIẾT HOA nhẹ nhàng */
+    transition: all 0.3s ease;           /* Hiệu ứng mượt */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Bóng nhẹ */
+    position: relative;
+    overflow: hidden;                     /* Để hiệu ứng ripple */
+    outline: none;
+}
+
+/* Hiệu ứng hover */
+main .items .foods .info button:hover {
+    background: white;
+    color: #1a4731;                       /* Màu xanh đậm của Starbucks */
+    transform: translateY(-2px);          /* Nâng nhẹ khi hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng khi nhấn */
+main .items .foods .info button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Hiệu ứng ripple khi click (tùy chọn) */
+main .items .foods .info button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+}
+
+main .items .foods .info button:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Đảm bảo chữ nằm trên ripple */
+main .items .foods .info button span {
+    position: relative;
+    z-index: 1;
 }
 
 

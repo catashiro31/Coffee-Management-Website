@@ -21,8 +21,8 @@ const products = [
     },
   },
   {
-    id: 'Starbucks® Blonde Roast - Veranda Blend®',
-    name: 'Starbucks® Blonde Roast - Veranda Blend®',
+    id: 'Coffee Since 2025® Blonde Roast - Veranda Blend®',
+    name: 'Coffee Since 2025® Blonde Roast - Veranda Blend®',
     calories: 5,
     imageSrc:
       '../assets/images/duong-241230692/Starbucks® Blonde Roast - Veranda Blend®.jpg',
@@ -219,6 +219,22 @@ const products = [
     },
   },
   {
+    id: 'Iced Pumpkin Cream Chai',
+    name: 'Iced Pumpkin Cream Chai',
+    calories: 10,
+    imageSrc: '../assets/images/duong-241230692/Iced Pumpkin Cream Chai.jpg',
+    customizers: {
+      sizes: true,
+      milk: true,
+      roast: true,
+      hot: false,
+      topping: true,
+      flavors: true,
+      shots: false,
+      espresso: false,
+    }
+  },
+  {
     id: 'Cinnamon Dolce Latte',
     name: 'Cinnamon Dolce Latte',
     calories: 5,
@@ -251,11 +267,11 @@ const products = [
     },
   },
   {
-    id: 'Starbucks® Blonde Vanilla Latte',
-    name: 'Starbucks® Blonde Vanilla Latte',
+    id: 'Coffee Since 2025® Blonde Vanilla Latte',
+    name: 'Coffee Since 2025® Blonde Vanilla Latte',
     calories: 250,
     imageSrc:
-      '../assets/images/duong-241230692/Starbucks® Blonde Vanilla Latte.jpg',
+      '../assets/images/duong-241230692/Coffee Since 2025® Blonde Vanilla Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -1194,6 +1210,12 @@ const espresso_select = [
   'Espresso 2/3 Decaf',
 ];
 const sizes = { short: 40000, tall: 45000, grande: 50000, venti: 55000 };
+const map = {
+  "short": "Nhỏ",
+  "tall": "Vừa",
+  "grande": "Lớn",
+  "venti": "Rất lớn"
+}
 let type_milk = [0, 0, 5000, 5000, 7000, 7000];
 let type_hot = [0, 0, 0, 0];
 let type_roast = [0, 0, 3000, 3000, 0];
@@ -1470,7 +1492,7 @@ function add_order() {
     alert('Bạn chưa chọn Size!');
   } else {
     // Xây dựng thông báo một cách an toàn
-    let message = `Bạn đã thêm sản phẩm thành công! \nKích thước: ${selectedSize.toUpperCase()}`;
+    let message = `Bạn đã thêm sản phẩm thành công! \nKích thước: ${map[selectedSize.toLowerCase()]}`;
     if (select1) message += `, Sữa: ${milk_select[select1.selectedIndex]}`;
     if (select2) message += `\nBọt: ${roast_select[select2.selectedIndex]}`;
     if (select3) message += `, Nhiệt độ: ${hot_select[select3.selectedIndex]}`;

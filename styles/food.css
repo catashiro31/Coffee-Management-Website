@@ -30,19 +30,39 @@ body {
     width: 50px;
 }
 
-.navbar .navbar__menu {
-    display: flex;
-    gap: 20px;
-}
-
 .navbar .navbar__menu a {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    padding: 8px 16px;
+    margin: 0 10px;
+    font-size: 18px;
     font-weight: bold;
-    text-decoration: none;
-    color: black;
+    font-family: Arial, sans-serif;
+    color: black; /* Màu cam nhạt */
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Đảm bảo padding và hiệu ứng hoạt động */
+    position: relative; /* Để sử dụng pseudo-element */
 }
 
 .navbar .navbar__menu a:hover {
-    color: var(--color-text-hover);
+    color: #ffffff; /* Chữ trắng khi hover */
+    background-color: #ffca28; /* Vàng nhạt khi hover */
+    transform: translateY(-2px); /* Nhấc lên nhẹ */
+}
+
+.navbar .navbar__menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff9800;
+    transition: width 0.3s ease;
+}
+
+.navbar .navbar__menu a:hover::after {
+    width: 100%;
 }
 
 .navbar .navbar__actions {
@@ -62,25 +82,52 @@ body {
     color: var(--color-text-hover);
 }
 
-.navbar .navbar__actions button {
-    border: 2px solid green;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 5px 10px;
+.navbar__actions {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+    .btn {
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        text-decoration: none; /* Loại bỏ gạch chân mặc định của a */
+        display: inline-block; /* Đảm bảo nút hoạt động như một khối inline */
+    }
 }
 
-.navbar .navbar__actions button:hover {
-    opacity: 90%;
+.btn--white {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
 }
 
-.navbar .navbar__actions .btn--white {
-    background-color: transparent;
+.btn--white:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .navbar__actions .btn--black {
-    background-color: black;
-    border: 2px solid black;
-    color: white;
+.btn--black {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+.btn--black:hover {
+    background-color: #444444;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .navbar__actions {
+        flex-direction: column;
+        gap: 5px;
+    }
 }
 
 .navbar #burger {

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bánh ngọt</title>
   <!-- CSS dùng chung -->
+  <link rel="icon" href="../assets\images\DoVanTien_24130858\logo.png" type="image/png">
   <link rel="stylesheet" href="../styles/food_product.css" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -15,31 +16,44 @@
 <body>
   <!-- Header (GIỮ NGUYÊN) -->
   <header class="navbar">
-    <a href="../home.html">
-      <div class="logo">
-        <img src="../assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Logo" width="80" height="80" />
+      <div class="navbar__logo">
+          <a href="..\home.html" aria-label="Coffee Since 2025 Home">
+              <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo">
+          </a>
       </div>
-    </a>
-    <nav class="menu">
-      <a href="menu.html">Thực đơn</a>
-      <a href="#">Ưu đãi</a>
-      <a href="#">Thẻ quà tặng</a>
-    </nav>
-    <div class="actions">
-      <a href="#">Tìm cửa hàng</a>
-      <a href="login.html"><button class="btn white">Đăng nhập</button></a>
-      <a href="#"><button class="btn black">Tham gia ngay</button></a>
-    </div>
+      <nav class="navbar__menu" aria-label="Điều hướng chính">
+          <a href="menu.html">Thực đơn</a>
+          <a href="#">Đơn hàng</a>
+      </nav>
+      <div class="navbar__actions">
+          <a href="login.html">
+              <button class="btn btn--white">Đăng nhập</button>
+          </a>
+          <a href="register.html">
+              <button class="btn btn--black">Đăng kí</button>
+          </a>
+      </div>
+      <button id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="overlay">
+          <span></span>
+      </button>
+      <div class="menu-overlay" id="overlay" aria-hidden="true">
+          <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+              <h2 id="menu-title" class="sr-only">Menu Di động</h2>
+              <img class="logo" src="../assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Logo Coffee Since 2025" width="80" height="80">
+              <nav class="menu-links" aria-label="Điều hướng di động">
+                  <a href="menu.html">Thực đơn</a>
+                  <a href="#">Đơn hàng</a>
+              </nav>
+              <div class="actions-overlay">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <a href="login.html"><button class="btn white">Đăng nhập</button></a>
+                  <a href="register.html"><button class="btn black">Đăng kí</button></a>
+              </div>
+          </aside>
+      </div>
   </header>
 
   <main>
-    <!-- Breadcrumb -->
-    <div class="path" id="breadcrumb">
-      <a href="menu.html">Thực đơn</a> /
-      <a href="../pages/Bakery.html">Bánh ngọt</a> /
-      <span id="crumb-current" style="font-weight: bold;"></span>
-    </div>
-
     <!-- Khu vực sản phẩm sẽ render bằng JS -->
     <div id="product-container"></div>
 
@@ -55,69 +69,84 @@
   </main>
 
   <!-- Footer (GIỮ NGUYÊN) -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-column">
-        <h3>Về chúng tôi</h3>
-        <a href="#">Công ty</a>
-        <a href="#">Cà phê của chúng tôi</a>
-        <a href="#">Giới thiệu Starbucks</a>
-        <a href="#">Lưu trữ thương hiệu</a>
-        <a href="#">Quan hệ nhà đầu tư</a>
-        <a href="#">Chăm sóc khách hàng</a>
-        <a href="#">Liên hệ</a>
-      </div>
-      <div class="footer-column">
-        <h3>Sự nghiệp</h3>
-        <a href="#">Văn hoá và giá trị</a>
-        <a href="#">Cộng đồng nhân viên</a>
-        <a href="#">Chương trình học tập</a>
-        <a href="#">Cộng đồng cựu nhân viên</a>
-        <a href="#">Cơ hội tại Mỹ</a>
-        <a href="#">Cơ hội quốc tế</a>
-      </div>
-      <div class="footer-column">
-        <h3>Tác động xã hội</h3>
-        <a href="#">Cộng đồng</a>
-        <a href="#">Quỹ Starbucks</a>
-        <a href="#">Phát triển bền vững</a>
-        <a href="#">Báo cáo tác động xã hội & môi trường</a>
-      </div>
-      <div class="footer-column">
-        <h3>Dành cho đối tác</h3>
-        <a href="#">Trung tâm hỗ trợ chủ mặt bằng</a>
-        <a href="#">Nhà cung cấp</a>
-        <a href="#">Bán thẻ quà tặng doanh nghiệp</a>
-        <a href="#">Dịch vụ cà phê văn phòng & F&B</a>
-      </div>
-      <div class="footer-column">
-        <h3>Đặt & Nhận hàng</h3>
-        <a href="#">Đặt qua ứng dụng</a>
-        <a href="#">Đặt trên web</a>
-        <a href="#">Giao hàng</a>
-        <a href="#">Tùy chọn nhận hàng</a>
-        <a href="#">Khám phá cà phê cho gia đình</a>
-      </div>
-    </div>
-    <div class="footer-social">
-      <a href="#"><i class="fa-brands fa-spotify"></i></a>
-      <a href="#"><i class="fa-brands fa-facebook"></i></a>
-      <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-youtube"></i></a>
-      <a href="#"><i class="fa-brands fa-twitter"></i></a>
-    </div>
-    <div class="footer-legal">
-      <a href="#">Thông báo quyền riêng tư</a>
-      <a href="#">Quyền riêng tư sức khỏe người tiêu dùng</a>
-      <a href="#">Điều khoản sử dụng</a>
-      <a href="#">Không bán hoặc chia sẻ thông tin cá nhân</a>
-      <a href="#">Đạo luật chuỗi cung ứng CA</a>
-      <a href="#">Tiếp cận cho mọi người</a>
-      <a href="#">Tùy chọn cookie</a>
-    </div>
-    <p class="copyright">© 2025 Starbucks Việt Nam. Bảo lưu mọi quyền.</p>
-  </footer>
+  <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__column">
+                <h3>Về chúng tôi</h3>
+                <a href="pages/about/company.html">Công ty của chúng tôi</a>
+                <a href="pages/about/coffee.html">Cà phê của chúng tôi</a>
+                <a href="pages/about/Coffee Since 2025.html">Về Coffee Since 2025</a>
+                <a href="pages/about/archive.html">Thành tựu Coffee Since 2025</a>
+                <a href="pages/about/investors.html">Quan hệ nhà đầu tư</a>
+                <a href="pages/about/customer-service.html">Dịch vụ khách hàng</a>
+                <a href="pages/about/contact.html">Liên hệ chúng tôi</a>
+            </div>
+            <div class="footer__column">
+                <h3>Sự nghiệp</h3>
+                <a href="pages/careers/culture.html">Văn hóa và Giá trị</a>
+                <a href="pages/careers/belonging.html">Thuộc về Coffee Since 2025</a>
+                <a href="pages/careers/college-plan.html">Kế hoạch Thành tích đại học</a>
+                <a href="pages/careers/alumni.html">Cộng đồng đại học</a>
+                <a href="pages/careers/us.html">Sự nghiệp tại Hoa Kỳ</a>
+                <a href="pages/careers/international.html">Sự nghiệp Quốc tế</a>
+            </div>
+            <div class="footer__column">
+                <h3>Ảnh hưởng xã hội</h3>
+                <a href="pages/social-impact/communities.html">Cộng đồng</a>
+                <a href="pages/social-impact/foundation.html">Quỹ Coffee Since 2025</a>
+                <a href="pages/social-impact/sustainability.html">Tính bền vững</a>
+                <a href="pages/social-impact/reporting.html">Báo cáo tác động môi trường và xã hội</a>
+            </div>
+            <div class="footer__column">
+                <h3>Dành cho đối tác kinh doanh</h3>
+                <a href="pages/business/landlord.html">Trung tâm hỗ trợ chủ nhà</a>
+                <a href="pages/business/suppliers.html">Nhà cung cấp</a>
+                <a href="pages/business/gift-cards.html">Bán thẻ quà tặng doanh nghiệp</a>
+                <a href="pages/business/foodservice.html">Cà phê văn phòng và dịch vụ ăn uống</a>
+            </div>
+            <div class="footer__column">
+                <h3>Đặt hàng và nhận hàng</h3>
+                <a href="pages/order/app.html">Đặt trên Ứng dụng</a>
+                <a href="pages/order/web.html">Đặt trên Web</a>
+                <a href="pages/order/delivery.html">Giao hàng</a>
+                <a href="pages/order/pickup.html">Tùy chọn đặt và nhận hàng</a>
+                <a href="pages/order/home-coffee.html">Khám phá và tìm kiếm cà phê cho gia đình</a>
+            </div>
+        </div>
+        <div class="footer__social">
+            <a href="https://spotify.com" aria-label="Coffee Since 2025 on Spotify">
+                <i class="fa-brands fa-spotify"></i>
+            </a>
+            <a href="https://facebook.com" aria-label="Coffee Since 2025 on Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://pinterest.com" aria-label="Coffee Since 2025 on Pinterest">
+                <i class="fa-brands fa-pinterest"></i>
+            </a>
+            <a href="https://instagram.com" aria-label="Coffee Since 2025 on Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" aria-label="Coffee Since 2025 on YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com" aria-label="Coffee Since 2025 on Twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+        </div>
+        <div class="footer__legal">
+            <a href="pages/legal/privacy.html">Quyền riêng tư</a>
+            <a href="pages/legal/health-privacy.html">Quyền riêng tư về sức khỏe người tiêu dùng</a>
+            <a href="pages/legal/terms.html">Điều khoản sử dụng</a>
+            <a href="pages/legal/do-not-sell.html">Không bán hoặc chia sẻ thông tin cá nhân của tôi</a>
+            <a href="pages/legal/supply-chain.html">Đạo luật chuỗi cung ứng CA</a>
+            <a href="pages/legal/accessibility.html">Khả năng tiếp cận</a>
+            <a href="pages/legal/cookies.html">Tùy chọn Cookie</a>
+        </div>
+        <p class="footer__copyright">
+            &copy; 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.
+        </p>
+    </footer>
 
   <!-- JS tách riêng -->
   <script src="../js/product_food.js"></script>

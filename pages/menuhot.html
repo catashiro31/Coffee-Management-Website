@@ -1,135 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Coffee - Explore our menu, join rewards, and find a store near you.">
-    <title>Starbucks</title>
+    <meta name="description" content="Cà phê - Khám phá thực đơn, tham gia phần thưởng và tìm cửa hàng gần bạn.">
+    <title>Coffee Since 2025</title>
+    <link rel="icon" href="../assets\images\DoVanTien_24130858\logo.png" type="image/png">
     <link rel="stylesheet" href="../styles/style-menu-product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Thanh điều hướng (Navbar) -->
     <header class="navbar">
         <div class="navbar__logo">
-            <a href="../home.html" aria-label="Starbucks Home">
-                <img src="../assets/images/duong-241230692/logo.jpg" alt="Starbucks Logo">
+            <a href="..\home.html" aria-label="Coffee Since 2025 Home">
+                <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo">
             </a>
         </div>
-        <nav class="navbar__menu" aria-label="Main navigation">
-            <a href="menu.html">Menu</a>
-            <a href="#">Rewards</a>
-            <a href="#">Gift Cards</a>
+        <nav class="navbar__menu" aria-label="Điều hướng chính">
+            <a href="menu.html">Thực đơn</a>
+            <a href="#">Đơn hàng</a>
         </nav>
         <div class="navbar__actions">
-            <a href="#">Find a store</a>
             <a href="login.html">
-                <button class="btn btn--white">Sign in</button>
+                <button class="btn btn--white">Đăng nhập</button>
             </a>
             <a href="register.html">
-                <button class="btn btn--black">Join now</button>
+                <button class="btn btn--black">Đăng kí</button>
             </a>
         </div>
-        <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay">
+        <button id="burger" aria-label="Bật/tắt menu" aria-expanded="false" aria-controls="overlay">
             <span></span>
         </button>
         <div class="menu-overlay" id="overlay" aria-hidden="true">
             <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
-                <h2 id="menu-title" class="sr-only">Mobile Menu</h2>
-                <img class="logo" src="../assets/images/duong-241230692/logo.jpg" alt="Starbucks Logo" width="50" height="50">
-                <nav class="menu-links" aria-label="Mobile navigation">
-                    <a href="menu.html">Menu</a>
-                    <a href="#">Rewards</a>
-                    <a href="#">Gift Cards</a>
+                <h2 id="menu-title" class="sr-only">Menu di động</h2>
+                <img class="logo" src="../assets/images/duong-241230692/logo.jpg" alt="Logo Coffee Since 2025" width="50" height="50">
+                <nav class="menu-links" aria-label="Điều hướng di động">
+                    <a href="menu.html">Thực đơn</a>
+                    <a href="#">Đơn hàng</a>
                 </nav>
                 <div class="actions-overlay">
-                    <a href="#">Find a store</a>
-                    <a href="login.html"><button class="btn white">Sign in</button></a>
-                    <a href="register.html"><button class="btn black">Join now</button></a>
+                    <a href="login.html"><button class="btn white">Đăng nhập</button></a>
+                    <a href="register.html"><button class="btn black">Đăng kí</button></a>
                 </div>
             </aside>
         </div>
     </header>
 
-    <!-- Sub-nav -->
+    <!-- Thanh phụ -->
     <div class="sub-header">
         <ul class="sub-nav-list">
-            <li><a href="menu.html" class="sub-nav-item active">Menu</a></li>
-            <li><a href="menu_featured.html" class="sub-nav-item">Featured</a></li>
-            <li><a href="#" class="sub-nav-item">Previous</a></li>
-            <li><a href="#" class="sub-nav-item">Favorites</a></li>
+            <li><a href="menu.html" class="sub-nav-item active">Thực đơn</a></li>
+            <li><a href="menu_featured.html" class="sub-nav-item">Nổi bật</a></li>
         </ul>
     </div>
     
-    <!-- Main -->
+    <!-- Nội dung chính -->
     <main class="main">
         <section class="menu-section">
             <div class="menu-left">
                 <div class="category drinks">
-                    <h3>Drinks</h3>
+                    <h3>Đồ uống</h3>
                     <ul class="category-list">
-                        <li><a href="menuhot.html">Hot Coffee</a></li>
-                        <li><a href="../pages/menucold.html">Cold Coffee</a></li>
-                        <li><a href="../pages/menuhottea.html">Hot Tea</a></li>
-                        <li><a href="../pages/menucoldtea.html">Cold Tea</a></li>
-                        <li><a href="../pages/refreshers.html">Refreshers</a></li>
-                        <li><a href="../pages/Frappuccino® Blended Beverage.html">Frappuccino Blended Beverage</a></li>
-                        <li><a href="../pages/hot-chocolate.html">Hot Chocolate, Lemonade & More</a></li>
-                        <li><a href="../pages/Bottled-Beverages.html">Bottled Beverages</a></li>
+                        <li><a href="menuhot.html">Cà phê nóng</a></li>
+                        <li><a href="menucold.html">Cà phê lạnh</a></li>
+                        <li><a href="menuhottea.html">Trà nóng</a></li>
+                        <li><a href="menucoldtea.html">Trà lạnh</a></li>
+                        <li><a href="refreshers.html">Nước trái cây tươi mát</a></li>
+                        <li><a href="Frappuccino® Blended Beverage.html">Đồ uống xay Frappuccino</a></li>
+                        <li><a href="hot-chocolate.html">Sô-cô-la nóng, nước chanh & Khác</a></li>
+                        <li><a href="Bottled-Beverages.html">Đồ uống đóng chai</a></li>
                     </ul>
                 </div>
                 <div class="category food">
-                    <h3>Food</h3>
+                    <h3>Đồ ăn</h3> 
                     <ul class="category-list">
-                        <li><a href="#">Breakfast</a></li>
-                        <li><a href="#">Bakery</a></li>
-                        <li><a href="#">Treats</a></li>
-                        <li><a href="#">Lunch</a></li>
-                        <li><a href="#">Snacks</a></li>
+                        <li><a href="Breakfast.html">Bữa sáng</a></li>
+                        <li><a href="Bakery.html">Tiệm bánh</a></li>
+                        <li><a href="Treats.html">Món ngọt</a></li>
+                        <li><a href="Lunch.html">Bữa trưa</a></li>
+                        <li><a href="Snacks.html">Đồ ăn vặt</a></li>
                     </ul>
                 </div>
                 <div class="category at-home-coffee">
-                    <h3>At Home Coffee</h3>
+                    <h3>Cà phê tại nhà</h3>
                     <ul class="category-list">
-                        <li><a href="#">Whole Bean</a></li>
-                        <li><a href="#">VIA® Instant</a></li>
-                        <li><a href="#">Shopping Bag</a></li>
+                        <li><a href="whole_bean.html">Hạt cà phê nguyên chất</a></li>
+                        <li><a href="VIA_Instant.html">VIA® Cà phê hòa tan</a></li>
+                        <li><a href="shopping_bag.html">Túi mua sắm</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="menu-right" aria-label="Menu Items">
+
+            <div class="menu-right" aria-label="Mục trong thực đơn">
                 <nav class="path">
-                    <p><a href="menu.html">Menu </a><b>/ Hot Coffee</b></p>
+                    <p><a href="menu.html">Thực đơn </a><b>/ Cà phê nóng</b></p>
                 </nav>
-                <h2>Hot Coffee</h2>
+                <h2>Cà phê nóng</h2>
+
                 <div class=" Brewed Coffee list ">
-                    <h3>Brewed Coffee</h3>
+                    <h3>Cà phê pha</h3>
                     <div class="items-grid">
-                        <a href="../pages/product_drinks.html?id=Starbucks® Blonde Roast - Veranda Blend®" class="item-link">
+                        <a href="product_drinks.html?id=Coffee Since 2025® Blonde Roast - Veranda Blend®" class="item-link">
                             <div class="item">
-                                <img src="../assets/images/duong-241230692/Starbucks® Blonde Roast - Veranda Blend®.jpg" alt="Starbucks® Blonde Roast - Veranda Blend®">
-                                <p>Starbucks® Blonde Roast - Veranda Blend®</p>
+                                <img src="../assets/images/duong-241230692/Starbucks® Blonde Roast - Veranda Blend®.jpg" alt="Coffee Since 2025® Blonde Roast - Veranda Blend®">
+                                <p>Coffee Since 2025® Blonde Roast - Veranda Blend®</p>
                             </div>
                         </a>
-                        <a href="../pages/product_drinks.html?id=Medium Roast - Pike Place® Roast" class="item-link">
+                        <a href="product_drinks.html?id=Medium Roast - Pike Place® Roast" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Medium Roast - Pike Place® Roast.jpg" alt="Medium Roast - Pike Place® Roast">
-                                <p>Medium Roast - Pike Place® Roast</p>
+                                <p>Cà phê rang vừa - Pike Place® Roast</p>
                             </div>
                         </a>
-                        <a href="../pages/product_drinks.html?id=Medium Roast - Guatemala Casi Cielo®" class="item-link">
+                        <a href="product_drinks.html?id=Medium Roast - Guatemala Casi Cielo®" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Medium Roast - Guatemala Casi Cielo®.jpg" alt="Medium Roast - Guatemala Casi Cielo®">
-                                <p>Medium Roast - Guatemala Casi Cielo®</p>
+                                <p>Cà phê rang vừa - Guatemala Casi Cielo®</p>
                             </div>
                         </a>
-                        <a href="../pages/product_drinks.html?id=Decaf Roast - Pike Place® Roast" class="item-link">
+                        <a href="product_drinks.html?id=Decaf Roast - Pike Place® Roast" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Decaf Roast - Pike Place® Roast.jpg" alt="Decaf Roast - Pike Place® Roast">
-                                <p>Decaf Roast - Pike Place® Roast</p>
+                                <p>Cà phê khử caffeine - Pike Place® Roast</p>
                             </div>
                         </a>
-                        <a href="../pages/product_drinks.html?id=Caffè Misto" class="item-link">
+                        <a href="product_drinks.html?id=Caffè Misto" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Caffè Misto.jpg" alt="Caffè Misto">
                                 <p>Caffè Misto</p>
@@ -137,58 +134,59 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="Americano list">
                     <h3>Americano</h3>
                     <div class="items-grid">
-                        <a href="../pages/product_drinks.html?id=Caffè Americano" class="item-link">
+                        <a href="product_drinks.html?id=Caffè Americano" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Caffè Americano.jpg" alt="Caffè Americano">
-                                <p> Caffè Americano</p>
+                                <p>Caffè Americano</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <div class=" Mocha list ">
+                <div class="Mocha list">
                     <h3>Mocha</h3>
                     <div class="items-grid">
-                        <a href="../pages/product_drinks.html?id=Caffè Mocha" class="item-link">
+                        <a href="product_drinks.html?id=Caffè Mocha" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Caffè Mocha.jpg" alt="Caffè Mocha">
                                 <p>Caffè Mocha</p>
                             </div>
                         </a>
-                        <a href="../pages/product_drinks.html?id=White Chocolate Mocha" class="item-link">
+                        <a href="product_drinks.html?id=White Chocolate Mocha" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/White Chocolate Mocha.jpg" alt="White Chocolate Mocha">
-                                <p>White Chocolate Mocha</p>
+                                <p>Mocha Sô-cô-la trắng</p>
                             </div>
-                        </a> 
+                        </a>
                     </div>
-                </div>    
+                </div>
 
-                 <div class=" Macchiato list ">
+                <div class="Macchiato list">
                     <h3>Macchiato</h3>
                     <div class="items-grid">
-                        <a href="../pages/product_drinks.html?id=Espresso Macchiato" class="item-link">
+                        <a href="product_drinks.html?id=Espresso Macchiato" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Espresso Macchiato.jpg" alt="Espresso Macchiato">
                                 <p>Espresso Macchiato</p>
                             </div>
                         </a>
-                        <a href="../pages/product_drinks.html?id=Caramel Macchiato" class="item-link">
+                        <a href="product_drinks.html?id=Caramel Macchiato" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Caramel Macchiato.jpg" alt="Caramel Macchiato">
                                 <p>Caramel Macchiato</p>
                             </div>
-                        </a> 
+                        </a>
                     </div>
-                </div> 
+                </div>
 
                 <div class="Flat White list">
                     <h3>Flat White</h3>
                     <div class="items-grid">
-                        <a href="../pages/product_drinks.html?id=Flat White" class="item-link">
+                        <a href="product_drinks.html?id=Flat White" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Flat White.jpg" alt="Flat White">
                                 <p>Flat White</p>
@@ -200,16 +198,16 @@
                 <div class="Cortado list">
                     <h3>Cortado</h3>
                     <div class="items-grid">
-                        <a href="../pages/product_drinks.html?id=Cortado" class="item-link">
+                        <a href="product_drinks.html?id=Cortado" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Cortado.jpg" alt="Cortado">
                                 <p>Cortado</p>
                             </div>
                         </a>
-                        <a href="../pages/product_drinks.html?id=Pecan Oatmilk Cortado" class="item-link">
+                        <a href="product_drinks.html?id=Pecan Oatmilk Cortado" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Pecan Oatmilk Cortado.jpg" alt="Pecan Oatmilk Cortado">
-                                <p>Pecan Oatmilk Cortado</p>
+                                <p>Cortado sữa yến mạch hạt hồ đào</p>
                             </div>
                         </a>
                     </div>
@@ -218,10 +216,10 @@
                 <div class="Espresso Shot list">
                     <h3>Espresso Shot</h3>
                     <div class="items-grid">
-                        <a href="../pages/product_drinks.html?id=Espresso" class="item-link">
+                        <a href="product_drinks.html?id=Espresso" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Espresso.jpg" alt="Espresso Shot">
-                                <p> Espresso</p>
+                                <p>Espresso</p>
                             </div>
                         </a>
                     </div>
@@ -230,10 +228,10 @@
                 <div class="Coffee Traveler list">
                     <h3>Coffee Traveler</h3>
                     <div class="items-grid">
-                        <a href="../pages/product_drinks.html?id=Coffee Traveler – Decaf Pike Place® Roast" class="item-link">
+                        <a href="product_drinks.html?id=Coffee Traveler – Decaf Pike Place® Roast" class="item-link">
                             <div class="item">
                                 <img src="../assets/images/duong-241230692/Coffee Traveler – Decaf Pike Place® Roast.jpg" alt="Coffee Traveler – Decaf Pike Place® Roast">
-                                <p> Coffee Traveler – Decaf Pike Place® Roast</p>
+                                <p>Coffee Traveler – Pike Place® Roast khử caffeine</p>
                             </div>
                         </a>
                     </div>
@@ -242,82 +240,85 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Chân trang -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__column">
-                <h3>About Us</h3>
-                <a href="pages/about/company.html">Our Company</a>
-                <a href="pages/about/coffee.html">Our Coffee</a>
-                <a href="pages/about/starbucks.html">About Starbucks</a>
-                <a href="pages/about/archive.html">Starbucks Archive</a>
-                <a href="pages/about/investors.html">Investor Relations</a>
-                <a href="pages/about/customer-service.html">Customer Service</a>
-                <a href="pages/about/contact.html">Contact Us</a>
+                <h3>Về chúng tôi</h3>
+                <a href="pages/about/company.html">Công ty của chúng tôi</a>
+                <a href="pages/about/coffee.html">Cà phê của chúng tôi</a>
+                <a href="pages/about/Coffee Since 2025.html">Giới thiệu về Coffee Since 2025</a>
+                <a href="pages/about/archive.html">Lưu trữ Coffee Since 2025</a>
+                <a href="pages/about/investors.html">Quan hệ nhà đầu tư</a>
+                <a href="pages/about/customer-service.html">Dịch vụ khách hàng</a>
+                <a href="pages/about/contact.html">Liên hệ</a>
             </div>
             <div class="footer__column">
-                <h3>Careers</h3>
-                <a href="pages/careers/culture.html">Culture and Values</a>
-                <a href="pages/careers/belonging.html">Belonging at Starbucks</a>
-                <a href="pages/careers/college-plan.html">College Achievement Plan</a>
-                <a href="pages/careers/alumni.html">Alumni Community</a>
-                <a href="pages/careers/us.html">U.S. Careers</a>
-                <a href="pages/careers/international.html">International Careers</a>
+                <h3>Nghề nghiệp</h3>
+                <a href="pages/careers/culture.html">Văn hóa và Giá trị</a>
+                <a href="pages/careers/belonging.html">Gắn kết tại Coffee Since 2025</a>
+                <a href="pages/careers/college-plan.html">Chương trình học đại học</a>
+                <a href="pages/careers/alumni.html">Cộng đồng cựu nhân viên</a>
+                <a href="pages/careers/us.html">Nghề nghiệp tại Mỹ</a>
+                <a href="pages/careers/international.html">Nghề nghiệp quốc tế</a>
             </div>
             <div class="footer__column">
-                <h3>Social Impact</h3>
-                <a href="pages/social-impact/communities.html">Communities</a>
-                <a href="pages/social-impact/foundation.html">Starbucks Foundation</a>
-                <a href="pages/social-impact/sustainability.html">Sustainability</a>
-                <a href="pages/social-impact/reporting.html">Environmental and Social Impact Reporting</a>
+                <h3>Tác động xã hội</h3>
+                <a href="pages/social-impact/communities.html">Cộng đồng</a>
+                <a href="pages/social-impact/foundation.html">Quỹ Coffee Since 2025</a>
+                <a href="pages/social-impact/sustainability.html">Phát triển bền vững</a>
+                <a href="pages/social-impact/reporting.html">Báo cáo tác động xã hội & môi trường</a>
             </div>
             <div class="footer__column">
-                <h3>For Business Partners</h3>
-                <a href="pages/business/landlord.html">Landlord Support Center</a>
-                <a href="pages/business/suppliers.html">Suppliers</a>
-                <a href="pages/business/gift-cards.html">Corporate Gift Card Sales</a>
-                <a href="pages/business/foodservice.html">Office and Foodservice Coffee</a>
+                <h3>Dành cho đối tác kinh doanh</h3>
+                <a href="pages/business/landlord.html">Trung tâm hỗ trợ chủ nhà</a>
+                <a href="pages/business/suppliers.html">Nhà cung cấp</a>
+                <a href="pages/business/gift-cards.html">Bán thẻ quà tặng doanh nghiệp</a>
+                <a href="pages/business/foodservice.html">Cà phê cho văn phòng & dịch vụ ăn uống</a>
             </div>
             <div class="footer__column">
-                <h3>Order and Pick Up</h3>
-                <a href="pages/order/app.html">Order on the App</a>
-                <a href="pages/order/web.html">Order on the Web</a>
-                <a href="pages/order/delivery.html">Delivery</a>
-                <a href="pages/order/pickup.html">Order and Pick Up Options</a>
-                <a href="pages/order/home-coffee.html">Explore and Find Coffee for Home</a>
+                <h3>Đặt hàng và Nhận hàng</h3>
+                <a href="pages/order/app.html">Đặt hàng trên ứng dụng</a>
+                <a href="pages/order/web.html">Đặt hàng trên web</a>
+                <a href="pages/order/delivery.html">Giao hàng tận nơi</a>
+                <a href="pages/order/pickup.html">Tùy chọn đặt & nhận hàng</a>
+                <a href="pages/order/home-coffee.html">Khám phá cà phê dùng tại nhà</a>
             </div>
         </div>
+
         <div class="footer__social">
-            <a href="https://spotify.com" aria-label="Starbucks on Spotify">
+            <a href="https://spotify.com" aria-label="Coffee Since 2025 trên Spotify">
                 <i class="fa-brands fa-spotify"></i>
             </a>
-            <a href="https://facebook.com" aria-label="Starbucks on Facebook">
+            <a href="https://facebook.com" aria-label="Coffee Since 2025 trên Facebook">
                 <i class="fa-brands fa-facebook"></i>
             </a>
-            <a href="https://pinterest.com" aria-label="Starbucks on Pinterest">
+            <a href="https://pinterest.com" aria-label="Coffee Since 2025 trên Pinterest">
                 <i class="fa-brands fa-pinterest"></i>
             </a>
-            <a href="https://instagram.com" aria-label="Starbucks on Instagram">
+            <a href="https://instagram.com" aria-label="Coffee Since 2025 trên Instagram">
                 <i class="fa-brands fa-instagram"></i>
             </a>
-            <a href="https://youtube.com" aria-label="Starbucks on YouTube">
+            <a href="https://youtube.com" aria-label="Coffee Since 2025 trên YouTube">
                 <i class="fa-brands fa-youtube"></i>
             </a>
-            <a href="https://twitter.com" aria-label="Starbucks on Twitter">
+            <a href="https://twitter.com" aria-label="Coffee Since 2025 trên Twitter">
                 <i class="fa-brands fa-twitter"></i>
             </a>
         </div>
+
         <div class="footer__legal">
-            <a href="pages/legal/privacy.html">Privacy Notice</a>
-            <a href="pages/legal/health-privacy.html">Consumer Health Privacy Notice</a>
-            <a href="pages/legal/terms.html">Terms of Use</a>
-            <a href="pages/legal/do-not-sell.html">Do Not Sell or Share My Personal Information</a>
-            <a href="pages/legal/supply-chain.html">CA Supply Chain Act</a>
-            <a href="pages/legal/accessibility.html">Accessibility</a>
-            <a href="pages/legal/cookies.html">Cookie Preferences</a>
+            <a href="pages/legal/privacy.html">Thông báo bảo mật</a>
+            <a href="pages/legal/health-privacy.html">Thông báo bảo mật sức khỏe người tiêu dùng</a>
+            <a href="pages/legal/terms.html">Điều khoản sử dụng</a>
+            <a href="pages/legal/do-not-sell.html">Không bán hoặc chia sẻ thông tin cá nhân của tôi</a>
+            <a href="pages/legal/supply-chain.html">Đạo luật chuỗi cung ứng California</a>
+            <a href="pages/legal/accessibility.html">Khả năng truy cập</a>
+            <a href="pages/legal/cookies.html">Tùy chọn cookie</a>
         </div>
+
         <p class="footer__copyright">
-            &copy; 2025 Starbucks Coffee Company. All rights reserved.
+            &copy; 2025 Công ty Cà phê Coffee Since 2025. Mọi quyền được bảo lưu.
         </p>
     </footer>
 
