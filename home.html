@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coffee - Explore our menu, join rewards, and find a store near you.">
+    <title>Starbucks</title>
+    <link rel="stylesheet" href="styles/home_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar__logo">
+            <a href="home.html" aria-label="Starbucks Home">
+                <img src="assets\images\DoVanTien_24130858\logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav class="navbar__menu" aria-label="Main navigation">
+            <button class="deliver" id="deliver_button">
+                <img src="assets\images\DoVanTien_24130858\home\deliver.png" alt="Deliver" width="50px" height="50px">
+                <div class="info">
+                    <p style="font-weight: bold;">Giao hàng</p>
+                    <p>Tại: <span class="addr" id="addr">Chưa xác định</span></p>
+                </div>
+            </button>
+            <a href="pages/menu.html">Thực đơn</a>
+            <a href="#">Đơn hàng</a>
+        </nav>
+        <div class="navbar__actions">
+            <a href="pages/login.html">
+                <button class="btn btn--white">Đăng nhập</button>
+            </a>
+            <a href="pages/register.html">
+                <button class="btn btn--black">Đăng kí</button>
+            </a>
+        </div>
+        <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay">
+            <span></span>
+        </button>
+        <div class="menu-overlay" id="overlay" aria-hidden="true">
+            <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+                <h2 id="menu-title" class="sr-only">Mobile Menu</h2>
+                <img class="logo" src="assets\images\DoVanTien_24130858\logo.png" alt="Starbucks Logo" width="50" height="50">
+                <nav class="menu-links" aria-label="Mobile navigation">
+                    <a href="pages/menu.html">Thực đơn</a>
+                    <a href="#">Đơn hàng</a>
+                </nav>
+                <div class="actions-overlay">
+                    <a href="pages/login.html"><button class="btn white">Đăng nhập</button></a>
+                    <a href="pages/join.html"><button class="btn black">Đăng kí</button></a>
+                </div>
+            </aside>
+        </div>
+    </header>
+
+    <div id="addr-overlay" class="addr-overlay">
+        <div class="addr-content">
+            <div class="deliver_logo">
+                <button>
+                    <img src="assets\images\DoVanTien_24130858\home\deliver.png" alt="Deliver" width="50px" height="50px">
+                    <p style="font-weight: bold;">Giao hàng</p>
+                </button>
+            </div>
+            <div class="input">
+                <input type="text" placeholder="Vui lòng nhập địa chỉ">
+            </div>
+            <button class="close-delivery">&times;</button> <!-- Nút đóng -->
+            <button class="confirm">Xác nhận</button>
+        </div>
+    </div>
+
+    <!-- Sub-Navbar -->
+    <section class="sub-nav">
+        <p>Bắt đầu nhanh (Fast Order)</p>
+    </section>
+
+    <div id="fast-order-overlay" class="fast-order-overlay">
+        <div class="fast_order">
+            <button class="close_fast_order">&times;</button>
+            <h2><i class="fas fa-shopping-cart"></i> Fast Order</h2>
+
+            <!-- Danh sách sản phẩm -->
+            <div class="product-list">
+                <div class="product-item espresso-item">
+                    <h3>Espresso</h3>
+                    <p class="price">75.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_espresso()">Thêm ngay</button>
+                </div>
+                <div class="product-item latte-item">
+                    <h3>Latte</h3>
+                    <p class="price">120.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_latte()">Thêm ngay</button>
+                </div>
+                <div class="product-item cappuccino-item">
+                    <h3>Cappuccino</h3>
+                    <p class="price">98.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_cappuccino()">Thêm ngay</button>
+                </div>
+                <div class="product-item mocha-item">
+                    <h3>Mocha</h3>
+                    <p class="price">53.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_mocha()">Thêm ngay</button>
+                </div>
+                <div class="product-item americano-item">
+                    <h3>Americano</h3>
+                    <p class="price">64.000 đồng</p>
+                    <button class="add-to-cart" onclick="add_americano()">Thêm ngay</button>
+                </div>
+            </div>
+
+            <div class="list_ordered">
+                <div class="ordered-item" id="espresso">
+                    <p>Espresso vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="espresso-value"></p>
+                        <button class="reset_order" onclick="decrease_espresso()">&#9472;</button>
+                    </div>
+                </div>
+                <div class="ordered-item" id="latte">
+                    <p>Latte vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="latte-value"></p>
+                        <button class="reset_order" onclick="decrease_latte()">&#9472;</button>
+                    </div>
+                </div>
+                <div class="ordered-item" id="cappuccino">
+                    <p>Cappuccino vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="cappuccino-value"></p>
+                        <button class="reset_order" onclick="decrease_cappuccino()">&#9472;</button>
+                    </div>
+                </div>
+                <div class="ordered-item" id="mocha">
+                    <p>Mocha vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="mocha-value"></p>
+                        <button class="reset_order" onclick="decrease_mocha()">&#9472;</button>
+                    </div>
+                </div>
+                <div class="ordered-item" id="americano">
+                    <p>Americano vị nguyên bản</p>
+                    <div class="info_item">
+                        <p id="americano-value"></p>
+                        <button class="reset_order" onclick="decrease_americano()">&#9472;</button>
+                    </div>
+                </div>
+                <b class="cost"><span id="price_ordered">0</span> đồng</b>
+                <br>
+                <button class="pay_order" id="pay" onclick="showQrPopup()">Pay now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup QR -->
+    <div id="qr-overlay" class="qr-overlay">
+        <div class="show_QR">
+            <button class="close_qr">&times;</button>
+            <p style="font-weight: bold; font-size: 18px;">SỐ TIỀN BẠN CẦN THANH TOÁN LÀ <span id="price" style="font-weight: bold; color: red;"></span> ĐỒNG</p>
+            <p>QR thanh toán tồn tại trong: <span id="time"></span> giây</p>
+            <img src="assets/images/DoVanTien_24130858/home/qr.jpg" alt="qr">
+        </div>
+    </div>
+
+    <!-- Carousel -->
+    <section class="carousel-container" aria-label="Promotional carousel">
+        <div class="carousel">
+            <div class="carousel__item active">
+                <img src="assets\images\DoVanTien_24130858\home\carousel_1.png" alt="Promotional image 1">
+                <h2 class="carousel__item--caption">Ưu đã mùa thu</h2>
+            </div>
+            <div class="carousel__item">
+                <img src="assets\images\DoVanTien_24130858\home\carousel_2.png" alt="Promotional image 2">
+                <h2 class="carousel__item--caption">Thức uống mới</h2>
+            </div>
+            <div class="carousel__item">
+                <img src="assets\images\DoVanTien_24130858\home\carousel_3.png" alt="Promotional image 3">
+                <h2 class="carousel__item--caption">Ưu đãi theo mùa</h2>
+            </div>
+        </div>
+        <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">
+            <i class="fa-solid fa-chevron-left fa-2xl" style="color: #0a660c;"></i>
+        </button>
+        <button class="carousel__btn carousel__btn--next" aria-label="Next slide">
+            <i class="fa-solid fa-chevron-right fa-2xl" style="color: #0a660c;"></i>
+        </button>
+        <div class="carousel__dots" role="tablist"></div>
+    </section>
+
+    <div id="ad-overlay" class="ad-overlay">
+        <div class="ad-content">
+            <button id="close-ad" class="close-ad"></button>
+            <img src="assets\images\DoVanTien_24130858\home\advertise.png" alt="Quảng cáo">
+            <h2>Ưu đãi đặc biệt!</h2>
+            <p>Nhận ngay 20% giảm giá cho 500 đơn hàng đầu ngày với <b>Caffe Mocha</b>!</p>
+            <a href="../pages/Caffè Mocha.html" target="_blank" class="ad-button">Đặt ngay</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <section class="main__hero main__hero--1">
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_1.png" alt="Fall coffee drinks" width="700" height="400">
+            </div>
+            <div class="main__hero-content">
+                <h1>Chào thu dịu dàng, đón vị nồng nàn</h1>
+                <p>
+                    Hương vị mùa thu của chúng tôi chính thức có mặt. Đã đến lúc thưởng thức bí ngô và hồ đào, bao gồm cả Pecan Oatmilk Cortado mới.
+                </p>
+                <a href="pages/menu.html">
+                    <button class="btn_item">Xem thực đơn</button>
+                </a>
+            </div>
+        </section>
+
+        <section class="main__hero main__hero--2">
+            <div class="main__hero-content">
+                <h1>Bạn thích chứ? Nhận miễn phí nhé.</h1>
+                <p>
+                    Chỉ cần tham gia Coffee® Since 2025 Rewards và tận hưởng đồ uống miễn phí khi mua hàng đủ điều kiện trong tuần đầu tiên.*
+                </p>
+                <a href="pages/register.html">
+                    <button class="btn_item">Tham gia & Đặt hàng</button>
+                </a>
+            </div>
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_2.png" alt="Iced Brown Sugar Oatmilk Shaken Espresso" width="700" height="400">
+            </div>
+        </section>
+
+        <section class="main__hero main__hero--3">
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_3.png" alt="Pumpkin Spice Latte" width="700" height="400">
+            </div>
+            <div class="main__hero-content">
+                <h1>Dành cho người hâm mộ PSL</h1>
+                <p>
+                    Hãy chào mừng mùa Pumpkin Spice Latte bằng cách gửi quà tặng điện tử Coffee Since 2025.
+                </p>
+                <a href="pages/gift-cards.html">
+                    <button class="btn_item">Gửi một quà điện tử</button>
+                </a>
+            </div>
+        </section>
+
+        <section class="main__hero main__hero--4">
+            <div class="main__hero-content">
+                <h1>Bộ sưu tập mới đầy mê hoặc của chúng tôi</h1>
+                <p>
+                    Nghệ sĩ người Mỹ Mike Wilcox tôn vinh các vùng trồng cà phê bằng biểu tượng Art Deco đầy lôi cuốn. Chỉ trong thời gian có hạn.
+                </p>
+                <a href="pages/collection.html">
+                    <button class="btn_item">Xem thêm</button>
+                </a>
+            </div>
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_4.png" alt="New collection" width="700" height="400">
+            </div>
+        </section>
+
+        <section class="main__hero main__hero--5">
+            <div class="main__hero-image">
+                <img src="assets\images\DoVanTien_24130858\home\image_5.png" alt="Coffee" width="700" height="550">
+            </div>
+            <div class="main__hero-content">
+                <h1>Nạp tiền miễn phí trong thời gian bạn ở lại</h1>
+                <p>
+                    Khi bạn ở lại để thưởng thức đồ uống thủ công của chúng tôi, chúng tôi sẽ phục vụ thêm cà phê hoặc trà nóng hoặc đá.** Bao gồm cả loại đồ uống được ưa chuộng theo mùa trở lại, 
+                    Guatemala Casi Cielo®, với hương chanh Meyer tươi sáng và hạt ca cao.
+                </p>
+                <a href="pages/menu.html">
+                    <button class="btn_item">Đặt ngay</button>
+                </a>
+            </div>
+        </section>
+
+        <section class="main__passage">
+            <p>
+                *Áp dụng cho thành viên Coffee Since 2025 Rewards mới trong vòng 7 ngày kể từ ngày đăng ký. Phiếu giảm giá sẽ có sẵn trong mục ưu đãi của ứng dụng Coffee Since 2025 sau khi bạn đăng ký và có thể mất đến 48 giờ để nhận được. Áp dụng tại các cửa hàng tham gia chương trình tại Hoa Kỳ, cho một ly đồ uống thủ công 
+                cỡ menu (giá trị tối đa 8 đô la) khi mua hàng đủ điều kiện. Giao dịch mua hàng đủ điều kiện 
+                không bao gồm rượu, Thẻ Coffee Since 2025 và nạp tiền Thẻ. Giới hạn một. Không thể kết hợp
+                với các ưu đãi hoặc giảm giá khác. Không bao gồm dịch vụ giao hàng. Đăng ký trước ngày 28/9/2025.
+            </p>
+            <p>
+                **Miễn phí nạp lại cà phê và trà nóng và đá trong cùng một lần ghé thăm cửa hàng.
+                Không bao gồm Cold Brew, Nitro Cold Brew, Iced Tea Lemonade, và các loại trà đá có hương vị và
+                Coffee Since 2025 Refreshers&reg; cơ bản. Tại các cửa hàng tham gia chương trình.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__column">
+                <h3>Về chúng tôi</h3>
+                <a href="pages/about/company.html">Công ty của chúng tôi</a>
+                <a href="pages/about/coffee.html">Cà phê của chúng tôi</a>
+                <a href="pages/about/starbucks.html">Về Coffee Since 2025</a>
+                <a href="pages/about/archive.html">Thành tựu Coffee Since 2025</a>
+                <a href="pages/about/investors.html">Quan hệ nhà đầu tư</a>
+                <a href="pages/about/customer-service.html">Dịch vụ khách hàng</a>
+                <a href="pages/about/contact.html">Liên hệ chúng tôi</a>
+            </div>
+            <div class="footer__column">
+                <h3>Sự nghiệp</h3>
+                <a href="pages/careers/culture.html">Văn hóa và Giá trị</a>
+                <a href="pages/careers/belonging.html">Thuộc về Coffee Since 2025</a>
+                <a href="pages/careers/college-plan.html">Kế hoạch Thành tích đại học</a>
+                <a href="pages/careers/alumni.html">Cộng đồng đại học</a>
+                <a href="pages/careers/us.html">Sự nghiệp tại Hoa Kỳ</a>
+                <a href="pages/careers/international.html">Sự nghiệp Quốc tế</a>
+            </div>
+            <div class="footer__column">
+                <h3>Ảnh hưởng xã hội</h3>
+                <a href="pages/social-impact/communities.html">Cộng đồng</a>
+                <a href="pages/social-impact/foundation.html">Quỹ Coffee Since 2025</a>
+                <a href="pages/social-impact/sustainability.html">Tính bền vững</a>
+                <a href="pages/social-impact/reporting.html">Báo cáo tác động môi trường và xã hội</a>
+            </div>
+            <div class="footer__column">
+                <h3>Dành cho đối tác kinh doanh</h3>
+                <a href="pages/business/landlord.html">Trung tâm hỗ trợ chủ nhà</a>
+                <a href="pages/business/suppliers.html">Nhà cung cấp</a>
+                <a href="pages/business/gift-cards.html">Bán thẻ quà tặng doanh nghiệp</a>
+                <a href="pages/business/foodservice.html">Cà phê văn phòng và dịch vụ ăn uống</a>
+            </div>
+            <div class="footer__column">
+                <h3>Đặt hàng và nhận hàng</h3>
+                <a href="pages/order/app.html">Đặt trên Ứng dụng</a>
+                <a href="pages/order/web.html">Đặt trên Web</a>
+                <a href="pages/order/delivery.html">Giao hàng</a>
+                <a href="pages/order/pickup.html">Tùy chọn đặt và nhận hàng</a>
+                <a href="pages/order/home-coffee.html">Khám phá và tìm kiếm cà phê cho gia đình</a>
+            </div>
+        </div>
+        <div class="footer__social">
+            <a href="https://spotify.com" aria-label="Starbucks on Spotify">
+                <i class="fa-brands fa-spotify"></i>
+            </a>
+            <a href="https://facebook.com" aria-label="Starbucks on Facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://pinterest.com" aria-label="Starbucks on Pinterest">
+                <i class="fa-brands fa-pinterest"></i>
+            </a>
+            <a href="https://instagram.com" aria-label="Starbucks on Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://youtube.com" aria-label="Starbucks on YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://twitter.com" aria-label="Starbucks on Twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+        </div>
+        <div class="footer__legal">
+            <a href="pages/legal/privacy.html">Quyền riêng tư</a>
+            <a href="pages/legal/health-privacy.html">Quyền riêng tư về sức khỏe người tiêu dùng</a>
+            <a href="pages/legal/terms.html">Điều khoản sử dụng</a>
+            <a href="pages/legal/do-not-sell.html">Không bán hoặc chia sẻ thông tin cá nhân của tôi</a>
+            <a href="pages/legal/supply-chain.html">Đạo luật chuỗi cung ứng CA</a>
+            <a href="pages/legal/accessibility.html">Khả năng tiếp cận</a>
+            <a href="pages/legal/cookies.html">Tùy chọn Cookie</a>
+        </div>
+        <p class="footer__copyright">
+            &copy; 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.
+        </p>
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+</html>
