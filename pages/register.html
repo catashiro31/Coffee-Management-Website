@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="../styles/register.css">
+  </head>
+  <body>
+    
+    <main class="card" role="main">
+        <div class="header">
+              <a href="../home.html">
+            <div class="logo">
+                <img src="../assets/images/LUONGTRUNGTHANH_241230843/login_logo.png" alt="Coffee">
+            </div>
+          </a>
+          <h1>Coffee House</h1>
+        
+        </div>
+
+      <form id="signup" novalidate>
+        <h2 class="title">Đăng ký tài khoản</h2>
+        <p class="subtitle">Tham gia hội viên để nhận ưu đãi và tích điểm mỗi lần mua cà phê </p>
+
+        <div class="field">
+          <label for="fullname">Họ và tên</label>
+          <input id="fullname" name="fullname" type="text" placeholder="VD: Nguyễn Văn A" autocomplete="name" required />
+          <div class="error" id="err-fullname">Vui lòng nhập họ và tên.</div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" required />
+          <div class="error" id="err-email">Email không hợp lệ.</div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="phone">Số điện thoại (tuỳ chọn)</label>
+            <input id="phone" name="phone" type="tel" placeholder="09xx xxx xxx" autocomplete="tel" inputmode="tel" pattern="^(0|\+84)[0-9]{9,10}$" />
+            <div class="hint">Dùng để nhận thông báo đơn hàng.</div>
+          </div>
+          <div class="field">
+            <label for="username">Tên đăng nhập</label>
+            <input id="username" name="username" type="text" minlength="4" maxlength="18" placeholder="Tên không dấu, 4-18 ký tự" required />
+            <div class="error" id="err-username">Tên đăng nhập từ 4–18 ký tự.</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="password">Mật khẩu</label>
+            <input id="password" name="password" type="password" minlength="6" placeholder="Tối thiểu 6 ký tự" required />
+            <div class="error" id="err-password">Mật khẩu tối thiểu 6 ký tự.</div>
+          </div>
+          <div class="field">
+            <label for="confirm">Nhập lại mật khẩu</label>
+            <input id="confirm" name="confirm" type="password" placeholder="Nhập lại" required />
+            <div class="error" id="err-confirm">Mật khẩu không khớp.</div>
+          </div>
+        </div>    
+
+        <div class="checks">
+          <label class="check">
+            <input type="checkbox" id="tos" required />
+            <span>Tôi đồng ý với <a href="#">Điều khoản</a> & <a href="#">Chính sách bảo mật</a>.</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" id="news" />
+            <span>Nhận tin khuyến mãi và ưu đãi từ Coffee House.</span>
+          </label>
+        </div>
+
+        <button type="submit">Tạo tài khoản</button>
+      </form>
+
+      <div class="footer">
+        Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
