@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
+
 
 /* ==============================================
   1. DATASET SẢN PHẨM
@@ -69,7 +68,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -86,7 +85,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -103,7 +102,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -119,7 +118,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -147,8 +146,7 @@ const products = [
       sizes: true,
       milk: true,
       roast: true,
-      // LỖI 1 (NGHIÊM TRỌNG): Xóa "roasttrue," bị thừa và sai cú pháp
-      hot: true, // Thêm "hot: true" (Bạn có thể đã gõ nhầm 'roasttrue' thành 'hot')
+      hot: true,
       topping: false,
       flavors: false,
       shots: true,
@@ -282,7 +280,7 @@ const products = [
       topping: true,
       flavors: true,
       shots: true,
-      espresso: true,// LỖI 2 (TYPO): Sửa 'flase' -> 'false'
+      espresso: false, // LỖI 2 (TYPO): Sửa 'flase' -> 'false'
     },
   },
   {
@@ -403,7 +401,8 @@ const products = [
     id: 'Coffee Traveler – Decaf Pike Place® Roast',
     name: 'Coffee Traveler – Decaf Pike Place® Roast',
     calories: 35,
-    imageSrc: '../assets/images/duong-241230692/Coffee Traveler – Decaf Pike Place® Roast.jpg',
+    imageSrc:
+      '../assets/images/duong-241230692/Coffee Traveler – Decaf Pike Place® Roast.jpg',
     customizers: {
       sizes: false,
       milk: false,
@@ -412,7 +411,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -444,7 +443,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -461,7 +460,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -478,7 +477,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso:true,
+      espresso: false,
     },
   },
   {
@@ -495,7 +494,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -512,7 +511,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -529,7 +528,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -546,7 +545,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso:true,
+      espresso: false,
     },
   },
   {
@@ -562,7 +561,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -579,7 +578,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -741,7 +740,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -757,7 +756,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -773,7 +772,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true, 
+      espresso: false,
     },
   },
   {
@@ -789,7 +788,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -805,7 +804,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -821,7 +820,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -837,7 +836,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -853,7 +852,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -869,7 +868,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -885,7 +884,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -902,7 +901,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -919,7 +918,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -936,7 +935,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -952,7 +951,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -968,7 +967,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -985,7 +984,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -1002,7 +1001,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -1019,7 +1018,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -1036,7 +1035,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -1052,7 +1051,7 @@ const products = [
       topping: true,
       flavors: true,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -1068,7 +1067,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -1085,7 +1084,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
@@ -1101,23 +1100,23 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
     id: 'cold-brew',
     name: 'Cold Brew Coffee',
     calories: 5,
-    imageSrc: '../assets/images/duong-241230692/cold-brew.jpg',
+    imageSrc: '../assets/images/duong-241230692/Cold Brew.jpg',
     customizers: {
-      sizes: true,
+      sizes:false,
       milk: false,
       roast: false,
       hot: false,
       topping: false,
       flavors: true,
       shots: true,
-      espresso: true,
+      espresso: false,
     },
   },
 ];
