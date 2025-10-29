@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu!');
         } else {    
             alert('Đăng nhập thành công! Đang chuyển đến trang chủ...');
-            window.location.href = '../home.html';
+            window.location.href = '../index.html';
         }
     }); 
 });
