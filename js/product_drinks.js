@@ -68,7 +68,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -85,7 +85,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -102,7 +102,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -118,7 +118,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -280,7 +280,7 @@ const products = [
       topping: true,
       flavors: true,
       shots: true,
-      espresso: false, // LỖI 2 (TYPO): Sửa 'flase' -> 'false'
+      espresso: true, // LỖI 2 (TYPO): Sửa 'flase' -> 'false'
     },
   },
   {
@@ -411,7 +411,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -443,7 +443,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -460,7 +460,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -477,7 +477,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -494,7 +494,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -511,7 +511,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -528,7 +528,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -545,7 +545,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -561,7 +561,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -578,7 +578,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -729,7 +729,7 @@ const products = [
   },
   {
     id: 'Chai Latte',
-    name: 'Chai Latte',
+    name: 'Tea Latte',
     calories: 150,
     imageSrc: '../assets/images/duong-241230692/Tea Latte.jpg',
     customizers: {
@@ -772,7 +772,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -788,7 +788,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -804,7 +804,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -820,7 +820,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -836,7 +836,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -852,7 +852,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -868,7 +868,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -884,7 +884,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -901,7 +901,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -918,7 +918,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -935,7 +935,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -951,7 +951,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -967,7 +967,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -984,7 +984,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -1001,7 +1001,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -1018,7 +1018,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -1035,7 +1035,7 @@ const products = [
       topping: true,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -1051,7 +1051,7 @@ const products = [
       topping: true,
       flavors: true,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -1067,7 +1067,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -1084,7 +1084,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -1100,7 +1100,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -1116,7 +1116,7 @@ const products = [
       topping: false,
       flavors: true,
       shots: true,
-      espresso: false,
+      espresso: true,
     },
   },
 ];
