@@ -872,10 +872,10 @@ const products = [
     },
   },
   {
-    id: 'Iced Passion Tango® Tea',
-    name: 'Iced Passion Tango® Tea',
+    id: 'Iced Passion Tango® Tea Lemonade',
+    name: 'Iced Passion Tango® Tea Lemonade',
     calories: 0,
-    imageSrc: '../assets/images/duong-241230692/Iced Passion Tango® Tea.jpg',
+    imageSrc: '../assets/images/duong-241230692/Iced Passion Tango® Tea Lemonade.jpg',
     customizers: {
       sizes: true,
       milk: false,
