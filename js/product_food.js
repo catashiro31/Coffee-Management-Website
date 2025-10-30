@@ -1,12 +1,9 @@
-// LỖI 1: Xóa 'export'. 'export' gây ra SyntaxError khi tải script kiểu classic.
 const products = [
   {
     id: 'baked-apple-croissant',
     name: 'Bánh sừng bò táo nướng',
     calories: 230,
     price: 45000,
-    // LỖI 2: Đường dẫn ảnh '../' bị sai.
-    // Sửa thành đường dẫn đúng. BẠN CẦN TỰ KIỂM TRA LẠI ĐƯỜNG DẪN NÀY.
     image: '../assets/images/MaiThiYenNhi_241230810/baked_apple_croissant.jpg',
     alt: 'Bánh sừng bò táo nướng',
   },
@@ -451,7 +448,7 @@ const products = [
 
 
 
-// ======= Helpers (Giữ nguyên) =======
+// ======= Helpers =======
 const qs = (sel, root = document) => root.querySelector(sel);
 const formatVND = (n) => n?.toLocaleString('vi-VN');
 const getParam = (key) => new URL(window.location.href).searchParams.get(key);
@@ -472,20 +469,17 @@ function createEl(tag, opts = {}) {
   return el;
 }
 
-// HÀM MỚI (Tách ra từ Lỗi 3)
-// Tính toán lại tổng tiền dựa trên sản phẩm đang hiển thị
+
 function recalcCurrentProduct() {
-  const product = pickProduct(); // Lấy đúng sản phẩm đang hiển thị
-  if (typeof product.price !== 'number') return; // Không có giá thì thôi
+  const product = pickProduct(); 
+  if (typeof product.price !== 'number') return; 
 
   const qEl = qs('#quantity');
   if (!qEl) return;
   
-  // Đảm bảo số lượng luôn >= 1
   const qty = Math.max(1, parseInt(qEl.value || '1', 10));
-  qEl.value = qty; // Cập nhật lại input phòng khi người dùng gõ số âm
+  qEl.value = qty; 
 
-  // Cập nhật tổng tiền
   const totalEl = qs('#total');
   if (totalEl) totalEl.textContent = formatVND(qty * product.price);
 }
@@ -494,11 +488,10 @@ function recalcCurrentProduct() {
 function renderProduct(product) {
   const container = qs('#product-container');
   if (!container) return;
-  container.innerHTML = ''; // Xóa nội dung cũ
+  container.innerHTML = ''; 
 
   const wrapper = createEl('div', { cls: 'product' });
 
-  // Ảnh (ẩn nếu thiếu)
   if (product.image) {
     const img = createEl('img', {
       attrs: {
@@ -513,7 +506,6 @@ function renderProduct(product) {
 
   const info = createEl('div', { cls: 'info' });
 
-  // Tên sản phẩm
   if (product.name) {
     const nameLabel = createEl('label', { text: product.name });
     info.appendChild(nameLabel);
@@ -521,7 +513,6 @@ function renderProduct(product) {
     if (crumb) crumb.textContent = product.name;
   }
 
-  // Calories tooltip
   if (typeof product.calories === 'number') {
     const p = createEl('p');
     const tip = createEl('span', {html: `${product.calories} calo`});
@@ -529,7 +520,6 @@ function renderProduct(product) {
     info.appendChild(p);
   }
 
-  // Giá + Số lượng + Tổng
   if (typeof product.price === 'number') {
     const priceP = createEl('p', {
       cls: 'price',
@@ -550,7 +540,6 @@ function renderProduct(product) {
 
     const totalP = createEl('p', {
       cls: 'total',
-      // Hiển thị tổng tiền ban đầu (cho số lượng 1)
       html: `Tổng cộng: <span id="total">${formatVND(product.price)}</span> VNĐ`,
     });
     info.appendChild(totalP);
@@ -558,8 +547,6 @@ function renderProduct(product) {
     const addBtn = createEl('button', { attrs: { id: 'addToCart' }, text: 'Thêm vào giỏ hàng' });
     info.appendChild(addBtn);
 
-    // LỖI 3: Đã XÓA hàm recalc() và các addEventListener() khỏi đây.
-    // Chúng sẽ được đưa ra hàm init() để chỉ chạy 1 lần.
   }
 
   wrapper.appendChild(info);
@@ -568,37 +555,58 @@ function renderProduct(product) {
 
 // ======= Khởi tạo =======
 (function init() {
-  // 1. Render sản phẩm ra HTML
   const product = pickProduct();
   renderProduct(product);
 
-  // 2. Gắn các listener VÀO CONTAINER (chỉ 1 lần duy nhất)
   const container = qs('#product-container');
   if (!container) return;
 
-  // LỖI 3 (SỬA): Gắn listener ở đây, bên ngoài renderProduct
   container.addEventListener('click', (e) => {
     
-    // Xử lý tăng/giảm số lượng
     if (e.target.closest('#decrease')) {
-      recalcCurrentProduct(); // Gọi hàm recalc toàn cục
+      recalcCurrentProduct(); 
     }
     if (e.target.closest('#increase')) {
-      recalcCurrentProduct(); // Gọi hàm recalc toàn cục
+      recalcCurrentProduct();
     }
     
-    // LỖI 4 (SỬA): Thêm listener cho nút "x" của tooltip
     if (e.target.classList.contains('close-btn')) {
       const tooltipText = e.target.closest('.tooltiptext');
       if (tooltipText) {
-        tooltipText.classList.add('hidden'); // Dùng class 'hidden' từ HTML
-        // Tự động hiện lại sau 2 giây để người dùng có thể xem lại
+        tooltipText.classList.add('hidden'); 
         setTimeout(() => { tooltipText.classList.remove('hidden'); }, 2000);
       }
     }
+
+    // ===========================================
+    // === LOGIC THÊM GIỎ HÀNG ===
+    // ===========================================
+    if (e.target.closest('#addToCart')) {
+      const product = pickProduct(); 
+      const qtyEl = qs('#quantity');
+      const quantity = parseInt(qtyEl.value, 10);
+
+      const cartItem = {
+        lineItemId: `food-${product.id}-${Date.now()}`, // ID duy nhất cho dòng hàng
+        productId: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: quantity,
+        description: `Số lượng: ${quantity}`,
+        image: product.image
+      };
+      
+      Cart.addItem(cartItem);
+      
+      // ------------------------------------------------------------------
+      // ⭐ ĐÂY LÀ PHẦN SỬA LỖI ⭐
+      // ------------------------------------------------------------------
+      alert('Đã thêm sản phẩm vào giỏ hàng!');
+      Cart.updateCartCount(); // Yêu cầu header cập nhật lại số lượng
+      // ------------------------------------------------------------------
+    }
   });
   
-  // LỖI 3 (SỬA): Gắn listener input
   container.addEventListener('input', (e) => {
     if (e.target.id === 'quantity') {
       recalcCurrentProduct();
@@ -606,16 +614,31 @@ function renderProduct(product) {
   });
   
 })();
+
 document.addEventListener("DOMContentLoaded", () => {
   const priceElement = document.getElementById("price");
   const quantityInput = document.getElementById("quantity");
   const totalElement = document.getElementById("total");
   const btnIncrease = document.getElementById("increase");
   const btnDecrease = document.getElementById("decrease");
+  
+  if (!priceElement || !quantityInput || !totalElement || !btnIncrease || !btnDecrease) {
+    return;
+  }
 
-  const price = parseInt(priceElement.textContent.replace(/\./g, ""));
+  // Phải đợi renderProduct chạy xong mới lấy giá
+  let price = 0;
+  // Thử lấy giá trị sau một khoảng trễ ngắn
+  setTimeout(() => {
+    if (document.getElementById("price")) {
+       price = parseInt(document.getElementById("price").textContent.replace(/\./g, ""));
+       updateTotal(); // Cập nhật tổng ban đầu
+    }
+  }, 0);
+
 
   function updateTotal() {
+    if (price === 0) return; // Nếu chưa lấy được giá thì chưa cập nhật
     const quantity = Math.max(1, parseInt(quantityInput.value));
     const total = price * quantity;
     totalElement.textContent = total.toLocaleString("vi-VN");
@@ -632,7 +655,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   quantityInput.addEventListener("input", updateTotal);
-  updateTotal();
 });
 
 
@@ -665,8 +687,7 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.classList.remove('open');
         overlay.setAttribute('aria-hidden', 'true');
         burger?.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('lock');
-
+        document.body.classList.remove('lock'); // Sửa lại: remove 'lock'
         burger?.focus();
     }
 

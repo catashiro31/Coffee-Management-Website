@@ -1,5 +1,3 @@
-
-
 /* ==============================================
   1. DATASET SẢN PHẨM
   ============================================== */
@@ -8,7 +6,8 @@ const products = [
     id: 'caffe-mocha',
     name: 'Caffè Mocha',
     calories: 370,
-    imageSrc: '../assets/images/duong-241230692/Caffè Mocha.jpg',
+    // ⭐ SỬA 1: Đổi tên "imageSrc" thành "image"
+    image: '../assets/images/duong-241230692/Caffè Mocha.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -24,7 +23,8 @@ const products = [
     id: 'Coffee Since 2025® Blonde Roast - Veranda Blend®',
     name: 'Coffee Since 2025® Blonde Roast - Veranda Blend®',
     calories: 5,
-    imageSrc:
+    // ⭐ SỬA 1: Đổi tên "imageSrc" thành "image"
+    image:
       '../assets/images/duong-241230692/Starbucks® Blonde Roast - Veranda Blend®.jpg',
     customizers: {
       sizes: true,
@@ -37,11 +37,13 @@ const products = [
       espresso: true,
     },
   },
+  // ... (Tất cả các sản phẩm khác cũng được sửa tương tự) ...
+  // ... (Mình sẽ rút gọn ở đây, bạn chỉ cần copy/paste code đầy đủ bên dưới) ...
   {
     id: 'Medium Roast - Pike Place® Roast',
     name: 'Medium Roast - Pike Place® Roast',
     calories: 5,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Starbucks® Blonde Roast - Veranda Blend®.jpg',
     customizers: {
       sizes: true,
@@ -58,7 +60,7 @@ const products = [
     id: 'Medium Roast - Guatemala Casi Cielo®',
     name: 'Medium Roast - Guatemala Casi Cielo®',
     calories: 5,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Medium Roast - Guatemala Casi Cielo®.jpg',
     customizers: {
       sizes: true,
@@ -75,7 +77,7 @@ const products = [
     id: 'Dark Roast - Caffè Verona®',
     name: 'Dark Roast - Caffè Verona®',
     calories: 5,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Dark Roast - Caffè Verona®.jpg',
     customizers: {
       sizes: true,
@@ -92,7 +94,7 @@ const products = [
     id: 'Decaf Roast - Pike Place® Roast',
     name: 'Decaf Roast - Pike Place® Roast',
     calories: 5,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Decaf Roast - Pike Place® Roast.jpg',
     customizers: {
       sizes: true,
@@ -109,7 +111,7 @@ const products = [
     id: 'Caffè Misto',
     name: 'Caffè Misto',
     calories: 5,
-    imageSrc: '../assets/images/duong-241230692/Caffè Misto.jpg',
+    image: '../assets/images/duong-241230692/Caffè Misto.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -125,7 +127,7 @@ const products = [
     id: 'Caffè Americano',
     name: 'Caffè Americano',
     calories: 15,
-    imageSrc: '../assets/images/duong-241230692/Caffè Americano.jpg',
+    image: '../assets/images/duong-241230692/Caffè Americano.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -141,7 +143,7 @@ const products = [
     id: 'Caffè Latte',
     name: 'Caffè Latte',
     calories: 190,
-    imageSrc: '../assets/images/duong-241230692/Caffè Latte.jpg',
+    image: '../assets/images/duong-241230692/Caffè Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -157,7 +159,7 @@ const products = [
     id: 'Pumpkin Spice Latte',
     name: 'Pumpkin Spice Latte',
     calories: 390,
-    imageSrc: '../assets/images/duong-241230692/Pumpkin Spice Latte.jpg',
+    image: '../assets/images/duong-241230692/Pumpkin Spice Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -173,7 +175,7 @@ const products = [
     id: 'Pecan Crunch Oatmilk Latte',
     name: 'Pecan Crunch Oatmilk Latte',
     calories: 190,
-    imageSrc: '../assets/images/duong-241230692/Pecan Crunch Oatmilk Latte.jpg',
+    image: '../assets/images/duong-241230692/Pecan Crunch Oatmilk Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -189,7 +191,7 @@ const products = [
     id: 'CVanilla Protein Latte',
     name: 'Vanilla Protein Latte',
     calories: 370,
-    imageSrc: '../assets/images/duong-241230692/Vanilla Protein Latte.jpg',
+    image: '../assets/images/duong-241230692/Vanilla Protein Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -205,7 +207,7 @@ const products = [
     id: 'Sugar-Free Vanilla Protein Latte',
     name: 'Sugar-Free Vanilla Protein Latte',
     calories: 370,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Sugar-Free Vanilla Protein Latte.jpg',
     customizers: {
       sizes: true,
@@ -222,7 +224,7 @@ const products = [
     id: 'Iced Pumpkin Cream Chai',
     name: 'Iced Pumpkin Cream Chai',
     calories: 10,
-    imageSrc: '../assets/images/duong-241230692/Iced Pumpkin Cream Chai.jpg',
+    image: '../assets/images/duong-241230692/Iced Pumpkin Cream Chai.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -238,7 +240,7 @@ const products = [
     id: 'Cinnamon Dolce Latte',
     name: 'Cinnamon Dolce Latte',
     calories: 5,
-    imageSrc: '../assets/images/duong-241230692/Cinnamon Dolce Latte.jpg',
+    image: '../assets/images/duong-241230692/Cinnamon Dolce Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -254,7 +256,7 @@ const products = [
     id: 'Cappuccino',
     name: 'Cappuccino',
     calories: 5,
-    imageSrc: '../assets/images/duong-241230692/Cappuccino.jpg',
+    image: '../assets/images/duong-241230692/Cappuccino.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -270,7 +272,7 @@ const products = [
     id: 'Coffee Since 2025® Blonde Vanilla Latte',
     name: 'Coffee Since 2025® Blonde Vanilla Latte',
     calories: 250,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Coffee Since 2025® Blonde Vanilla Latte.jpg',
     customizers: {
       sizes: true,
@@ -287,7 +289,7 @@ const products = [
     id: 'White Chocolate Mocha',
     name: 'White Chocolate Mocha',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/White Chocolate Mocha.jpg',
+    image: '../assets/images/duong-241230692/White Chocolate Mocha.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -296,14 +298,14 @@ const products = [
       topping: true,
       flavors: true,
       shots: true,
-      espresso: false, // LỖI 2 (TYPO): Sửa 'flase' -> 'false'
+      espresso: false, 
     },
   },
   {
     id: 'Espresso Macchiato',
     name: 'Espresso Macchiato',
     calories: 15,
-    imageSrc: '../assets/images/duong-241230692/Espresso Macchiato.jpg',
+    image: '../assets/images/duong-241230692/Espresso Macchiato.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -319,7 +321,7 @@ const products = [
     id: 'Caramel Macchiato',
     name: 'Caramel Macchiato',
     calories: 5,
-    imageSrc: '../assets/images/duong-241230692/Caramel Macchiato.jpg',
+    image: '../assets/images/duong-241230692/Caramel Macchiato.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -335,7 +337,7 @@ const products = [
     id: 'Flat White',
     name: 'Flat White',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Flat White.jpg',
+    image: '../assets/images/duong-241230692/Flat White.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -351,7 +353,7 @@ const products = [
     id: 'Cortado',
     name: 'Cortado',
     calories: 90,
-    imageSrc: '../assets/images/duong-241230692/Cortado.jpg',
+    image: '../assets/images/duong-241230692/Cortado.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -367,8 +369,7 @@ const products = [
     id: 'Pecan Oatmilk Cortado',
     name: 'Pecan Oatmilk Cortado',
     calories: 120,
-    // LỖI 3 (SAI ẢNH): Thiếu dấu "/"
-    imageSrc: '../assets/images/duong-241230692/Pecan Oatmilk Cortado.jpg',
+    image: '../assets/images/duong-241230692/Pecan Oatmilk Cortado.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -384,7 +385,7 @@ const products = [
     id: 'Brown Sugar Oatmilk Cortado',
     name: 'Brown Sugar Oatmilk Cortado',
     calories: 150,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Brown Sugar Oatmilk Cortado.jpg',
     customizers: {
       sizes: true,
@@ -401,7 +402,7 @@ const products = [
     id: 'Espresso',
     name: 'Espresso',
     calories: 15,
-    imageSrc: '../assets/images/duong-241230692/Espresso.jpg',
+    image: '../assets/images/duong-241230692/Espresso.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -417,7 +418,7 @@ const products = [
     id: 'Coffee Traveler – Decaf Pike Place® Roast',
     name: 'Coffee Traveler – Decaf Pike Place® Roast',
     calories: 35,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Coffee Traveler – Decaf Pike Place® Roast.jpg',
     customizers: {
       sizes: false,
@@ -434,7 +435,7 @@ const products = [
     id: 'Pumpkin Cream Cold Brew',
     name: 'Pumpkin Cream Cold Brew',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Pumpkin Cream Cold Brew.jpg',
+    image: '../assets/images/duong-241230692/Pumpkin Cream Cold Brew.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -450,7 +451,7 @@ const products = [
     id: 'Raspberry Cream Cold Brew',
     name: 'Raspberry Cream Cold Brew',
     calories: 160,
-    imageSrc: '../assets/images/duong-241230692/Raspberry Cream Cold Brew.jpg',
+    image: '../assets/images/duong-241230692/Raspberry Cream Cold Brew.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -466,7 +467,7 @@ const products = [
     id: 'Chocolate Cream Protein Cold Brew',
     name: 'Chocolate Cream Protein Cold Brew',
     calories: 190,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Chocolate Cream Protein Cold Brew.jpg',
     customizers: {
       sizes: true,
@@ -483,7 +484,7 @@ const products = [
     id: 'Vanilla Sweet Cream Cold Brew',
     name: 'Vanilla Sweet Cream Cold Brew',
     calories: 150,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Vanilla Sweet Cream Cold Brew.jpg',
     customizers: {
       sizes: true,
@@ -500,7 +501,7 @@ const products = [
     id: 'Nondairy Vanilla Sweet Cream Cold Brew',
     name: 'Nondairy Vanilla Sweet Cream Cold Brew',
     calories: 100,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Nondairy Vanilla Sweet Cream Cold Brew.jpg',
     customizers: {
       sizes: true,
@@ -517,7 +518,7 @@ const products = [
     id: 'Nondairy Salted Caramel Cream Cold Brew',
     name: 'Nondairy Salted Caramel Cream Cold Brew',
     calories: 150,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Nondairy Salted Caramel Cream Cold Brew.jpg',
     customizers: {
       sizes: true,
@@ -534,7 +535,7 @@ const products = [
     id: 'Cold Brew with Nondairy Vanilla Sweet Cream Cold',
     name: 'Cold Brew with Nondairy Vanilla Sweet Cream Cold',
     calories: 150,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Cold Brew with Nondairy Vanilla Sweet Cream Cold.jpg',
     customizers: {
       sizes: true,
@@ -551,7 +552,7 @@ const products = [
     id: 'Nondairy Chocolate Cream Cold Brew',
     name: 'Nondairy Chocolate Cream Cold Brew',
     calories: 150,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Nondairy Chocolate Cream Cold Brew.jpg',
     customizers: {
       sizes: true,
@@ -568,7 +569,7 @@ const products = [
     id: 'Nitro Cold Brew',
     name: 'Nitro Cold Brew',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Nitro Cold Brew.jpg',
+    image: '../assets/images/duong-241230692/Nitro Cold Brew.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -584,7 +585,7 @@ const products = [
     id: 'Vanilla Sweet Cream Nitro Cold Brew',
     name: 'Vanilla Sweet Cream Nitro Cold Brew',
     calories: 10,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Vanilla Sweet Cream Nitro Cold Brew.jpg',
     customizers: {
       sizes: true,
@@ -601,7 +602,7 @@ const products = [
     id: 'Iced Espresso',
     name: 'Iced Espresso',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Iced Espresso.jpg',
+    image: '../assets/images/duong-241230692/Iced Espresso.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -617,7 +618,7 @@ const products = [
     id: 'Iced Caffè Americano',
     name: 'Iced Caffè Americano',
     calories: 15,
-    imageSrc: '../assets/images/duong-241230692/Iced Caffè Americano.jpg',
+    image: '../assets/images/duong-241230692/Iced Caffè Americano.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -633,7 +634,7 @@ const products = [
     id: 'Iced Pumpkin Spice Latte',
     name: 'Iced Pumpkin Spice Latte',
     calories: 370,
-    imageSrc: '../assets/images/duong-241230692/Iced Pumpkin Spice Latte.jpg',
+    image: '../assets/images/duong-241230692/Iced Pumpkin Spice Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -649,7 +650,7 @@ const products = [
     id: 'Iced Vanilla Protein Latte',
     name: 'Iced Vanilla Protein Latte',
     calories: 270,
-    imageSrc: '../assets/images/duong-241230692/Iced Vanilla Protein Latte.jpg',
+    image: '../assets/images/duong-241230692/Iced Vanilla Protein Latte.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -665,7 +666,7 @@ const products = [
     id: 'Iced Pecan Crunch Oatmilk Latte',
     name: 'Iced Pecan Crunch Oatmilk Latte',
     calories: 410,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Iced Pecan Crunch Oatmilk Latte.jpg',
     customizers: {
       sizes: true,
@@ -682,7 +683,7 @@ const products = [
     id: 'Iced Sugar-Free Vanilla Protein Latte',
     name: 'Iced Sugar-Free Vanilla Protein Latte',
     calories: 200,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Iced Sugar-Free Vanilla Protein Latte.jpg',
     customizers: {
       sizes: true,
@@ -699,7 +700,7 @@ const products = [
     id: 'Iced Caffè Mocha',
     name: 'Iced Caffè Mocha',
     calories: 350,
-    imageSrc: '../assets/images/duong-241230692/Iced Caffè Mocha.jpg',
+    image: '../assets/images/duong-241230692/Iced Caffè Mocha.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -715,7 +716,7 @@ const products = [
     id: 'Iced Caramel Macchiato',
     name: 'Iced Caramel Macchiato',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Iced Caramel Macchiato.jpg',
+    image: '../assets/images/duong-241230692/Iced Caramel Macchiato.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -731,11 +732,11 @@ const products = [
     id: 'Iced Flat White',
     name: 'Iced Flat White',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Iced Flat White.jpg',
+    image: '../assets/images/duong-241230692/Iced Flat White.jpg',
     customizers: {
       sizes: true,
       milk: true,
-      roast: false, // LỖI 4 (TYPO): Sửa 'flase' -> 'false'
+      roast: false, 
       hot: false,
       topping: false,
       flavors: false,
@@ -747,7 +748,7 @@ const products = [
     id: 'Chai Latte',
     name: 'Chai Latte',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Tea Latte.jpg',
+    image: '../assets/images/duong-241230692/Tea Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -763,7 +764,7 @@ const products = [
     id: 'Protein Matcha',
     name: 'Protein Matcha',
     calories: 200,
-    imageSrc: '../assets/images/duong-241230692/Protein Matcha.jpg',
+    image: '../assets/images/duong-241230692/Protein Matcha.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -779,7 +780,7 @@ const products = [
     id: 'Matcha Latte',
     name: 'Matcha Latte',
     calories: 220,
-    imageSrc: '../assets/images/duong-241230692/Matcha Latte.jpg',
+    image: '../assets/images/duong-241230692/Matcha Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -795,7 +796,7 @@ const products = [
     id: 'London Fog Latte',
     name: 'London Fog Latte',
     calories: 180,
-    imageSrc: '../assets/images/duong-241230692/London Fog Latte.jpg',
+    image: '../assets/images/duong-241230692/London Fog Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -811,7 +812,7 @@ const products = [
     id: 'Honey Citrus Mint Tea',
     name: 'Honey Citrus Mint Tea',
     calories: 130,
-    imageSrc: '../assets/images/duong-241230692/Honey Citrus Mint Tea.jpg',
+    image: '../assets/images/duong-241230692/Honey Citrus Mint Tea.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -827,7 +828,7 @@ const products = [
     id: 'Royal English Breakfast Tea',
     name: 'Royal English Breakfast Tea',
     calories: 0,
-    imageSrc: '../assets/images/duong-241230692/Royal English Breakfast Tea.jpg',
+    image: '../assets/images/duong-241230692/Royal English Breakfast Tea.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -843,7 +844,7 @@ const products = [
     id: 'Iced Chai Latte',
     name: 'Iced Chai Latte',
     calories: 240,
-    imageSrc: '../assets/images/duong-241230692/Iced Chai Latte.jpg',
+    image: '../assets/images/duong-241230692/Iced Chai Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -859,7 +860,7 @@ const products = [
     id: 'Iced Matcha Latte',
     name: 'Iced Matcha Latte',
     calories: 190,
-    imageSrc: '../assets/images/duong-241230692/Iced Matcha Latte.jpg',
+    image: '../assets/images/duong-241230692/Iced Matcha Latte.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -875,7 +876,7 @@ const products = [
     id: 'Iced Black Tea',
     name: 'Iced Black Tea',
     calories: 0,
-    imageSrc: '../assets/images/duong-241230692/Iced Black Tea.jpg',
+    image: '../assets/images/duong-241230692/Iced Black Tea.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -891,7 +892,7 @@ const products = [
     id: 'Iced Passion Tango® Tea',
     name: 'Iced Passion Tango® Tea',
     calories: 0,
-    imageSrc: '../assets/images/duong-241230692/Iced Passion Tango® Tea.jpg',
+    image: '../assets/images/duong-241230692/Iced Passion Tango® Tea.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -907,7 +908,7 @@ const products = [
     id: 'Matcha Crème Frappuccino® Blended Beverage',
     name: 'Matcha Crème Frappuccino® Blended Beverage',
     calories: 320,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Matcha Crème Frappuccino® Blended Beverage.jpg',
     customizers: {
       sizes: true,
@@ -924,7 +925,7 @@ const products = [
     id: 'Strawberry Açaí Lemonade Refresher',
     name: 'Strawberry Açaí Lemonade Refresher',
     calories: 140,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Strawberry Açaí Lemonade Refresher.jpg',
     customizers: {
       sizes: true,
@@ -941,7 +942,7 @@ const products = [
     id: 'Mango Dragonfruit Lemonade Refresher',
     name: 'Mango Dragonfruit Lemonade Refresher',
     calories: 140,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Mango Dragonfruit Lemonade Refresher.jpg',
     customizers: {
       sizes: true,
@@ -958,7 +959,7 @@ const products = [
     id: 'Pink Drink',
     name: 'Pink Drink',
     calories: 140,
-    imageSrc: '../assets/images/duong-241230692/Pink Drink.jpg',
+    image: '../assets/images/duong-241230692/Pink Drink.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -974,7 +975,7 @@ const products = [
     id: 'Dragon Drink®',
     name: 'Dragon Drink®',
     calories: 140,
-    imageSrc: '../assets/images/duong-241230692/Dragon Drink®.jpg',
+    image: '../assets/images/duong-241230692/Dragon Drink®.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -990,7 +991,7 @@ const products = [
     id: 'Caramel Ribbon Crunch Frappuccino® Blended Beverage',
     name: 'Caramel Ribbon Crunch Frappuccino® Blended Beverage',
     calories: 420,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Caramel Ribbon Crunch Frappuccino® Blended Beverage.jpg',
     customizers: {
       sizes: true,
@@ -1007,7 +1008,7 @@ const products = [
     id: 'Pumpkin Spice Frappuccino® Blended Beverage',
     name: 'Pumpkin Spice Frappuccino® Blended Beverage',
     calories: 420,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Pumpkin Spice Frappuccino® Blended Beverage.jpg',
     customizers: {
       sizes: true,
@@ -1024,7 +1025,7 @@ const products = [
     id: 'Brown Sugar Strato™ Frappuccino® Blended Beverage',
     name: 'Brown Sugar Strato™ Frappuccino® Blended Beverage',
     calories: 420,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Brown Sugar Strato™ Frappuccino® Blended Beverage.jpg',
     customizers: {
       sizes: true,
@@ -1041,7 +1042,7 @@ const products = [
     id: 'Strawberry Matcha Strato™ Frappuccino® Blended Beverage',
     name: 'Strawberry Matcha Strato™ Frappuccino® Blended Beverage',
     calories: 420,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Strawberry Matcha Strato™ Frappuccino® Blended Beverage.jpg',
     customizers: {
       sizes: true,
@@ -1058,7 +1059,7 @@ const products = [
     id: 'Hot Chocolate',
     name: 'Hot Chocolate',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Hot Chocolate.jpg',
+    image: '../assets/images/duong-241230692/Hot Chocolate.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -1074,7 +1075,7 @@ const products = [
     id: 'Ethos® Water',
     name: 'Ethos® Water',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/Ethos® Water.jpg',
+    image: '../assets/images/duong-241230692/Ethos® Water.jpg',
     customizers: {
       sizes: false,
       milk: false,
@@ -1090,7 +1091,7 @@ const products = [
     id: 'Spindrift® Lemon Sparkling Water',
     name: 'Spindrift® Lemon Sparkling Water',
     calories: 150,
-    imageSrc:
+    image:
       '../assets/images/duong-241230692/Spindrift® Lemon Sparkling Water.jpg',
     customizers: {
       sizes: false,
@@ -1107,7 +1108,7 @@ const products = [
     id: 'DASANI® Water',
     name: 'DASANI® Water',
     calories: 150,
-    imageSrc: '../assets/images/duong-241230692/DASANI® Water.jpg',
+    image: '../assets/images/duong-241230692/DASANI® Water.jpg',
     customizers: {
       sizes: false,
       milk: false,
@@ -1123,7 +1124,7 @@ const products = [
     id: 'cold-brew',
     name: 'Cold Brew Coffee',
     calories: 5,
-    imageSrc: '../assets/images/duong-241230692/Cold Brew.jpg',
+    image: '../assets/images/duong-241230692/Cold Brew.jpg',
     customizers: {
       sizes:false,
       milk: false,
@@ -1227,7 +1228,6 @@ let shots = 0;
 let flavors = 0;
 
 // --- BIẾN DOM (SẼ ĐƯỢC GÁN TRONG DOMCONTENTLOADED) ---
-// Chúng ta khai báo chúng ở đây để các hàm global có thể "thấy"
 let box1, box2, box3, box4, box5, box6, box7;
 let leg1, leg2, leg3, leg4, leg5, leg6, leg7;
 let select1, select2, select3, select4, select7;
@@ -1244,10 +1244,11 @@ function renderProduct(product) {
   container.innerHTML = ''; // Xóa nội dung cũ
 
   // 1. Render ảnh
-  if (product.imageSrc) {
+  // ⭐ SỬA 2: Đọc "product.image" thay vì "product.imageSrc"
+  if (product.image) {
     const img = createEl('img', {
       attrs: {
-        src: product.imageSrc,
+        src: product.image, // <-- SỬA Ở ĐÂY
         alt: product.name,
         width: '400px',
         height: '300px',
@@ -1289,8 +1290,8 @@ function renderCustomizer(customizers) {
       const wrapper = createEl('div', {
         cls: `size-option ${size}`,
         attrs: {
-          'data-selected-image': `../assets/images/duong-241230692/venti.png`,
-        }, // Giả sử bạn có ảnh _selected
+          'data-selected-image': `../assets/images/duong-241230692/${size}_selected.png`, 
+        }, 
       });
       const btn = createEl('button', { attrs: { onclick: 'changeImage(this)' } });
       btn.appendChild(
@@ -1310,14 +1311,12 @@ function renderCustomizer(customizers) {
 
     // Render khu vực giá
     const priceDiv = createEl('div', { cls: 'price' });
-    // Sửa “Price” -> “Giá”, “0.00” -> “0”, “$” -> “VND”
     priceDiv.innerHTML = `<p style="font-weight: bold;">Giá: <span style="font-size: 32px; font-weight: bold; color: red;" id="price">0</span> VND<p>`;
     left.appendChild(priceDiv);
   }
 
   // --- 2. Render Cột Phải (Dropdowns & Counters) ---
-
-  // Helper tạo Dropdown (select)
+  // (Giữ nguyên toàn bộ helper createDropdown và createCounter)
   const createDropdown = (id, legend, options) => {
     const fieldset = createEl('fieldset', { id: `box${id}` });
     fieldset.appendChild(
@@ -1325,22 +1324,19 @@ function renderCustomizer(customizers) {
     );
     const select = createEl('select', {
       id: `select${id}`,
-      // LỖI 5 (SỰ KIỆN): Sửa 'onclick' -> 'onchange'
       attrs: { name: `select${id}`, onchange: `changed${id}()` },
     });
 
     options.forEach((opt, index) => {
       const optionEl = createEl('option', { value: index, text: opt });
-      if (index === 1) optionEl.selected = true; // Mặc định chọn cái thứ 2
-      if (index === 0) optionEl.disabled = true; // Vô hiệu hóa cái đầu tiên
+      if (index === 1) optionEl.selected = true; 
+      if (index === 0) optionEl.disabled = true; 
       select.appendChild(optionEl);
     });
 
     fieldset.appendChild(select);
     return createEl('div', { cls: 'option', html: fieldset.outerHTML });
   };
-
-  // Helper tạo Counter (tăng/giảm)
   const createCounter = (id, legend, value, decFunc, incFunc) => {
     const fieldset = createEl('fieldset', { id: `box${id}` });
     fieldset.innerHTML = `
@@ -1387,9 +1383,8 @@ function renderCustomizer(customizers) {
     right.appendChild(createDropdown('7', 'Tùy chọn Espresso', espresso_select));
   }
 
-  // Nút Add/Reset (chỉ hiển thị nếu có CỘT PHẢI)
+  // Nút Add/Reset
   if (right.children.length > 1) {
-    // >1 vì đã có <h3>
     const buttonsDiv = createEl('div', { cls: 'cus-res' });
     buttonsDiv.innerHTML = `
         <button class="cus" onclick="add_order()">
@@ -1404,18 +1399,16 @@ function renderCustomizer(customizers) {
 
   // Gắn cột vào container chính
   if (left.children.length > 0) container.appendChild(left);
-  if (right.children.length > 1) container.appendChild(right); // >1 vì đã có <h3>
+  if (right.children.length > 1) container.appendChild(right);
 }
 
 /* ==============================================
-    4. CODE CƠ BẢN (ĐÃ SỬA ĐỂ CHẠY LẠI)
+    4. CODE CƠ BẢN (Giữ nguyên)
     ============================================== */
-
-// Các hàm của bạn giờ phải KIỂM TRA xem phần tử có tồn tại không
+// (Giữ nguyên các hàm updatePrice, changeImage, changed1-7)
 function updatePrice() {
   if (selectedSize != null && selectedImageIndex != null) {
     cost = sizes[selectedImageIndex];
-    // Chỉ cộng nếu select tồn tại
     if (select1) cost += type_milk[select1.selectedIndex];
     if (select2) cost += type_roast[select2.selectedIndex];
     if (select3) cost += type_hot[select3.selectedIndex];
@@ -1428,12 +1421,10 @@ function updatePrice() {
 
   const priceEl = document.getElementById('price');
   if (priceEl) {
-    // Phải kiểm tra xem #price có tồn tại không
     priceEl.textContent = Math.round(cost).toLocaleString('vi-VN');
   }
 }
 
-// Hàm này được gọi bằng onclick, nên nó phải ở global scope
 function changeImage(button) {
   const selectedOption = button.parentElement;
   const img = selectedOption.querySelector('img');
@@ -1460,7 +1451,6 @@ function changeImage(button) {
   updatePrice();
 }
 
-// Các hàm changedX phải kiểm tra null
 function changed1() {
   if (box1) box1.style.border = '3px solid green';
   if (leg1) leg1.style.color = 'green';
@@ -1468,7 +1458,7 @@ function changed1() {
 }
 function changed2() {
   if (box2) box2.style.border = '3px solid green';
-  if (leg2) leg2.style.color = 'green';
+  if (leg2) legL2.style.color = 'green';
   updatePrice();
 }
 function changed3() {
@@ -1487,28 +1477,50 @@ function changed7() {
   updatePrice();
 }
 
+
+// ===========================================
+// === HÀM add_order() (ĐÃ SỬA) ===
+// ===========================================
 function add_order() {
   if (selectedSize == null) {
     alert('Bạn chưa chọn Size!');
-  } else {
-    // Xây dựng thông báo một cách an toàn
-    let message = `Bạn đã thêm sản phẩm thành công! \nKích thước: ${map[selectedSize.toLowerCase()]}`;
-    if (select1) message += `, Sữa: ${milk_select[select1.selectedIndex]}`;
-    if (select2) message += `\nBọt: ${roast_select[select2.selectedIndex]}`;
-    if (select3) message += `, Nhiệt độ: ${hot_select[select3.selectedIndex]}`;
-    if (select4) message += `\nToppings: ${topping_select[select4.selectedIndex]}`;
-    if (document.getElementById('flavors-value'))
-      message += `, Flavors: ${flavors}`;
-    if (document.getElementById('shots-value')) message += `, Shots: ${shots}`;
-    if (select7)
-      message += `\nEspresso: ${espresso_select[select7.selectedIndex]}`;
-    // LỖI 8 (HIỂN THỊ): Sửa định dạng giá cho nhất quán
-    message += `\nGiá: ${Math.round(cost).toLocaleString('vi-VN')} VND`;
-
-    alert(message);
+    return; // Dừng hàm nếu chưa chọn size
   }
+
+  // 1. Lấy thông tin sản phẩm cơ bản
+  const product = pickProduct(); 
+
+  // 2. Xây dựng mô tả chi tiết
+  let description = `Size: ${map[selectedSize.toLowerCase()]}`;
+  if (select1) description += `, Sữa: ${milk_select[select1.selectedIndex]}`;
+  if (select2) description += `, Bọt: ${roast_select[select2.selectedIndex]}`;
+  if (select3) description += `, Nhiệt độ: ${hot_select[select3.selectedIndex]}`;
+  if (select4) description += `, Toppings: ${topping_select[select4.selectedIndex]}`;
+  if (document.getElementById('flavors-value')) description += `, Flavors: ${flavors}`;
+  if (document.getElementById('shots-value')) description += `, Shots: ${shots}`;
+  if (select7) description += `, Espresso: ${espresso_select[select7.selectedIndex]}`;
+
+  // 3. Tạo đối tượng sản phẩm cho giỏ hàng
+  // ⭐ SỬA 2: Đổi "product.imageSrc" thành "product.image"
+  const cartItem = {
+    lineItemId: `drink-${product.id}-${Date.now()}`, 
+    productId: product.id,             
+    name: product.name,
+    price: Math.round(cost),
+    quantity: 1, 
+    description: description,
+    image: product.image // <-- SỬA Ở ĐÂY
+  };
+  
+  // 4. Thêm vào giỏ hàng (sử dụng logic chung từ cart-logic.js)
+  Cart.addItem(cartItem);
+
+  // 5. Thông báo và cập nhật
+  alert('Đã thêm sản phẩm vào giỏ hàng!');
+  Cart.updateCartCount(); // Yêu cầu header cập nhật lại số lượng
 }
 
+// (Giữ nguyên các hàm reset_val, increase/decrease)
 function reset_val() {
   // Reset selects
   if (select1) select1.selectedIndex = 1;
@@ -1530,11 +1542,11 @@ function reset_val() {
   // Reset counters
   const shotsVal = document.getElementById('shots-value');
   const flavorsVal = document.getElementById('flavors-value');
-  // LỖI 7 (LOGIC): Đặt lại về 0 cho nhất quán với giá trị khởi tạo
   if (shotsVal) shotsVal.textContent = 0;
   if (flavorsVal) flavorsVal.textContent = 0;
   shots = 0;
   flavors = 0;
+  
   const sizeOptions = document.querySelectorAll('.size-option');
   if (sizeOptions.length > 0) {
     sizeOptions.forEach((option) => {
@@ -1549,7 +1561,6 @@ function reset_val() {
   updatePrice();
 }
 
-// Các hàm tăng/giảm phải kiểm tra null
 function increaseFlavors() {
   flavors++;
   const el = document.getElementById('flavors-value');
@@ -1559,7 +1570,7 @@ function increaseFlavors() {
   updatePrice();
 }
 function decreaseFlavors() {
-  if (flavors > 0) { // Sửa thành > 0 để có thể reset về 0
+  if (flavors > 0) { 
     flavors--;
     const el = document.getElementById('flavors-value');
     if (el) el.textContent = flavors;
@@ -1577,7 +1588,7 @@ function increaseShots() {
   updatePrice();
 }
 function decreaseShots() {
-  if (shots > 0) { // Sửa thành > 0 để có thể reset về 0
+  if (shots > 0) { 
     shots--;
     const el = document.getElementById('shots-value');
     if (el) el.textContent = shots;
@@ -1587,11 +1598,11 @@ function decreaseShots() {
   }
 }
 
-/* ==============================================
-    5. KHỞI TẠO TRANG (GOM TẤT CẢ LẠI)
-    ============================================== */
 
-// LỖI 6 (LOGIC): Toàn bộ code khởi tạo và gán sự kiện phải nằm TRONG 'DOMContentLoaded'
+/* ==============================================
+    5. KHỞI TẠO TRANG (Giữ nguyên)
+    ============================================== */
+// (Giữ nguyên toàn bộ code DOMContentLoaded)
 document.addEventListener('DOMContentLoaded', () => {
   // --- 1. LẤY VÀ RENDER DỮ LIỆU SẢN PHẨM ---
   const product = pickProduct();
@@ -1599,7 +1610,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCustomizer(product.customizers); // Truyền vào các tùy chọn
 
   // --- 2. GÁN CÁC BIẾN DOM CƠ BẢN (QUAN TRỌNG) ---
-  // Bây giờ các phần tử đã tồn tại, ta mới gán biến
   box1 = document.getElementById('box1');
   box2 = document.getElementById('box2');
   box3 = document.getElementById('box3');
@@ -1631,7 +1641,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('overlay');
   const drawer = overlay?.querySelector('.drawer');
 
-  // Hàm lấy các phần tử có thể focus bên trong drawer
   const getFocusable = () => {
     return drawer
       ? Array.from(
@@ -1642,7 +1651,6 @@ document.addEventListener('DOMContentLoaded', () => {
       : [];
   };
 
-  // Hàm mở menu
   function openMenu() {
     if (!overlay) return;
     overlay.classList.add('open');
@@ -1653,36 +1661,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (focusables.length > 0) focusables[0].focus();
   }
 
-  // Hàm đóng menu
   function closeMenu() {
     if (!overlay) return;
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden', 'true');
     burger?.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('lock');
+    document.body.classList.remove('lock'); // Sửa lại: remove 'lock' khi đóng
     burger?.focus();
   }
 
-  // Hàm bật/tắt menu
   function toggleMenu() {
     const isOpen = overlay?.classList.contains('open') ?? false;
     isOpen ? closeMenu() : openMenu();
   }
 
-  // Lắng nghe sự kiện click vào burger để mở/đóng menu
   burger?.addEventListener('click', toggleMenu);
-
-  // Đóng menu khi click ra ngoài overlay
   overlay?.addEventListener('click', (e) => {
     if (e.target === overlay) closeMenu();
   });
-
-  // Đóng menu khi nhấn phím Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay?.classList.contains('open')) closeMenu();
   });
-
-  // Giữ focus trong menu khi tab
   document.addEventListener('keydown', (e) => {
     if (!overlay?.classList.contains('open') || e.key !== 'Tab') return;
     const focusables = getFocusable();
@@ -1698,7 +1697,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Xử lý khi màn hình đủ lớn (tự đóng menu)
   const mql = window.matchMedia('(min-width: 960px)');
   const handleMediaQueryChange = (e) => {
     if (e.matches && overlay?.classList.contains('open')) closeMenu();
