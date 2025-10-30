@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cà phê - Khám phá thực đơn, tham gia chương trình thưởng và tìm cửa hàng gần bạn.">
+    <meta name="description" content="Cà phê - Khám phá menu, tham gia phần thưởng và tìm cửa hàng gần bạn.">
     <title>Coffee Since 2025</title>
-    <link rel="icon" href="../assets\images\DoVanTien_24130858\logo.png" type="image/png">
+    <link rel="icon" href="../assets/images/DoVanTien_24130858/logo.png" type="image/png">
     <link rel="stylesheet" href="../styles/style-menu-product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Thanh điều hướng -->
     <header class="navbar">
         <div class="navbar__logo">
-            <a href="..\index.html" aria-label="Coffee Since 2025 Home">
-                <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo">
+            <a href="../index.html" aria-label="Coffee Since 2025 Home">
+                <img src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo">
             </a>
         </div>
         <nav class="navbar__menu" aria-label="Điều hướng chính">
             <a href="menu.html">Thực đơn</a>
             <a href="#">Đơn hàng</a>
         </nav>
-        <div class="navbar__actions">
+        
+        <div class="navbar__actions auth-section">
             <a href="login.html">
                 <button class="btn btn--white">Đăng nhập</button>
             </a>
@@ -29,18 +29,22 @@
                 <button class="btn btn--black">Đăng kí</button>
             </a>
         </div>
-        <button id="burger" aria-label="Mở hoặc đóng menu" aria-expanded="false" aria-controls="overlay">
+        
+        <button id="burger" aria-label="Bật/tắt menu" aria-expanded="false" aria-controls="overlay">
             <span></span>
         </button>
         <div class="menu-overlay" id="overlay" aria-hidden="true">
             <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
                 <h2 id="menu-title" class="sr-only">Menu di động</h2>
-                <img class="logo" src="../assets/images/duong-241230692/logo.jpg" alt="Logo Coffee Since 2025" width="50" height="50">
+                
+                <img class="logo" src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo Coffee Since 2025" width="50" height="50">
+                
                 <nav class="menu-links" aria-label="Điều hướng di động">
                     <a href="menu.html">Thực đơn</a>
                     <a href="#">Đơn hàng</a>
                 </nav>
-                <div class="actions-overlay">
+                
+                <div class="actions-overlay auth-section">
                     <a href="login.html"><button class="btn white">Đăng nhập</button></a>
                     <a href="register.html"><button class="btn black">Đăng kí</button></a>
                 </div>
@@ -48,7 +52,6 @@
         </div>
     </header>
 
-    <!-- Thanh phụ -->
     <div class="sub-header">
         <ul class="sub-nav-list">
             <li><a href="menu.html" class="sub-nav-item active">Thực đơn</a></li>
@@ -56,7 +59,6 @@
         </ul>
     </div>
     
-    <!-- Phần chính -->
     <main class="main">
         <section class="menu-section">
             <div class="menu-left">
@@ -112,7 +114,6 @@
         </section>
     </main>
 
-    <!-- Chân trang -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__column">
@@ -187,10 +188,12 @@
             <a href="pages/legal/cookies.html">Tùy chọn cookie</a>
         </div>
         <p class="footer__copyright">
-            &copy; 2025 Công ty Cà phê Coffee Since 2025. Mọi quyền được bảo lưu.
+            © 2025 Công ty Cà phê Coffee Since 2025. Mọi quyền được bảo lưu.
         </p>
     </footer>
 
     <script src="../js/js-menu-product.js"></script>
+    
+    <script src="../js/main.js"></script>
 </body>
 </html>

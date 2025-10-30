@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cà phê - Khám phá thực đơn, tham gia phần thưởng và tìm cửa hàng gần bạn.">
     <title>Bữa trưa</title>
-    <link rel="icon" href="../assets\images\DoVanTien_24130858\logo.png" type="image/png">
+    <link rel="icon" href="../assets/images/DoVanTien_24130858/logo.png" type="image/png">
     <link rel="stylesheet" href="../styles/food.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Thanh điều hướng -->
     <header class="navbar">
         <div class="navbar__logo">
-            <a href="..\index.html" aria-label="Coffee Since 2025 Home">
-                <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo">
+            <a href="../index.html" aria-label="Coffee Since 2025 Home">
+                <img src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo">
             </a>
         </div>
         <nav class="navbar__menu" aria-label="Điều hướng chính">
             <a href="menu.html">Thực đơn</a>
             <a href="#">Đơn hàng</a>
         </nav>
-        <div class="navbar__actions">
+        
+        <div class="navbar__actions auth-section">
             <a href="login.html">
                 <button class="btn btn--white">Đăng nhập</button>
             </a>
@@ -29,18 +29,22 @@
                 <button class="btn btn--black">Đăng kí</button>
             </a>
         </div>
+        
         <button id="burger" aria-label="Bật/tắt menu" aria-expanded="false" aria-controls="overlay">
             <span></span>
         </button>
         <div class="menu-overlay" id="overlay" aria-hidden="true">
             <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
                 <h2 id="menu-title" class="sr-only">Menu di động</h2>
-                <img class="logo" src="../assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Logo Coffee Since 2025" width="80" height="80">
+                
+                <img class="logo" src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo Coffee Since 2025" width="80" height="80">
+                
                 <nav class="menu-links" aria-label="Điều hướng di động">
                     <a href="menu.html">Thực đơn</a>
                     <a href="#">Đơn hàng</a>
                 </nav>
-                <div class="actions-overlay">
+                
+                <div class="actions-overlay auth-section">
                     <i class="fa-solid fa-location-dot"></i>
                     <a href="login.html"><button class="btn white">Đăng nhập</button></a>
                     <a href="register.html"><button class="btn black">Đăng kí</button></a>
@@ -49,7 +53,6 @@
         </div>
     </header>
 
-    <!-- Thanh điều hướng phụ -->
     <div class="sub-header">
         <ul class="sub-nav-list">
             <li><a href="menu.html" class="sub-nav-item active">Thực đơn</a></li>
@@ -57,7 +60,6 @@
         </ul>
     </div>
     
-    <!-- Nội dung chính -->
     <main class="main">
         <section class="menu-section">
             <div class="menu-left">
@@ -101,19 +103,19 @@
                 <div class="category food">
                     <h3>Bánh sandwich bữa trưa</h3>
                     <div class="items-grid">
-                        <a href="product_food.html?id=Crispy_Grilled_Cheese_on_Sourdough" class="item-link">      
+                        <a href="product_food.html?id=Crispy_Grilled_Cheese_on_Sourdough" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/crisp_grilled_cheese_on_sourdough.jpg" alt="Phô mai nướng giòn trên bánh Sourdough">
                                 <p>Phô mai nướng giòn trên bánh Sourdough</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Ham_Swiss_on_Baguette" class="item-link">      
+                        <a href="product_food.html?id=Ham_Swiss_on_Baguette" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/HamSwissOnBaguette.jpg" alt="Bánh mì baguette với giăm bông & phô mai Thụy Sĩ">
                                 <p>Bánh mì baguette với giăm bông & phô mai Thụy Sĩ</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Tomato_Mozzarella_on_Focaccia" class="item-link">      
+                        <a href="product_food.html?id=Tomato_Mozzarella_on_Focaccia" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/tomato_mozzarella_on_focaccia.jpg" alt="Cà chua & Mozzarella trên bánh Focaccia">
                                 <p>Cà chua & Mozzarella trên bánh Focaccia</p>
@@ -130,14 +132,14 @@
                 <div class="category food">
                     <h3>Bánh kẹp (Pockets)</h3>
                     <div class="items-grid">
-                        <a href="product_food.html?id=Spicy_Falafel_Pocket" class="item-link">      
+                        <a href="product_food.html?id=Spicy_Falafel_Pocket" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/spicy_falafel_pocket.jpg" alt="Bánh kẹp Falafel cay">
                                 <p>Bánh kẹp Falafel cay</p>
                             </div>
                         </a>
                         <a href="product_food.html?id=Jalapeno_Chicken_Pocket" class="item-link">
-                            <div class="item">      
+                            <div class="item">     
                                 <img src="../assets/images/MaiThiYenNhi_241230810/jalapeno_chicken_pocket.jpg" alt="Bánh kẹp gà Jalapeño">
                                 <p>Bánh kẹp gà Jalapeño</p>
                             </div>
@@ -153,13 +155,13 @@
                 <div class="category food">
                     <h3>Hộp protein</h3>
                     <div class="items-grid">
-                        <a href="product_food.html?id=Cheese_Trio_Protein_Box" class="item-link">      
+                        <a href="product_food.html?id=Cheese_Trio_Protein_Box" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/cheese_trio_protein_box.jpg" alt="Hộp protein ba loại phô mai">
                                 <p>Hộp protein ba loại phô mai</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Cheese_Fruit_Protein_Box" class="item-link">      
+                        <a href="product_food.html?id=Cheese_Fruit_Protein_Box" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/Cheese-Fruit_Protein_Box.jpg" alt="Hộp protein phô mai & trái cây">
                                 <p>Hộp protein phô mai & trái cây</p>
@@ -171,7 +173,6 @@
         </section>
     </main>
 
-    <!-- Chân trang -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__column">
@@ -187,7 +188,7 @@
             <div class="footer__column">
                 <h3>Nghề nghiệp</h3>
                 <a href="pages/careers/culture.html">Văn hóa và giá trị</a>
-                <a href="pages/careers/belonging.html">Cảm giác thuộc về Coffee Since 2025</a>
+                <a href="pagesfs/careers/belonging.html">Cảm giác thuộc về Coffee Since 2025</a>
                 <a href="pages/careers/college-plan.html">Chương trình học đại học</a>
                 <a href="pages/careers/alumni.html">Cộng đồng cựu nhân viên</a>
                 <a href="pages/careers/us.html">Cơ hội nghề nghiệp tại Mỹ</a>
@@ -246,10 +247,12 @@
             <a href="pages/legal/cookies.html">Tùy chọn cookie</a>
         </div>
         <p class="footer__copyright">
-            &copy; 2025 Công ty Cà phê Coffee Since 2025. Bảo lưu mọi quyền.
+            © 2025 Công ty Cà phê Coffee Since 2025. Bảo lưu mọi quyền.
         </p>
     </footer>
 
     <script src="../js/product_food.js"></script>
+    
+    <script src="../js/main.js"></script>
 </body>
 </html>

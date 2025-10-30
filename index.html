@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
     <header class="navbar">
         <div class="navbar__logo">
             <a href="index.html" aria-label="Coffee Since 2025 Home">
@@ -28,7 +27,8 @@
             <a href="pages/menu.html">Thực đơn</a>
             <a href="#">Đơn hàng</a>
         </nav>
-        <div class="navbar__actions">
+        
+        <div class="navbar__actions auth-section">
             <a href="pages/login.html">
                 <button class="btn btn--white">Đăng nhập</button>
             </a>
@@ -36,6 +36,7 @@
                 <button class="btn btn--black">Đăng kí</button>
             </a>
         </div>
+        
         <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay">
             <span></span>
         </button>
@@ -47,7 +48,8 @@
                     <a href="pages/menu.html">Thực đơn</a>
                     <a href="#">Đơn hàng</a>
                 </nav>
-                <div class="actions-overlay">
+                
+                <div class="actions-overlay auth-section">
                     <a href="pages/login.html"><button class="btn white">Đăng nhập</button></a>
                     <a href="pages/join.html"><button class="btn black">Đăng kí</button></a>
                 </div>
@@ -66,22 +68,19 @@
             <div class="input">
                 <input type="text" placeholder="Vui lòng nhập địa chỉ">
             </div>
-            <button class="close-delivery">&times;</button> <!-- Nút đóng -->
-            <button class="confirm">Xác nhận</button>
+            <button class="close-delivery">×</button> <button class="confirm">Xác nhận</button>
         </div>
     </div>
 
-    <!-- Sub-Navbar -->
     <section class="sub-nav">
         <p>Bắt đầu nhanh (Fast Order)</p>
     </section>
 
     <div id="fast-order-overlay" class="fast-order-overlay">
         <div class="fast_order">
-            <button class="close_fast_order">&times;</button>
+            <button class="close_fast_order">×</button>
             <h2><i class="fas fa-shopping-cart"></i> Fast Order</h2>
 
-            <!-- Danh sách sản phẩm -->
             <div class="product-list">
                 <div class="product-item espresso-item">
                     <h3>Espresso</h3>
@@ -115,35 +114,35 @@
                     <p>Espresso vị nguyên bản</p>
                     <div class="info_item">
                         <p id="espresso-value"></p>
-                        <button class="reset_order" onclick="decrease_espresso()">&#9472;</button>
+                        <button class="reset_order" onclick="decrease_espresso()">─</button>
                     </div>
                 </div>
                 <div class="ordered-item" id="latte">
                     <p>Latte vị nguyên bản</p>
                     <div class="info_item">
                         <p id="latte-value"></p>
-                        <button class="reset_order" onclick="decrease_latte()">&#9472;</button>
+                        <button class="reset_order" onclick="decrease_latte()">─</button>
                     </div>
                 </div>
                 <div class="ordered-item" id="cappuccino">
                     <p>Cappuccino vị nguyên bản</p>
                     <div class="info_item">
                         <p id="cappuccino-value"></p>
-                        <button class="reset_order" onclick="decrease_cappuccino()">&#9472;</button>
+                        <button class="reset_order" onclick="decrease_cappuccino()">─</button>
                     </div>
                 </div>
                 <div class="ordered-item" id="mocha">
                     <p>Mocha vị nguyên bản</p>
                     <div class="info_item">
                         <p id="mocha-value"></p>
-                        <button class="reset_order" onclick="decrease_mocha()">&#9472;</button>
+                        <button class="reset_order" onclick="decrease_mocha()">─</button>
                     </div>
                 </div>
                 <div class="ordered-item" id="americano">
                     <p>Americano vị nguyên bản</p>
                     <div class="info_item">
                         <p id="americano-value"></p>
-                        <button class="reset_order" onclick="decrease_americano()">&#9472;</button>
+                        <button class="reset_order" onclick="decrease_americano()">─</button>
                     </div>
                 </div>
                 <b class="cost"><span id="price_ordered">0</span> đồng</b>
@@ -153,17 +152,15 @@
         </div>
     </div>
 
-    <!-- Popup QR -->
     <div id="qr-overlay" class="qr-overlay">
         <div class="show_QR">
-            <button class="close_qr">&times;</button>
+            <button class="close_qr">×</button>
             <p style="font-weight: bold; font-size: 18px;">SỐ TIỀN BẠN CẦN THANH TOÁN LÀ <span id="price" style="font-weight: bold; color: red;"></span> ĐỒNG</p>
             <p>QR thanh toán tồn tại trong: <span id="time"></span> giây</p>
             <img src="assets/images/DoVanTien_24130858/home/qr.jpg" alt="qr">
         </div>
     </div>
 
-    <!-- Carousel -->
     <section class="carousel-container" aria-label="Promotional carousel">
         <div class="carousel">
             <div class="carousel__item active">
@@ -198,7 +195,6 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <main class="main">
         <section class="main__hero main__hero--1">
             <div class="main__hero-image">
@@ -286,12 +282,11 @@
             <p>
                 **Miễn phí nạp lại cà phê và trà nóng và đá trong cùng một lần ghé thăm cửa hàng.
                 Không bao gồm Cold Brew, Nitro Cold Brew, Iced Tea Lemonade, và các loại trà đá có hương vị và
-                Coffee Since 2025 Refreshers&reg; cơ bản. Tại các cửa hàng tham gia chương trình.
+                Coffee Since 2025 Refreshers® cơ bản. Tại các cửa hàng tham gia chương trình.
             </p>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__column">
@@ -366,10 +361,12 @@
             <a href="pages/legal/cookies.html">Tùy chọn Cookie</a>
         </div>
         <p class="footer__copyright">
-            &copy; 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.
+            © 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.
         </p>
     </footer>
 
     <script src="js/home.js"></script>
+    
+    <script src="js/main.js"></script>
 </body>
 </html>

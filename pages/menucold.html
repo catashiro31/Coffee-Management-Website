@@ -5,23 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cà phê - Khám phá thực đơn, tham gia chương trình thưởng và tìm cửa hàng gần bạn.">
     <title>Coffee Since 2025 Việt Nam</title>
-    <link rel="icon" href="../assets\images\DoVanTien_24130858\logo.png" type="image/png">
-    <link rel="stylesheet" href="../styles/style-menu-product.css">
+    <link rel="icon" href="../assets/images/DoVanTien_24130858/logo.png" type="image/png"> <link rel="stylesheet" href="../styles/style-menu-product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Thanh điều hướng -->
     <header class="navbar">
         <div class="navbar__logo">
-            <a href="..\index.html" aria-label="Coffee Since 2025 Home">
-                <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo">
+            <a href="../index.html" aria-label="Coffee Since 2025 Home">
+                <img src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo">
             </a>
         </div>
         <nav class="navbar__menu" aria-label="Điều hướng chính">
             <a href="menu.html">Thực đơn</a>
             <a href="#">Đơn hàng</a>
         </nav>
-        <div class="navbar__actions">
+        
+        <div class="navbar__actions auth-section">
             <a href="login.html">
                 <button class="btn btn--white">Đăng nhập</button>
             </a>
@@ -29,18 +28,22 @@
                 <button class="btn btn--black">Đăng kí</button>
             </a>
         </div>
+        
         <button id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="overlay">
             <span></span>
         </button>
         <div class="menu-overlay" id="overlay" aria-hidden="true">
             <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
                 <h2 id="menu-title" class="sr-only">Menu di động</h2>
-                <img class="logo" src="../assets/images/duong-241230692/logo.jpg" alt="Logo Coffee Since 2025" width="50" height="50">
+                
+                <img class="logo" src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo Coffee Since 2025" width="50" height="50">
+                
                 <nav class="menu-links" aria-label="Điều hướng di động">
                     <a href="menu.html">Thực đơn</a>
                     <a href="#">Đơn hàng</a>
                 </nav>
-                <div class="actions-overlay">
+                
+                <div class="actions-overlay auth-section">
                     <a href="login.html"><button class="btn white">Đăng nhập</button></a>
                     <a href="register.html"><button class="btn black">Đăng kí</button></a>
                 </div>
@@ -48,7 +51,6 @@
         </div>
     </header>
 
-    <!-- Thanh phụ -->
     <div class="sub-header">
         <ul class="sub-nav-list">
             <li><a href="menu.html" class="sub-nav-item active">Thực đơn</a></li>
@@ -56,7 +58,6 @@
         </ul>
     </div>
     
-    <!-- Nội dung chính -->
     <main class="main">
         <section class="menu-section">
             <div class="menu-left">
@@ -174,13 +175,12 @@
         </section>
     </main>
 
-    <!-- Chân trang -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__column">
                 <h3>Về chúng tôi</h3>
                 <a href="pages/about/company.html">Công ty của chúng tôi</a>
-                <a href="pages/about/coffee.html">Cà phê của chúng tôi</a>
+                <a href="pages/about/coffee.html">Cà phê của chúngG tôi</a>
                 <a href="pages/about/Coffee Since 2025.html">Giới thiệu Coffee Since 2025</a>
                 <a href="pages/about/archive.html">Lưu trữ Coffee Since 2025</a>
                 <a href="pages/about/investors.html">Quan hệ nhà đầu tư</a>
@@ -190,7 +190,7 @@
             <div class="footer__column">
                 <h3>Tuyển dụng</h3>
                 <a href="pages/careers/culture.html">Văn hóa và giá trị</a>
-                <a href="pages/careers/belonging.html">Cảm giác thuộc về Coffee Since 2025</a>
+                <a href="pagesa/careers/belonging.html">Cảm giác thuộc về Coffee Since 2025</a>
                 <a href="pages/careers/college-plan.html">Chương trình học đại học</a>
                 <a href="pages/careers/alumni.html">Cộng đồng cựu nhân viên</a>
                 <a href="pages/careers/us.html">Tuyển dụng tại Mỹ</a>
@@ -207,7 +207,7 @@
                 <h3>Dành cho đối tác kinh doanh</h3>
                 <a href="pages/business/landlord.html">Trung tâm hỗ trợ chủ mặt bằng</a>
                 <a href="pages/business/suppliers.html">Nhà cung cấp</a>
-                <a href="pages/business/gift-cards.html">Bán thẻ quà tặng doanh nghiệp</a>
+                <a href="pagesa/business/gift-cards.html">Bán thẻ quà tặng doanh nghiệp</a>
                 <a href="pages/business/foodservice.html">Dịch vụ cà phê văn phòng & ẩm thực</a>
             </div>
             <div class="footer__column">
@@ -252,10 +252,12 @@
         </div>
 
         <p class="footer__copyright">
-            &copy; 2025 Công ty Cà phê Coffee Since 2025. Bảo lưu mọi quyền.
+            © 2025 Công ty Cà phê Coffee Since 2025. Bảo lưu mọi quyền.
         </p>
     </footer>
 
     <script src="../js/js-menu-product.js"></script>
+    
+    <script src="../js/main.js"></script>
 </body>
 </html>

@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cà phê - Khám phá thực đơn, tham gia chương trình thưởng và tìm cửa hàng gần bạn.">
     <title>Tiệm bánh</title>
-    <link rel="icon" href="../assets\images\DoVanTien_24130858\logo.png" type="image/png">
+    <link rel="icon" href="../assets/images/DoVanTien_24130858/logo.png" type="image/png">
     <link rel="stylesheet" href="../styles/food.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
     <header class="navbar">
         <div class="navbar__logo">
-            <a href="..\index.html" aria-label="Coffee Since 2025 Home">
-                <img src="..\assets\images\DoVanTien_24130858\logo.png" alt="Logo">
+            <a href="../index.html" aria-label="Coffee Since 2025 Home">
+                <img src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo">
             </a>
         </div>
         <nav class="navbar__menu" aria-label="Điều hướng chính">
             <a href="menu.html">Thực đơn</a>
             <a href="#">Đơn hàng</a>
         </nav>
-        <div class="navbar__actions">
+        
+        <div class="navbar__actions auth-section">
             <a href="login.html">
                 <button class="btn btn--white">Đăng nhập</button>
             </a>
@@ -29,27 +29,33 @@
                 <button class="btn btn--black">Đăng kí</button>
             </a>
         </div>
+        
         <button id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="overlay">
             <span></span>
         </button>
         <div class="menu-overlay" id="overlay" aria-hidden="true">
             <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
                 <h2 id="menu-title" class="sr-only">Menu Di động</h2>
-                <img class="logo" src="../assets/images/MaiThiYenNhi_241230810/logo.jpg" alt="Logo Coffee Since 2025" width="80" height="80">
+                
+                <img class="logo" src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo Coffee Since 2025" width="80" height="80">
+                
                 <nav class="menu-links" aria-label="Điều hướng di động">
                     <a href="menu.html">Thực đơn</a>
                     <a href="#">Đơn hàng</a>
                 </nav>
-                <div class="actions-overlay">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <a href="login.html"><button class="btn white">Đăng nhập</button></a>
-                    <a href="register.html"><button class="btn black">Đăng kí</button></a>
+                
+                <div class="navbar__actions auth-section">
+                    <a href="login.html">
+                        <button class="btn btn--white">Đăng nhập</button>
+                    </a>
+                    <a href="register.html">
+                        <button class="btn btn--black">Đăng kí</button>
+                    </a>
                 </div>
             </aside>
         </div>
     </header>
 
-    <!-- Sub-nav -->
     <div class="sub-header">
         <ul class="sub-nav-list">
             <li><a href="menu.html" class="sub-nav-item active">Thực đơn</a></li>
@@ -57,7 +63,6 @@
         </ul>
     </div>
     
-    <!-- Main -->
     <main class="main">
         <section class="menu-section">
             <div class="menu-left">
@@ -99,7 +104,7 @@
                     <p><a href="menu.html">Thực đơn </a><b>/ Tiệm bánh</b></p>
                 </nav>
                 <h2>Tiệm bánh</h2>
-                <div class="category drinks">       
+                <div class="category drinks">     
                     <h3>Bánh sừng bò & Bánh Đan Mạch</h3>
                     <div class="items-grid">
                         <a href="product_food.html?id=baked-apple-croissant" class="item-link">
@@ -108,19 +113,19 @@
                                 <p>Bánh sừng bò táo nướng</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Ham_Swiss_Croissant" class="item-link">      
+                        <a href="product_food.html?id=Ham_Swiss_Croissant" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/ham_swiss_croissant.jpg" alt="Bánh sừng bò thịt nguội & phô mai Thụy Sĩ">
                                 <p>Bánh sừng bò thịt nguội & phô mai Thụy Sĩ</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Butter_Croissant" class="item-link">      
+                        <a href="product_food.html?id=Butter_Croissant" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/butter_croissant.jpg" alt="Bánh sừng bò bơ">
                                 <p>Bánh sừng bò bơ</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Chocolate_Croissant" class="item-link">      
+                        <a href="product_food.html?id=Chocolate_Croissant" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/Chocolate_Croissant.jpg" alt="Bánh sừng bò sô-cô-la">
                                 <p>Bánh sừng bò sô-cô-la</p>
@@ -129,33 +134,33 @@
                     </div>
                 </div>
                 <div class="category food">
-                    <h3>Bánh mì, Muffin & Bánh ngọt</h3>       
+                    <h3>Bánh mì, Muffin & Bánh ngọt</h3>     
                     <div class="items-grid">
-                        <a href="product_food.html?id=Pumpkin_Cream_Cheese_Muffin" class="item-link">      
+                        <a href="product_food.html?id=Pumpkin_Cream_Cheese_Muffin" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/pumpkin_cream_cheese_muffin.jpg" alt="Bánh muffin bí đỏ kem phô mai">
                                 <p>Bánh muffin bí đỏ kem phô mai</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Blueberry_Streusel_Muffin" class="item-link">      
+                        <a href="product_food.html?id=Blueberry_Streusel_Muffin" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/blueberry_streusel_muffin.jpg" alt="Bánh muffin việt quất">
                                 <p>Bánh muffin việt quất</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Petite_Vanilla_Bean_Scone" class="item-link">      
+                        <a href="product_food.html?id=Petite_Vanilla_Bean_Scone" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/petite_vanilla_bean_scone.jpg" alt="Bánh scone đậu vani nhỏ">
                                 <p>Bánh scone đậu vani nhỏ</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Pumpkin_Pepita_Loaf" class="item-link">      
+                        <a href="product_food.html?id=Pumpkin_Pepita_Loaf" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/pumpkin_pepita_loaf.jpg" alt="Bánh bí đỏ hạt bí ngô">
                                 <p>Bánh bí đỏ hạt bí ngô</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Banana_Walnut_Pecan_Loaf" class="item-link">      
+                        <a href="product_food.html?id=Banana_Walnut_Pecan_Loaf" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/banana_walnut_pecan_loaf.jpg" alt="Bánh chuối hạt óc chó & hồ đào">
                                 <p>Bánh chuối hạt óc chó & hồ đào</p>
@@ -166,13 +171,13 @@
                 <div class="category food">
                     <h3>Bánh vòng</h3>
                     <div class="items-grid">
-                        <a href="product_food.html?id=Plain_Bagel" class="item-link">      
+                        <a href="product_food.html?id=Plain_Bagel" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/plain_bagel.jpg" alt="Bánh vòng truyền thống">
                                 <p>Bánh vòng truyền thống</p>
                             </div>
                         </a>
-                        <a href="product_food.html?id=Everything_Bagel" class="item-link">      
+                        <a href="product_food.html?id=Everything_Bagel" class="item-link">     
                             <div class="item">
                                 <img src="../assets/images/MaiThiYenNhi_241230810/Everything_Bagel.jpg" alt="Bánh vòng thập cẩm">
                                 <p>Bánh vòng thập cẩm</p>
@@ -190,7 +195,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__column">
@@ -265,10 +269,11 @@
             <a href="pages/legal/cookies.html">Tùy chọn Cookie</a>
         </div>
         <p class="footer__copyright">
-            &copy; 2025 Công ty Cà phê Coffee Since 2025. Mọi quyền được bảo lưu.
+            © 2025 Công ty Cà phê Coffee Since 2025. Mọi quyền được bảo lưu.
         </p>
     </footer>
 
     <script src="../js/product_food.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
