@@ -1109,7 +1109,7 @@ const products = [
     calories: 5,
     imageSrc: '../assets/images/duong-241230692/Cold Brew.jpg',
     customizers: {
-      sizes:false,
+      sizes: false,
       milk: false,
       roast: false,
       hot: false,
@@ -1613,10 +1613,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const getFocusable = () => {
     return drawer
       ? Array.from(
-          drawer.querySelectorAll(
-            'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
-          )
+        drawer.querySelectorAll(
+          'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
         )
+      )
       : [];
   };
 
