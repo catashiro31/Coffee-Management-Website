@@ -188,7 +188,7 @@ const products = [
     },
   },
   {
-    id: 'CVanilla Protein Latte',
+    id: 'Vanilla Protein Latte',
     name: 'Vanilla Protein Latte',
     calories: 370,
     image: '../assets/images/duong-241230692/Vanilla Protein Latte.jpg',
@@ -298,7 +298,7 @@ const products = [
       topping: true,
       flavors: true,
       shots: true,
-      espresso: false, 
+      espresso: false,
     },
   },
   {
@@ -736,7 +736,7 @@ const products = [
     customizers: {
       sizes: true,
       milk: true,
-      roast: false, 
+      roast: false,
       hot: false,
       topping: false,
       flavors: false,
@@ -1126,7 +1126,7 @@ const products = [
     calories: 5,
     image: '../assets/images/duong-241230692/Cold Brew.jpg',
     customizers: {
-      sizes:false,
+      sizes: false,
       milk: false,
       roast: false,
       hot: false,
@@ -1290,8 +1290,8 @@ function renderCustomizer(customizers) {
       const wrapper = createEl('div', {
         cls: `size-option ${size}`,
         attrs: {
-          'data-selected-image': `../assets/images/duong-241230692/${size}_selected.png`, 
-        }, 
+          'data-selected-image': `../assets/images/duong-241230692/${size}_selected.png`,
+        },
       });
       const btn = createEl('button', { attrs: { onclick: 'changeImage(this)' } });
       btn.appendChild(
@@ -1329,8 +1329,8 @@ function renderCustomizer(customizers) {
 
     options.forEach((opt, index) => {
       const optionEl = createEl('option', { value: index, text: opt });
-      if (index === 1) optionEl.selected = true; 
-      if (index === 0) optionEl.disabled = true; 
+      if (index === 1) optionEl.selected = true;
+      if (index === 0) optionEl.disabled = true;
       select.appendChild(optionEl);
     });
 
@@ -1488,7 +1488,7 @@ function add_order() {
   }
 
   // 1. Lấy thông tin sản phẩm cơ bản
-  const product = pickProduct(); 
+  const product = pickProduct();
 
   // 2. Xây dựng mô tả chi tiết
   let description = `Size: ${map[selectedSize.toLowerCase()]}`;
@@ -1503,15 +1503,15 @@ function add_order() {
   // 3. Tạo đối tượng sản phẩm cho giỏ hàng
   // ⭐ SỬA 2: Đổi "product.imageSrc" thành "product.image"
   const cartItem = {
-    lineItemId: `drink-${product.id}-${Date.now()}`, 
-    productId: product.id,             
+    lineItemId: `drink-${product.id}-${Date.now()}`,
+    productId: product.id,
     name: product.name,
     price: Math.round(cost),
-    quantity: 1, 
+    quantity: 1,
     description: description,
     image: product.image // <-- SỬA Ở ĐÂY
   };
-  
+
   // 4. Thêm vào giỏ hàng (sử dụng logic chung từ cart-logic.js)
   Cart.addItem(cartItem);
 
@@ -1546,7 +1546,7 @@ function reset_val() {
   if (flavorsVal) flavorsVal.textContent = 0;
   shots = 0;
   flavors = 0;
-  
+
   const sizeOptions = document.querySelectorAll('.size-option');
   if (sizeOptions.length > 0) {
     sizeOptions.forEach((option) => {
@@ -1570,7 +1570,7 @@ function increaseFlavors() {
   updatePrice();
 }
 function decreaseFlavors() {
-  if (flavors > 0) { 
+  if (flavors > 0) {
     flavors--;
     const el = document.getElementById('flavors-value');
     if (el) el.textContent = flavors;
@@ -1588,7 +1588,7 @@ function increaseShots() {
   updatePrice();
 }
 function decreaseShots() {
-  if (shots > 0) { 
+  if (shots > 0) {
     shots--;
     const el = document.getElementById('shots-value');
     if (el) el.textContent = shots;
@@ -1644,10 +1644,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const getFocusable = () => {
     return drawer
       ? Array.from(
-          drawer.querySelectorAll(
-            'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
-          )
+        drawer.querySelectorAll(
+          'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
         )
+      )
       : [];
   };
 
