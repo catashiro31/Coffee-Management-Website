@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Kiểm tra xem có user không
     if (username) {
         
-        // 4. NẾU CÓ: Lặp qua từng khu vực (cả desktop và mobile)
         authSections.forEach(section => {
             // Thay thế HTML bên trong
             section.innerHTML = `
@@ -33,6 +32,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     }
-    // 6. NẾU KHÔNG CÓ USER: Không làm gì cả, giữ nguyên 2 nút "Đăng nhập/Đăng ký"
 
 });

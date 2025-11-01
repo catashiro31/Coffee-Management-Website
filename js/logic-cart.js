@@ -1,105 +1,130 @@
 /* ==============================================
-    BỘ NÃO CỦA GIỎ HÀNG (cart-logic.js)
-    (File này xử lý việc Thêm, Xóa, Lấy, và Cập nhật số lượng)
-   ============================================== */
+    BỘ NÃO CỦA GIỎ HÀNG (cart-logic.js) - V2 HOÀN CHỈNH
+    (Đây là file "bộ não" duy nhất, V2)
+   ============================================== */
 
 const Cart = {
-  /**
-   * Khóa để lưu giỏ hàng trong LocalStorage
-   */
-  KEY: 'myCoffeeAppCart',
+  // Key lưu giỏ hàng
+  KEY: 'myCoffeeAppCart',
 
-  /**
-   * Lấy giỏ hàng từ LocalStorage về.
-   * @returns {Array} - Mảng các sản phẩm trong giỏ hàng.
-   */
-  get: () => {
-    try {
-      return JSON.parse(localStorage.getItem(Cart.KEY) || '[]');
-    } catch (e) {
-      console.error("Lỗi khi lấy giỏ hàng:", e);
-      return []; // Trả về mảng rỗng nếu lỗi
-    }
-  },
+  /**
+   * Lấy giỏ hàng từ LocalStorage
+   */
+  get: () => {
+    try {
+      return JSON.parse(localStorage.getItem(Cart.KEY) || '[]');
+    } catch (e) {
+      console.error("Lỗi khi lấy giỏ hàng:", e);
+      return [];
+    }
+  },
 
-  /**
-   * Lưu giỏ hàng vào LocalStorage.
-   * @param {Array} cart - Mảng giỏ hàng mới cần lưu.
-   */
-  save: (cart) => {
-    localStorage.setItem(Cart.KEY, JSON.stringify(cart));
-  },
+  /**
+   * Lưu giỏ hàng VÀ PHÁT TÍN HIỆU CẬP NHẬT
+   */
+  save: (cart) => {
+    localStorage.setItem(Cart.KEY, JSON.stringify(cart));
+    
+    // *** DÒNG QUAN TRỌNG: "Báo" cho giao diện (cart.js) "vẽ" lại ***
+    window.dispatchEvent(new Event('cartUpdated'));
+    
+    // Cập nhật icon trên header
+    Cart.updateCartCount();
+  },
 
-  /**
-   * Xóa sạch giỏ hàng.
-   */
-  clear: () => {
-    Cart.save([]);
-    Cart.updateCartCount(); // Cập nhật lại số trên header
-  },
+  /**
+   * Thêm sản phẩm (Đã sửa)
+   */
+  addItem: (item) => {
+    const cart = Cart.get();
+    
+    // 1. Đồ custom (có lineItemId), luôn là duy nhất
+    if (item.lineItemId) {
+      cart.push(item);
+    } 
+    // 2. Đồ gộp (chỉ có id)
+    else if (item.id) {
+      const existingItem = cart.find(i => i.id === item.id && !i.lineItemId);
+      
+      if (existingItem) {
+        // Nếu có, tăng số lượng
+        existingItem.quantity = (existingItem.quantity || 0) + (item.quantity || 1);
+      } else {
+        // Nếu chưa, thêm mới
+        cart.push(item);
+      }
+    }
+    Cart.save(cart); // Lưu và phát tín hiệu
+  },
 
-  /**
-   * Thêm một sản phẩm vào giỏ hàng.
-   * File này là quan trọng nhất!
-   * @param {object} item - Sản phẩm cần thêm.
-   */
-  addItem: (item) => {
-    const cart = Cart.get();
-    let existingItem;
+  /**
+   * Cập nhật số lượng (Cho nút +/-)
+   */
+  capNhatSoLuong: (identifier, newQuantity) => {
+    const cart = Cart.get();
+    const itemToUpdate = cart.find(i => (i.lineItemId === identifier) || (i.id === identifier && !i.lineItemId));
+    
+    if (itemToUpdate) {
+      // Ràng buộc số lượng mới luôn >= 1
+      newQuantity = Math.max(1, Number(newQuantity) || 1);
+      itemToUpdate.quantity = newQuantity;
+      Cart.save(cart);
+    }
+  },
 
-    // ----- LOGIC QUAN TRỌNG -----
-    
-    // 1. Nếu sản phẩm có "lineItemId" (VD: đồ uống custom), nó là duy nhất.
-    //    Chỉ cần đẩy nó vào giỏ hàng.
-    if (item.lineItemId) {
-      cart.push(item);
-    } 
-    // 2. Nếu sản phẩm chỉ có "id" (VD: đồ ăn, có thể gộp)
-    else if (item.id) {
-      // Kiểm tra xem nó đã tồn tại trong giỏ hàng chưa (dựa trên 'id')
-      existingItem = cart.find(i => i.id === item.id);
-      
-      if (existingItem) {
-        // Nếu có, chỉ tăng số lượng
-        existingItem.quantity += item.quantity;
-      } else {
-        // Nếu chưa, thêm mới vào giỏ
-        cart.push(item);
-      }
-    }
-    // ----------------------------
+  /**
+   * Xóa một DÒNG sản phẩm
+   */
+  xoaItem: (identifier) => {
+    let cart = Cart.get();
+    const newCart = cart.filter(item => {
+      const itemIdentifier = item.lineItemId || item.id;
+      return itemIdentifier !== identifier;
+    });
+    Cart.save(newCart); // Lưu và phát tín hiệu
+  },
 
-    Cart.save(cart); // Lưu lại giỏ hàng mới
-  },
+  /**
+   * Xóa sạch giỏ hàng.
+   */
+  clear: () => {
+    Cart.save([]); // Lưu mảng rỗng và phát tín hiệu
+  },
 
-  /**
-   * Cập nhật số lượng hiển thị trên icon giỏ hàng ở header.
-   */
-  updateCartCount: () => {
-    const cart = Cart.get();
-    let totalItems = 0;
-    
-    // Đếm tổng số lượng (mỗi bánh quy x2 sẽ được tính là 2)
-    cart.forEach(item => {
-      totalItems += item.quantity;
-    });
+  /**
+   * Tính tổng tiền.
+   */
+  tinhTongTien: () => {
+    const cart = Cart.get();
+    return cart.reduce((total, item) => {
+      return total + ((item.price || 0) * (item.quantity || 0));
+    }, 0);
+  },
 
-    // Tìm TẤT CẢ các icon giỏ hàng (cho cả desktop và mobile)
-    const countElements = document.querySelectorAll('#cart-count');
-    
-    countElements.forEach(el => {
-      if (totalItems > 0) {
-        el.textContent = totalItems;
-        el.style.display = 'flex'; // Hiển thị vòng tròn
-      } else {
-        el.textContent = '0';
-        el.style.display = 'none'; // Ẩn vòng tròn
-      }
-    });
-  }
+  /**
+   * Cập nhật icon giỏ hàng trên header.
+   */
+  updateCartCount: () => {
+    const cart = Cart.get();
+    let totalItems = 0;
+    cart.forEach(item => {
+      totalItems += (item.quantity || 0);
+    });
+
+    const countElements = document.querySelectorAll('#cart-count');
+    countElements.forEach(el => {
+      if (totalItems > 0) {
+        el.textContent = totalItems;
+        el.style.display = 'flex';
+      } else {
+        el.textContent = '0';
+        el.style.display = 'none';
+      }
+    });
+  }
 };
 
 // Cập nhật số lượng giỏ hàng ngay khi file này được tải
 document.addEventListener('DOMContentLoaded', () => {
-  Cart.updateCartCount();
+  Cart.updateCartCount();
 });

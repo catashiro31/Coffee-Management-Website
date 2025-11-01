@@ -1,145 +1,248 @@
 /* ==============================================
-    JS CHO TRANG GIỎ HÀNG (cart.html) (ĐÃ SỬA LỖI)
-   ============================================== */
+    JS CHO TRANG GIỎ HÀNG (cart.html) - V4 HOÀN CHỈNH
+    - Yêu cầu đăng nhập
+    - "Vẽ" nút +/-
+    - Kiểm tra thông tin khi thanh toán
+   ============================================== */
 
-// Hàm tạo mã QR của VietQR
+/* ---------- Helpers (Hàm hỗ trợ) ---------- */
+function formatVND(value) {
+  const n = Number(value) || 0;
+  return n.toLocaleString('vi-VN') + ' VNĐ';
+}
+
+function safeGet(id) {
+  return document.getElementById(id);
+}
+
+/* ---------- Hàm tạo mã QR của VietQR ---------- */
 function generateVietQR(amount, content) {
-  // --- THÔNG TIN THANH TOÁN CỦA BẠN ---
-  // Thay thế bằng thông tin thật của cửa hàng bạn
-  const BANK_ID = '970418'; // Ví dụ: Techcombank
-  const ACCOUNT_NO = '1234567890'; // Ví dụ: Số tài khoản của BẠN
-  const ACCOUNT_NAME = 'NGUYEN VAN A'; // Ví dụ: Tên chủ tài khoản
-  // -------------------------------------
-
-  const TEMPLATE = 'compact'; // Mẫu QR (compact hoặc print)
-  
-  // Tạo URL API
-  const qrApiUrl = `https://img.vietqr.io/image/${BANK_ID}-${ACCOUNT_NO}-${TEMPLATE}.png?amount=${amount}&addInfo=${encodeURIComponent(content)}&accountName=${encodeURIComponent(ACCOUNT_NAME)}`;
-  
-  return qrApiUrl;
+  const BANK_ID = '970418'; // Ví dụ: Techcombank
+  const ACCOUNT_NO = '1234567890'; // Sửa STK của bạn
+  const ACCOUNT_NAME = 'NGUYEN VAN A'; // Sửa tên chủ TK
+  const TEMPLATE = 'compact';
+  const qrApiUrl = `https://img.vietqr.io/image/${BANK_ID}-${ACCOUNT_NO}-${TEMPLATE}.png?amount=${amount}&addInfo=${encodeURIComponent(content)}&accountName=${encodeURIComponent(ACCOUNT_NAME)}`;
+  return qrApiUrl;
 }
 
-// Hàm render giỏ hàng khi tải trang
+/* ---------- Hàm "Vẽ" Giao Diện Giỏ Hàng ---------- */
 function renderCart() {
-  const cart = Cart.get(); // Dùng hàm từ cart-logic.js
-  const container = document.getElementById('cart-items-container');
-  const subtotalEl = document.getElementById('cart-summary-subtotal');
-  const totalEl = document.getElementById('cart-summary-total');
-  const checkoutBtn = document.getElementById('checkout-btn');
+  // Luôn kiểm tra "bộ não" (Cart)
+  if (!window.Cart) {
+    console.error('LỖI: cart-logic.js chưa được tải.');
+    return;
+  }
 
-  container.innerHTML = ''; // Xóa sạch nội dung cũ
-  let grandTotal = 0;
+  const cart = window.Cart.get();
+  const container = safeGet('cart-items-container');
+  const subtotalEl = safeGet('cart-summary-subtotal');
+  const totalEl = safeGet('cart-summary-total');
+  const checkoutBtn = safeGet('checkout-btn');
 
-  if (cart.length === 0) {
-    container.innerHTML = '<p>Giỏ hàng của bạn đang trống. Hãy thêm sản phẩm!</p>';
-    subtotalEl.textContent = '0 VNĐ';
-    totalEl.textContent = '0 VNĐ';
-    checkoutBtn.disabled = true;
-    return;
-  }
+  if (!container || !subtotalEl || !totalEl || !checkoutBtn) {
+    console.warn('HTML trang giỏ hàng bị thiếu ID.');
+    return;
+  }
 
-  cart.forEach(item => {
-    // Giá của dòng sản phẩm này (giá * số lượng)
-    const itemTotal = item.price * item.quantity;
-    grandTotal += itemTotal; // Cộng vào tổng đơn hàng
+  container.innerHTML = '';
+  const grandTotal = window.Cart.tinhTongTien();
 
-    // Lấy ID chính xác: ưu tiên lineItemId (cho đồ uống/đồ ăn), nếu không có thì dùng id
-    const itemId = item.lineItemId || item.id;
+  // 1. "Vẽ" nếu giỏ hàng rỗng
+  if (!Array.isArray(cart) || cart.length === 0) {
+    container.innerHTML = '<p class="cart-empty-message">Giỏ hàng của bạn đang trống.</p>';
+    subtotalEl.textContent = formatVND(0);
+    totalEl.textContent = formatVND(0);
+    checkoutBtn.disabled = true;
+    return;
+  }
 
-    const itemEl = document.createElement('div');
-    itemEl.className = 'cart-item';
-    itemEl.setAttribute('data-id', itemId); 
+  // 2. "Vẽ" các sản phẩm
+  cart.forEach(item => {
+    const price = Number(item.price) || 0;
+    const qty = Math.max(1, Number(item.quantity) || 1); // Số lượng ít nhất là 1
+    const itemTotal = price * qty;
+    const itemId = item.lineItemId || item.id || '';
 
-    itemEl.innerHTML = `
-      <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-      <div class="cart-item-info">
-        <h4>${item.name}</h4>
-        <p>${item.description}</p>
-        <p>Giá: ${item.price.toLocaleString('vi-VN')} VNĐ</p>
-      </div>
-      <div class="cart-item-price">
-        <p>${itemTotal.toLocaleString('vi-VN')} VNĐ</p>
-        <button class="remove-btn" data-id="${itemId}">&times; Xóa</button>
-      </div>
-    `;
-    container.appendChild(itemEl);
-  });
+    const itemEl = document.createElement('div');
+    itemEl.className = 'cart-item';
+    itemEl.setAttribute('data-id', itemId);
 
-  // Cập nhật tổng tiền
-  subtotalEl.textContent = `${grandTotal.toLocaleString('vi-VN')} VNĐ`;
-  totalEl.textContent = `${grandTotal.toLocaleString('vi-VN')} VNĐ`;
-  checkoutBtn.disabled = false;
+    // HTML mới (dùng data-id, không dùng onclick)
+    itemEl.innerHTML = `
+      <img src="${item.image || '../assets/images/DoVanTien_24130858/logo.png'}" alt="${item.name || 'Sản phẩm'}" class="cart-item-image" />
+      <div class="cart-item-info">
+        <p class="cart-item-name">${item.name || ''}</p>
+        <p class="cart-item-price">Đơn giá: ${formatVND(price)}</p>
+        ${item.options ? `<p class="cart-item-options">${item.options}</p>` : ''}
+        <div class="quantity-controls">
+          <button class="quantity-btn btn-decrease" data-id="${itemId}">-</button>
+          <span class="quantity-display" data-id="${itemId}">${qty}</span>
+          <button class="quantity-btn btn-increase" data-id="${itemId}">+</button>
+        </div>
+      </div>
+      <div class="cart-item-total-block">
+        <p class="cart-item-line-total" data-id="${itemId}">${formatVND(itemTotal)}</p>
+        <button class="cart-item-remove" data-id="${itemId}">× Xóa</button>
+      </div>
+    `;
+    container.appendChild(itemEl);
+  });
+
+  // 3. Cập nhật tổng tiền
+  subtotalEl.textContent = formatVND(grandTotal);
+  totalEl.textContent = formatVND(grandTotal);
+  checkoutBtn.disabled = false;
 }
 
-// Xử lý các sự kiện của trang
-document.addEventListener('DOMContentLoaded', () => {
-  renderCart(); // Render giỏ hàng ngay khi tải trang
+/* ---------- Xử lý sự kiện toàn trang (Event Delegation) ---------- */
+// Dùng 1 trình nghe sự kiện cho các nút +/-/Xóa
+document.addEventListener('click', (e) => {
+  if (!window.Cart) return; // Thoát nếu "bộ não" chưa sẵn sàng
 
-  const container = document.getElementById('cart-items-container');
-  const checkoutBtn = document.getElementById('checkout-btn');
-  const modal = document.getElementById('qr-modal');
-  const closeModalBtn = document.getElementById('close-modal-btn');
-  const qrImg = document.getElementById('qr-image');
-  const qrAmount = document.getElementById('qr-total-amount');
-  const qrContentEl = document.getElementById('qr-content');
-  const confirmBtn = document.getElementById('confirm-payment-btn');
+  const dec = e.target.closest('.btn-decrease');
+  const inc = e.target.closest('.btn-increase');
+  const removeBtn = e.target.closest('.cart-item-remove');
 
-  // 1. Xử lý sự kiện XÓA SẢN PHẨM
-  container.addEventListener('click', (e) => {
-    if (e.target.classList.contains('remove-btn')) {
-      const lineId = e.target.dataset.id;
-      if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
-        let cart = Cart.get();
-        // Lọc ra sản phẩm có lineItemId (hoặc id) KHÁC với cái bị click
-        cart = cart.filter(item => (item.lineItemId || item.id) !== lineId);
-        Cart.save(cart); // Lưu giỏ hàng mới
-        Cart.updateCartCount(); // Cập nhật số lượng trên header
-        renderCart(); // Vẽ lại giỏ hàng
-      }
-    }
-  });
+  // Bấm nút TRỪ (-)
+  if (dec) {
+    const id = dec.dataset.id;
+    const display = document.querySelector(`.quantity-display[data-id="${id}"]`);
+    let cur = Number(display ? display.textContent : 1) || 1;
+    const newQty = Math.max(1, cur - 1); // Không cho phép < 1
+    
+    dec.disabled = true;
+    if (cur > 1) { // Chỉ gọi "bộ não" nếu số lượng thay đổi
+      window.Cart.capNhatSoLuong(id, newQty);
+    }
+    setTimeout(() => { dec.disabled = false; }, 250);
+    return;
+  }
 
-  // 2. Xử lý sự kiện NHẤN NÚT THANH TOÁN
-  checkoutBtn.addEventListener('click', () => {
-    const cart = Cart.get();
-    let grandTotal = 0;
-    cart.forEach(item => {
-      grandTotal += item.price * item.quantity;
-    });
+  // Bấm nút CỘNG (+)
+  if (inc) {
+    const id = inc.dataset.id;
+    const display = document.querySelector(`.quantity-display[data-id="${id}"]`);
+    let cur = Number(display ? display.textContent : 1) || 1;
+    const newQty = cur + 1;
+    
+    inc.disabled = true;
+    window.Cart.capNhatSoLuong(id, newQty);
+    setTimeout(() => { inc.disabled = false; }, 250);
+    return;
+  }
 
-    // Tạo nội dung chuyển khoản (ví dụ: mã đơn hàng)
-    const orderContent = `Thanh toan don hang ${Date.now()}`;
+  // Bấm nút XÓA
+  if (removeBtn) {
+    const id = removeBtn.dataset.id;
+    const ok = confirm('Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?');
+    if (!ok) return;
 
-    // Tạo link QR
-    const qrUrl = generateVietQR(grandTotal, orderContent);
-    
-    // Cập nhật thông tin trên Modal
-    qrImg.src = qrUrl;
-    qrAmount.textContent = `${grandTotal.toLocaleString('vi-VN')} VNĐ`;
-    qrContentEl.textContent = orderContent;
-    
-    // Hiển thị Modal
-    modal.style.display = 'flex';
-  });
-
-  // 3. Xử lý ĐÓNG MODAL
-  closeModalBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-  // Đóng khi click ra ngoài
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  // 4. Xử lý khi người dùng "XÁC NHẬN ĐÃ THANH TOÁN"
-  confirmBtn.addEventListener('click', () => {
-    alert('Cảm ơn bạn đã mua hàng! Đơn hàng đang được xử lý.');
-    Cart.clear(); // Xóa sạch giỏ hàng
-    modal.style.display = 'none';
-    renderCart(); // Render lại giỏ hàng (sẽ thấy trống)
-  });
+    removeBtn.disabled = true;
+    window.Cart.xoaItem(id);
+    return;
+  }
 });
 
-// ⭐ LỖI CÚ PHÁP: Đã xóa dấu '}' thừa ở đây.
+/* ---------- Xử lý khi trang được tải xong (DOMContentLoaded) ---------- */
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ==========================================
+  // ⭐ TÍNH NĂNG MỚI: YÊU CẦU ĐĂNG NHẬP ⭐
+  // ==========================================
+  // ⭐ QUAN TRỌNG: Sửa 'currentUser' thành key bạn dùng khi đăng nhập
+  const LOGIN_STORAGE_KEY = 'currentUser'; 
+  let currentUser = null;
+  try {
+    currentUser = JSON.parse(localStorage.getItem(LOGIN_STORAGE_KEY) || 'null');
+  } catch (e) {
+    currentUser = null;
+  }
+
+  // Kiểm tra 1: Đã đăng nhập chưa?
+  if (!currentUser) {
+    alert('Vui lòng đăng nhập để xem giỏ hàng.');
+    window.location.href = 'login.html'; // Chuyển về trang đăng nhập
+    return; // Dừng chạy code của trang này
+  }
+  // ==========================================
+  // (Nếu đã đăng nhập, code sẽ tiếp tục chạy)
+  // ==========================================
+
+
+  // Kiểm tra "bộ não" cart-logic.js
+  if (!window.Cart) {
+    console.error("LỖI NGHIÊM TRỌNG: file cart-logic.js chưa được tải.");
+    safeGet('cart-items-container').innerHTML = '<p class="cart-empty-message" style="color: red;">Lỗi tải giỏ hàng. Vui lòng thử lại.</p>';
+    return;
+  }
+  
+  // 1. "Vẽ" giỏ hàng lần đầu
+  renderCart();
+
+  // 2. Lấy các phần tử Modal
+  const checkoutBtn = safeGet('checkout-btn');
+  const modal = safeGet('qr-modal');
+  const closeModalBtn = safeGet('close-modal-btn');
+  const qrImg = safeGet('qr-image');
+  const qrAmount = safeGet('qr-total-amount');
+  const qrContentEl = safeGet('qr-content');
+  const confirmBtn = safeGet('confirm-payment-btn');
+
+  // 3. Gán sự kiện cho Nút "Thanh toán" (Đã thêm kiểm tra)
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      
+      // Kiểm tra lại currentUser (đã lấy ở trên)
+      // Kiểm tra 2: Đã có SĐT (phone) và Địa chỉ (address) chưa?
+      if (!currentUser.phone || !currentUser.address) {
+        alert('Vui lòng cập nhật Số điện thoại và Địa chỉ của bạn để tiếp tục.');
+        window.location.href = 'profile.html'; // Chuyển đến trang profile
+        return;
+      }
+      
+      // Kiểm tra 3: Giỏ hàng có rỗng không?
+      const grandTotal = window.Cart.tinhTongTien();
+      if (!grandTotal || grandTotal === 0) {
+        alert('Giỏ hàng trống. Vui lòng thêm sản phẩm.');
+        return;
+      }
+
+      // Nếu OK hết -> Mở Modal
+      const orderContent = `DH${Date.now().toString().slice(-6)}`;
+      const qrUrl = generateVietQR(grandTotal, orderContent);
+
+      if (qrImg) qrImg.src = qrUrl;
+      if (qrAmount) qrAmount.textContent = formatVND(grandTotal);
+      if (qrContentEl) qrContentEl.textContent = orderContent;
+      if (modal) modal.style.display = 'flex';
+    });
+  }
+
+  // 4. Gán sự kiện cho Modal (Đóng)
+  if (closeModalBtn && modal) {
+    closeModalBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+  }
+
+  // 5. Gán sự kiện cho Nút "Xác nhận thanh toán"
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', () => {
+      alert('Cảm ơn bạn đã mua hàng! Đơn hàng đang được xử lý.');
+      window.Cart.clear(); // Gọi hàm clear (sẽ tự động phát tín hiệu)
+      if (modal) modal.style.display = 'none';
+    });
+  }
+
+  // 6. Lắng nghe tín hiệu "cartUpdated" từ "bộ não"
+  window.addEventListener('cartUpdated', () => {
+    // Tạm dừng 80ms để tránh "vẽ" lại liên tục
+    if (window.__renderCartTimeout) clearTimeout(window.__renderCartTimeout);
+    
+    window.__renderCartTimeout = setTimeout(() => {
+      renderCart();
+      window.__renderCartTimeout = null;
+    }, 80);
+  });
+});
