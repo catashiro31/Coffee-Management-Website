@@ -174,12 +174,12 @@ function renderAuthSection(currentUser) {
 
 /* ---------- Hàm "Vẽ" Giao Diện Giỏ Hàng ---------- */
 function renderCart() {
-  if (!window.Cart) {
+  if (typeof Cart === 'undefined') {
     console.error('LỖI: cart-logic.js chưa được tải.');
     return;
   }
 
-  const cart = window.Cart.get();
+  const cart = Cart.get();
   const container = safeGet('cart-items-container');
   const subtotalEl = safeGet('cart-summary-subtotal');
   const totalEl = safeGet('cart-summary-total');
@@ -191,7 +191,7 @@ function renderCart() {
   }
 
   container.innerHTML = '';
-  const grandTotal = window.Cart.tinhTongTien();
+  const grandTotal = Cart.tinhTongTien();
 
   // 1. "Vẽ" nếu giỏ hàng rỗng
   if (!Array.isArray(cart) || cart.length === 0) {
@@ -253,7 +253,7 @@ function renderCart() {
 /* ---------- Xử lý sự kiện toàn trang (Event Delegation) ---------- */
 // (Giữ nguyên logic +/-/Xóa)
 document.addEventListener('click', (e) => {
-  if (!window.Cart) return; 
+  if (typeof Cart === 'undefined') return;
 
   const dec = e.target.closest('.btn-decrease');
   const inc = e.target.closest('.btn-increase');
@@ -268,7 +268,7 @@ document.addEventListener('click', (e) => {
     
     dec.disabled = true;
     if (cur > 1) { 
-      window.Cart.capNhatSoLuong(id, newQty);
+      Cart.capNhatSoLuong(id, newQty);
     }
     setTimeout(() => { dec.disabled = false; }, 250);
     return;
@@ -282,7 +282,7 @@ document.addEventListener('click', (e) => {
     const newQty = cur + 1;
     
     inc.disabled = true;
-    window.Cart.capNhatSoLuong(id, newQty);
+    Cart.capNhatSoLuong(id, newQty);
     setTimeout(() => { inc.disabled = false; }, 250);
     return;
   }
@@ -294,7 +294,7 @@ document.addEventListener('click', (e) => {
     if (!ok) return;
 
     removeBtn.disabled = true;
-    window.Cart.xoaItem(id);
+    Cart.xoaItem(id);
     return;
   }
 });
@@ -316,8 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return; // Dừng chạy code
   }
   
-  if (!window.Cart) {
-    console.error("LỖI NGHIÊM TRỌNG: file cart-logic.js chưa được tải.");
+  if (typeof Cart === 'undefined') {
+    console.error("LỖI NGHIÊM TRỌNG: file logic-cart.js chưa được tải.");
     safeGet('cart-items-container').innerHTML = '<p class="cart-empty-message" style="color: red;">Lỗi tải giỏ hàng. Vui lòng thử lại.</p>';
     return;
   }
@@ -343,8 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'profile.html'; // Chuyển đến trang profile
         return;
       }
-      
-      const grandTotal = window.Cart.tinhTongTien();
+      // Kiểm tra giỏ hàng có sản phẩm không
+      const grandTotal = Cart.tinhTongTien();
       if (!grandTotal || grandTotal === 0) {
         alert('Giỏ hàng trống. Vui lòng thêm sản phẩm.');
         return;
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (confirmBtn) {
     confirmBtn.addEventListener('click', () => {
       alert('Cảm ơn bạn đã mua hàng! Đơn hàng đang được xử lý.');
-      window.Cart.clear(); 
+      Cart.clear(); 
       if (modal) modal.style.display = 'none';
       // Tải lại trang để về giỏ hàng rỗng và cập nhật header
       window.location.reload(); 

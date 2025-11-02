@@ -127,7 +127,7 @@ const allCategoryData = {
             items: [
                 { id: 'Spicy_Falafel_Pocket', name: 'Bánh kẹp Falafel cay', img: '../assets/images/MaiThiYenNhi_241230810/spicy_falafel_pocket.jpg' },
                 { id: 'Jalapeno_Chicken_Pocket', name: 'Bánh kẹp gà Jalapeño', img: '../assets/images/MaiThiYenNhi_241230810/jalapeno_chicken_pocket.jpg' },
-                { id: 'Avocado_Spread', name: 'Sốt bVơ nghiền', img: '../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg' }
+                { id: 'Avocado_Spread', name: 'Sốt bơ nghiền', img: '../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg' }
             ]
         },
         {

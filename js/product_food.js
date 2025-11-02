@@ -249,7 +249,7 @@ const products = [
     id: 'Tomato_Mozzarella_on_Focaccia',
     name: 'Bánh focaccia kẹp cà chua và phô mai mozzarella',
     calories: 540,
-    price: 570000,
+    price: 57000,
     image: '../assets/images/MaiThiYenNhi_241230810/tomato_mozzarella_on_focaccia.jpg',
     alt: 'Bánh focaccia kẹp cà chua và phô mai mozzarella',
   },
