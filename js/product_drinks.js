@@ -6,7 +6,6 @@ const products = [
     id: 'caffe-mocha',
     name: 'Caffè Mocha',
     calories: 370,
-    // ⭐ SỬA 1: Đổi tên "imageSrc" thành "image"
     image: '../assets/images/duong-241230692/Caffè Mocha.jpg',
     customizers: {
       sizes: true,
@@ -23,7 +22,6 @@ const products = [
     id: 'Coffee Since 2025® Blonde Roast - Veranda Blend®',
     name: 'Coffee Since 2025® Blonde Roast - Veranda Blend®',
     calories: 5,
-    // ⭐ SỬA 1: Đổi tên "imageSrc" thành "image"
     image:
       '../assets/images/duong-241230692/Starbucks® Blonde Roast - Veranda Blend®.jpg',
     customizers: {
@@ -37,8 +35,7 @@ const products = [
       espresso: true,
     },
   },
-  // ... (Tất cả các sản phẩm khác cũng được sửa tương tự) ...
-  // ... (Mình sẽ rút gọn ở đây, bạn chỉ cần copy/paste code đầy đủ bên dưới) ...
+  // ... (Tất cả các sản phẩm khác của bạn) ...
   {
     id: 'Medium Roast - Pike Place® Roast',
     name: 'Medium Roast - Pike Place® Roast',
@@ -1244,11 +1241,10 @@ function renderProduct(product) {
   container.innerHTML = ''; // Xóa nội dung cũ
 
   // 1. Render ảnh
-  // ⭐ SỬA 2: Đọc "product.image" thay vì "product.imageSrc"
   if (product.image) {
     const img = createEl('img', {
       attrs: {
-        src: product.image, // <-- SỬA Ở ĐÂY
+        src: product.image,
         alt: product.name,
         width: '400px',
         height: '300px',
@@ -1386,14 +1382,19 @@ function renderCustomizer(customizers) {
   // Nút Add/Reset
   if (right.children.length > 1) {
     const buttonsDiv = createEl('div', { cls: 'cus-res' });
+    
     buttonsDiv.innerHTML = `
+        <button class="buy-now" onclick="buy_now()">
+            <i class="fa-solid fa-bolt-lightning" style="color: #1E3932;"></i> Thanh toán luôn
+        </button>
         <button class="cus" onclick="add_order()">
-            <i class="fa-solid fa-wand-magic-sparkles" style="color: #FFD43B;"></i> Thêm đơn hàng
+            <i class="fa-solid fa-cart-plus" style="color: #FFD43B;"></i> Thêm vào giỏ
         </button>
         <button class="res" onclick="reset_val()">
-            <i class="fa-solid fa-rotate-right" style="color: #FFD43B;"></i> Đặt lại công thức tiêu chuẩn
+            <i class="fa-solid fa-rotate-right" style="color: #FFD43B;"></i> Đặt lại
         </button>
     `;
+    
     right.appendChild(buttonsDiv);
   }
 
@@ -1405,7 +1406,6 @@ function renderCustomizer(customizers) {
 /* ==============================================
     4. CODE CƠ BẢN (Giữ nguyên)
     ============================================== */
-// (Giữ nguyên các hàm updatePrice, changeImage, changed1-7)
 function updatePrice() {
   if (selectedSize != null && selectedImageIndex != null) {
     cost = sizes[selectedImageIndex];
@@ -1456,11 +1456,13 @@ function changed1() {
   if (leg1) leg1.style.color = 'green';
   updatePrice();
 }
+
 function changed2() {
   if (box2) box2.style.border = '3px solid green';
-  if (leg2) legL2.style.color = 'green';
+  if (leg2) leg2.style.color = 'green'; 
   updatePrice();
 }
+
 function changed3() {
   if (box3) box3.style.border = '3px solid green';
   if (leg3) leg3.style.color = 'green';
@@ -1479,7 +1481,7 @@ function changed7() {
 
 
 // ===========================================
-// === HÀM add_order() (ĐÃ SỬA) ===
+// === HÀM add_order() (ĐÚNG YÊU CẦU) ===
 // ===========================================
 function add_order() {
   if (selectedSize == null) {
@@ -1501,7 +1503,6 @@ function add_order() {
   if (select7) description += `, Espresso: ${espresso_select[select7.selectedIndex]}`;
 
   // 3. Tạo đối tượng sản phẩm cho giỏ hàng
-  // ⭐ SỬA 2: Đổi "product.imageSrc" thành "product.image"
   const cartItem = {
     lineItemId: `drink-${product.id}-${Date.now()}`,
     productId: product.id,
@@ -1509,7 +1510,7 @@ function add_order() {
     price: Math.round(cost),
     quantity: 1,
     description: description,
-    image: product.image // <-- SỬA Ở ĐÂY
+    image: product.image
   };
 
   // 4. Thêm vào giỏ hàng (sử dụng logic chung từ cart-logic.js)
@@ -1519,6 +1520,27 @@ function add_order() {
   alert('Đã thêm sản phẩm vào giỏ hàng!');
   Cart.updateCartCount(); // Yêu cầu header cập nhật lại số lượng
 }
+
+// ===========================================
+// === HÀM buy_now() (ĐÃ CẬP NHẬT THEO YÊU CẦU) ===
+// ===========================================
+function buy_now() {
+  if (selectedSize == null) {
+    alert('Bạn chưa chọn Size!');
+    return; // Dừng hàm nếu chưa chọn size
+  }
+
+  // Lấy thông tin để hiển thị trong thông báo
+  const product = pickProduct();
+  const priceString = Math.round(cost).toLocaleString('vi-VN');
+
+  // 1. Hiển thị thông báo thanh toán thành công (theo yêu cầu)
+  alert(`Đã thanh toán thành công cho sản phẩm:\n${product.name}\nGiá: ${priceString} VND`);
+
+  // 2. Tự động reset lại các lựa chọn
+  reset_val();
+}
+
 
 // (Giữ nguyên các hàm reset_val, increase/decrease)
 function reset_val() {
@@ -1602,7 +1624,6 @@ function decreaseShots() {
 /* ==============================================
     5. KHỞI TẠO TRANG (Giữ nguyên)
     ============================================== */
-// (Giữ nguyên toàn bộ code DOMContentLoaded)
 document.addEventListener('DOMContentLoaded', () => {
   // --- 1. LẤY VÀ RENDER DỮ LIỆU SẢN PHẨM ---
   const product = pickProduct();
@@ -1637,6 +1658,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (shotsVal) shotsVal.textContent = shots;
 
   // --- 3. LOGIC MENU BURGER (ĐÃ DI CHUYỂN VÀO ĐÂY) ---
+  // LƯU Ý: Phần này đã được tích hợp từ main.js, 
+  // hãy đảm bảo bạn không tải main.js một lần nữa trong HTML
   const burger = document.getElementById('burger');
   const overlay = document.getElementById('overlay');
   const drawer = overlay?.querySelector('.drawer');
@@ -1666,7 +1689,7 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden', 'true');
     burger?.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('lock'); // Sửa lại: remove 'lock' khi đóng
+    document.body.classList.remove('lock'); 
     burger?.focus();
   }
 

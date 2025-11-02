@@ -64,15 +64,182 @@ const allCategoryData = {
         ]
     },
 
-    'Breakfast': {
-        // ... (Thêm data cho Bữa sáng)
-    },
+'Breakfast': {
+    pageTitle: 'Bữa Sáng',
+    categoryName: 'Bữa sáng',
+    productType: 'food',
+    categoryClass: 'food',
+    subCategories: [
+        {
+            title: 'Bánh mì kẹp bữa sáng',
+            items: [
+                { id: 'egg_pesto_mozzarella_sandwich', name: 'Bánh mì trứng, pesto & mozzarella', img: '../assets/images/MaiThiYenNhi_241230810/Egg-Pesto_Mozzarella_Sandwich.jpg' },
+                { id: 'Bacon_Gouda_Egg_Sandwich', name: 'Bánh mì thịt xông khói, phô mai gouda & trứng', img: '../assets/images/MaiThiYenNhi_241230810/Bacon-Gouda-Egg-Sandwich.jpg' },
+                { id: 'Double_Smoked_Bacon_Cheddar_Egg_Sandwich', name: 'Bánh mì thịt xông khói hun khói kép, phô mai cheddar & trứng', img: '../assets/images/MaiThiYenNhi_241230810/Bacon_Cheddar_Egg_Sandwich.jpg' },
+                { id: 'Sausage_Cheddar_Egg_Sandwich', name: 'Bánh mì xúc xích, phô mai cheddar & trứng', img: '../assets/images/MaiThiYenNhi_241230810/Sausage-Cheddar-Egg-Sandwich.jpg' },
+                { id: 'Turkey_Bacon_Cheddar_Egg_White_Sandwich', name: 'Bánh mì thịt gà tây, phô mai cheddar & lòng trắng trứng', img: '../assets/images/MaiThiYenNhi_241230810/Turkey-Bacon-Cheddar-Egg-White-Sandwich.jpg' },
+                { id: 'Impossible_Breakfast_Sandwich', name: 'Bánh mì bữa sáng Impossible', img: '../assets/images/MaiThiYenNhi_241230810/impossible_Breakfast_Sandwich.jpg' },
+                { id: 'Avocado_Spread', name: 'Bơ nghiền Avocado', img: '../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg' },
+            ]
+        },
+        {
+            title: 'Bánh cuộn bữa sáng',
+            items: [
+                { id: 'Bacon_Sausage_Egg_Wrap', name: 'Cuộn thịt xông khói, xúc xích & trứng', img: '../assets/images/MaiThiYenNhi_241230810/bacon_sausage_egg_wrap.jpg' },
+                { id: 'Spinach_Feta_Egg_White_Wrap', name: 'Cuộn rau chân vịt, phô mai feta & lòng trắng trứng', img: '../assets/images/MaiThiYenNhi_241230810/spinach_feta_egg_white.jpg' },
+                { id: 'Avocado_Spread', name: 'Bơ nghiền Avocado', img: '../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg' }
+            ]
+        },
+        {
+            title: 'Món trứng & nướng',
+            items: [
+                { id: 'Bacon_Gruyère_Egg_Bites', name: 'Trứng nướng với thịt xông khói & phô mai Gruyère', img: '../assets/images/MaiThiYenNhi_241230810/bacon_gruyere_egg_bites.jpg' },
+                { id: 'Egg_White_Roasted_Red_Pepper_Egg_Bites', name: 'Trứng nướng lòng trắng & ớt đỏ nướng', img: '../assets/images/MaiThiYenNhi_241230810/egg_white_and-red_pepper_egg_bites_product.jpg' },
+                { id: 'Avocado_Spread', name: 'Bơ nghiền Avocado', img: '../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg' }
+            ]
+        },
+        {
+            title: 'Món cổ điển bữa sáng khác',
+            items: [
+                { id: 'Rolled_Steel_Cut_Oatmeal', name: 'Yến mạch cán & yến mạch cắt thép', img: '../assets/images/MaiThiYenNhi_241230810/oatmeal.jpg' },
+                { id: 'Ellenos_Muesli_Yogurt', name: 'Sữa chua Muesli Ellenos', img: '../assets/images/MaiThiYenNhi_241230810/EllenosMuesli.jpg' }
+            ]
+        }
+    ]
+        },
     'Lunch': {
-        // ... (Thêm data cho Bữa trưa)
+    pageTitle: 'Bữa trưa',
+    categoryName: 'Bữa trưa',
+    productType: 'food',
+    categoryClass: 'food',
+    subCategories: [
+        {
+            title: 'Bánh sandwich bữa trưa',
+            items: [
+                { id: 'Crispy_Grilled_Cheese_on_Sourdough', name: 'Phô mai nướng giòn trên bánh Sourdough', img: '../assets/images/MaiThiYenNhi_241230810/crisp_grilled_cheese_on_sourdough.jpg' },
+                { id: 'Ham_Swiss_on_Baguette', name: 'Bánh mì baguette với giăm bông & phô mai Thụy Sĩ', img: '../assets/images/MaiThiYenNhi_241230810/HamSwissOnBaguette.jpg' },
+                { id: 'Tomato_Mozzarella_on_Focaccia', name: 'Cà chua & Mozzarella trên bánh Focaccia', img: '../assets/images/MaiThiYenNhi_241230810/tomato_mozzarella_on_focaccia.jpg' },
+                { id: 'Avocado_Spread', name: 'Sốt bơ nghiền', img: '../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg' },
+            ]
+        },
+        {
+            title: 'Bánh kẹp (Pockets)',
+            items: [
+                { id: 'Spicy_Falafel_Pocket', name: 'Bánh kẹp Falafel cay', img: '../assets/images/MaiThiYenNhi_241230810/spicy_falafel_pocket.jpg' },
+                { id: 'Jalapeno_Chicken_Pocket', name: 'Bánh kẹp gà Jalapeño', img: '../assets/images/MaiThiYenNhi_241230810/jalapeno_chicken_pocket.jpg' },
+                { id: 'Avocado_Spread', name: 'Sốt bVơ nghiền', img: '../assets/images/MaiThiYenNhi_241230810/avocado_spread.jpg' }
+            ]
+        },
+        {
+            title: 'Hộp protein',
+            items: [
+                { id: 'Cheese_Trio_Protein_Box', name: 'Hộp protein ba loại phô mai', img: '../assets/images/MaiThiYenNhi_241230810/cheese_trio_protein_box.jpg' },
+                { id: 'Cheese_Fruit_Protein_Box', name: 'Hộp protein phô mai & trái cây', img: '../assets/images/MaiThiYenNhi_241230810/Cheese-Fruit_Protein_Box.jpg' }
+            ]
+        }
+    ]
     },
-    'Treats': {
-        // ... (Thêm data cho Món ngọt)
+   'Treats': {
+    pageTitle: 'Món ngọt',
+    categoryName: 'Món ngọt',
+    productType: 'food',
+    categoryClass: 'food',
+    subCategories: [
+        {
+            title: 'Bánh que (Cake Pops)',
+            items: [
+                { id: 'Strawberries_Cream_Cake_Pop', name: 'Bánh Cake Pop Dâu & Kem', img: '../assets/images/MaiThiYenNhi_241230810/strawberries_cream_cake_pop.jpg' },
+                { id: 'Racoon_Cake_Pop', name: 'Bánh Cake Pop Gấu Trúc', img: '../assets/images/MaiThiYenNhi_241230810/racoon_cake_pop.jpg' },
+                { id: 'Birthday_Cake_Pop', name: 'Bánh Cake Pop Sinh Nhật', img: '../assets/images/MaiThiYenNhi_241230810/birthday_cake_pop.jpg' },
+                { id: 'Chocolate_Cake_Pop', name: 'Bánh Cake Pop Sô cô la', img: '../assets/images/MaiThiYenNhi_241230810/chocolate_cake_pop.jpg' },
+            ]
+        },
+        {
+            title: 'Bánh quy & Brownies',
+            items: [
+                { id: 'Cookie', name: 'Bánh quy', img: '../assets/images/MaiThiYenNhi_241230810/cookie.jpg' },
+                { id: 'Brownie', name: 'Bánh Brownie', img: '../assets/images/MaiThiYenNhi_241230810/brownie.jpg' }
+            ]
+        }
+    ]
     },
+    'whole_bean': {
+    pageTitle: 'Hạt Cà Phê Nguyên Chất (Whole Bean)',
+    categoryName: 'Hạt cà phê nguyên chất',
+    productType: 'food',
+    categoryClass: 'at_home_coffee',
+    subCategories: [
+        {
+            title: 'Rang Nhạt (Blonde Roast)',
+            items: [
+                { id: 'Sunsera_Blend', name: 'Coffee Since 2025® Sunsera Blend', img: '../assets/images/MaiThiYenNhi_241230810/Sunsera_Blend.jpg' },
+                { id: 'Green_Apron_Blend', name: 'Coffee Since 2025® Green Apron Blend', img: '../assets/images/MaiThiYenNhi_241230810/Green_Apron_Blend.jpg' },
+                { id: 'Blonde_Espresso_Roast', name: 'Coffee Since 2025® Blonde Espresso Roast', img: '../assets/images/MaiThiYenNhi_241230810/blonde_espresso_roast.jpg' },
+            ]
+        },
+        {
+            title: 'Rang Vừa (Medium Roast)',
+            items: [
+               
+            ]
+        },
+        {
+            title: 'Rang Đậm (Dark Roast)',
+            items: [
+            
+            ]
+        }
+    ]
+    },
+    'VIA_Instant': {
+    pageTitle: 'VIA® Pha Nhanh',
+    categoryName: 'VIA® Cà phê hòa tan',
+    productType: 'food',
+    categoryClass: 'at_home_coffee',
+    subCategories: [
+        {
+            title: 'Hương vị',
+            items: [
+                { id: 'Sweetened_Iced_Coffee', name: 'Coffee Since 2025 VIA® Pha nhanh Cà phê đá có đường', img: '../assets/images/MaiThiYenNhi_241230810/Via_Instant_Sweetened_Iced_Coffee.jpg' },
+            ]
+        },
+        {
+            title: 'Rang nhạt',
+            items: [
+                { id: 'Veranda_Blend®', name: 'Coffee Since 2025 VIA® Pha nhanh Veranda Blend®', img: '../assets/images/MaiThiYenNhi_241230810/Via_Instant_Blonde_Veranda_Blend.jpg' },
+            ]
+        },
+        {
+            title: 'Rang vừa',
+            items: [
+                { id: 'Pike_Place®_Roast', name: 'Coffee Since 2025 VIA® Pha nhanh Pike Place® Roast', img: '../assets/images/MaiThiYenNhi_241230810/Via_Instant_Pike_PLace_Roast.jpg' },
+            ]
+        },
+        {
+            title: 'Rang đậm',
+            items: [
+                { id: 'Italian_Roast', name: 'Coffee Since 2025 VIA® Pha nhanh Italian Roast', img: '../assets/images/MaiThiYenNhi_241230810/Via_Instant_Italian_Roast.jpg' },
+                { id: 'Decaf_Italian_Roast', name: 'Coffee Since 2025 VIA® Pha nhanh Italian Roast Không Caffeine', img: '../assets/images/MaiThiYenNhi_241230810/Via_Instant_Decaf_Italian_Roast.jpg' },
+            ]
+        }
+    ]
+    },
+    'shopping_bag': {
+    pageTitle: 'Túi mua sắm',
+    categoryName: 'Túi mua sắm',
+    productType: 'food',
+    categoryClass: 'at_home_coffee',
+    subCategories: [
+        {
+            title: 'Túi mua sắm', 
+            items: [
+                { id: 'Fabric_Shopping_Bag', name: 'Túi vải mua sắm', img: '../assets/images/MaiThiYenNhi_241230810/fabric_shopping_bag.jpg' },
+                { id: 'Papper_Shopping_Bag', name: 'Túi giấy mua sắm', img: '../assets/images/MaiThiYenNhi_241230810/papper_bag.jpg' },
+            ]
+        }
+    ]
+    },
+
 
     // ------- ĐỒ UỐNG --------
     'menucold': { 
@@ -156,7 +323,6 @@ const allCategoryData = {
         ]
     },
     'menuhot': {
-        // ... (Thêm data cho Cà phê nóng)
         pageTitle: 'Cà phê nóng',
         categoryName: 'Cà phê nóng',
         productType: 'drink', 

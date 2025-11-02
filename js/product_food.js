@@ -447,10 +447,13 @@ const products = [
 ];
 
 
-
 // ======= Helpers =======
+// Biến toàn cục để giữ sản phẩm hiện tại
+let currentProduct = null;
+let currentQuantity = 1;
+
 const qs = (sel, root = document) => root.querySelector(sel);
-const formatVND = (n) => n?.toLocaleString('vi-VN');
+const formatVND = (n) => (n ? n.toLocaleString('vi-VN') : '0');
 const getParam = (key) => new URL(window.location.href).searchParams.get(key);
 
 function pickProduct() {
@@ -469,22 +472,25 @@ function createEl(tag, opts = {}) {
   return el;
 }
 
-
-function recalcCurrentProduct() {
-  const product = pickProduct(); 
-  if (typeof product.price !== 'number') return; 
-
-  const qEl = qs('#quantity');
-  if (!qEl) return;
+// Cập nhật số lượng và tổng tiền
+function updateFoodTotal(qty) {
+  if (!currentProduct || typeof currentProduct.price !== 'number') return;
   
-  const qty = Math.max(1, parseInt(qEl.value || '1', 10));
-  qEl.value = qty; 
+  currentQuantity = Math.max(1, qty);
+  
+  const qEl = qs('#quantity');
+  if (qEl) qEl.value = currentQuantity;
 
   const totalEl = qs('#total');
-  if (totalEl) totalEl.textContent = formatVND(qty * product.price);
+  if (totalEl) totalEl.textContent = formatVND(currentQuantity * currentProduct.price);
 }
 
+// Đặt lại lựa chọn
+function resetFood() {
+    updateFoodTotal(1);
+}
 
+// "Vẽ" sản phẩm
 function renderProduct(product) {
   const container = qs('#product-container');
   if (!container) return;
@@ -544,8 +550,31 @@ function renderProduct(product) {
     });
     info.appendChild(totalP);
 
-    const addBtn = createEl('button', { attrs: { id: 'addToCart' }, text: 'Thêm vào giỏ hàng' });
-    info.appendChild(addBtn);
+    // ===========================================
+    // === THÊM 2 NÚT MỚI (BUY NOW + ADD) ===
+    // ===========================================
+    const buttonWrap = createEl('div', { cls: 'button-wrapper' });
+    
+    // Nút "Thanh toán luôn"
+    const buyNowBtn = createEl('button', { 
+        cls: 'buy-now', 
+        attrs: { id: 'buyNow' }, 
+        html: '<i class="fa-solid fa-bolt-lightning"></i> Thanh toán luôn' 
+    });
+    buttonWrap.appendChild(buyNowBtn);
+
+    // Nút "Thêm vào giỏ"
+    const addBtn = createEl('button', { 
+        cls: 'cus', 
+        attrs: { id: 'addToCart' }, 
+        html: '<i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ hàng' 
+    });
+    buttonWrap.appendChild(addBtn);
+    
+    info.appendChild(buttonWrap);
+    // ===========================================
+    // === KẾT THÚC THÊM NÚT ===
+    // ===========================================
 
   }
 
@@ -553,112 +582,70 @@ function renderProduct(product) {
   container.appendChild(wrapper);
 }
 
-// ======= Khởi tạo =======
-(function init() {
-  const product = pickProduct();
-  renderProduct(product);
-
-  const container = qs('#product-container');
-  if (!container) return;
-
-  container.addEventListener('click', (e) => {
-    
-    if (e.target.closest('#decrease')) {
-      recalcCurrentProduct(); 
-    }
-    if (e.target.closest('#increase')) {
-      recalcCurrentProduct();
-    }
-    
-    if (e.target.classList.contains('close-btn')) {
-      const tooltipText = e.target.closest('.tooltiptext');
-      if (tooltipText) {
-        tooltipText.classList.add('hidden'); 
-        setTimeout(() => { tooltipText.classList.remove('hidden'); }, 2000);
-      }
-    }
-
-    // ===========================================
-    // === LOGIC THÊM GIỎ HÀNG ===
-    // ===========================================
-    if (e.target.closest('#addToCart')) {
-      const product = pickProduct(); 
-      const qtyEl = qs('#quantity');
-      const quantity = parseInt(qtyEl.value, 10);
-
-      const cartItem = {
-        lineItemId: `food-${product.id}-${Date.now()}`, // ID duy nhất cho dòng hàng
-        productId: product.id,
-        name: product.name,
-        price: product.price,
-        quantity: quantity,
-        description: `Số lượng: ${quantity}`,
-        image: product.image
-      };
-      
-      Cart.addItem(cartItem);
-      
-      // ------------------------------------------------------------------
-      // ⭐ ĐÂY LÀ PHẦN SỬA LỖI ⭐
-      // ------------------------------------------------------------------
-      alert('Đã thêm sản phẩm vào giỏ hàng!');
-      Cart.updateCartCount(); // Yêu cầu header cập nhật lại số lượng
-      // ------------------------------------------------------------------
-    }
-  });
-  
-  container.addEventListener('input', (e) => {
-    if (e.target.id === 'quantity') {
-      recalcCurrentProduct();
-    }
-  });
-  
-})();
-
-document.addEventListener("DOMContentLoaded", () => {
-  const priceElement = document.getElementById("price");
-  const quantityInput = document.getElementById("quantity");
-  const totalElement = document.getElementById("total");
-  const btnIncrease = document.getElementById("increase");
-  const btnDecrease = document.getElementById("decrease");
-  
-  if (!priceElement || !quantityInput || !totalElement || !btnIncrease || !btnDecrease) {
-    return;
-  }
-
-  // Phải đợi renderProduct chạy xong mới lấy giá
-  let price = 0;
-  // Thử lấy giá trị sau một khoảng trễ ngắn
-  setTimeout(() => {
-    if (document.getElementById("price")) {
-       price = parseInt(document.getElementById("price").textContent.replace(/\./g, ""));
-       updateTotal(); // Cập nhật tổng ban đầu
-    }
-  }, 0);
-
-
-  function updateTotal() {
-    if (price === 0) return; // Nếu chưa lấy được giá thì chưa cập nhật
-    const quantity = Math.max(1, parseInt(quantityInput.value));
-    const total = price * quantity;
-    totalElement.textContent = total.toLocaleString("vi-VN");
-  }
-
-  btnIncrease.addEventListener("click", () => {
-    quantityInput.value = parseInt(quantityInput.value) + 1;
-    updateTotal();
-  });
-
-  btnDecrease.addEventListener("click", () => {
-    quantityInput.value = Math.max(1, parseInt(quantityInput.value) - 1);
-    updateTotal();
-  });
-
-  quantityInput.addEventListener("input", updateTotal);
-});
-
-
+// ===========================================
+// === HÀM XỬ LÝ SỰ KIỆN CHÍNH ===
+// ===========================================
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. KHỞI TẠO SẢN PHẨM ---
+    currentProduct = pickProduct();
+    renderProduct(currentProduct);
+    updateFoodTotal(1); // Cập nhật tổng tiền ban đầu
+
+    const container = qs('#product-container');
+    if (container) {
+        container.addEventListener('click', (e) => {
+            const qtyEl = qs('#quantity');
+            let currentQty = parseInt(qtyEl.value, 10);
+
+            // Nút Giảm
+            if (e.target.closest('#decrease')) {
+                updateFoodTotal(currentQty - 1); 
+            }
+            // Nút Tăng
+            if (e.target.closest('#increase')) {
+                updateFoodTotal(currentQty + 1);
+            }
+            
+            // ===========================================
+            // === LOGIC THÊM GIỎ HÀNG (GIỮ NGUYÊN) ===
+            // ===========================================
+            if (e.target.closest('#addToCart')) {
+                const cartItem = {
+                    lineItemId: `food-${currentProduct.id}-${Date.now()}`,
+                    productId: currentProduct.id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    quantity: currentQuantity,
+                    // "description" cho đồ ăn đơn giản là số lượng
+                    description: `Số lượng: ${currentQuantity}`, 
+                    image: currentProduct.image
+                };
+                
+                Cart.addItem(cartItem);
+                
+                alert('Đã thêm sản phẩm vào giỏ hàng!');
+                Cart.updateCartCount(); 
+            }
+
+            // ===========================================
+            // === LOGIC THANH TOÁN NGAY (MỚI) ===
+            // ===========================================
+            if (e.target.closest('#buyNow')) {
+                const totalText = formatVND(currentQuantity * currentProduct.price);
+                alert(`Đã thanh toán thành công cho sản phẩm:\n${currentProduct.name}\nSố lượng: ${currentQuantity}\nTổng: ${totalText} VNĐ`);
+                resetFood(); // Reset lại số lượng
+            }
+        });
+        
+        container.addEventListener('input', (e) => {
+            if (e.target.id === 'quantity') {
+                updateFoodTotal(parseInt(e.target.value, 10));
+            }
+        });
+    }
+
+    // --- 2. LOGIC MENU BURGER (GIỮ NGUYÊN TỪ FILE CỦA BẠN) ---
     const burger = document.getElementById('burger');
     const overlay = document.getElementById('overlay');
     const drawer = overlay?.querySelector('.drawer');
@@ -687,7 +674,7 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.classList.remove('open');
         overlay.setAttribute('aria-hidden', 'true');
         burger?.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('lock'); // Sửa lại: remove 'lock'
+        document.body.classList.remove('lock'); 
         burger?.focus();
     }
 
@@ -728,4 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     mql.addEventListener('change', handleMediaQueryChange);
     handleMediaQueryChange(mql);
+
+    // --- 3. CẬP NHẬT SỐ LƯỢNG TRÊN ICON GIỎ HÀNG ---
+    Cart.updateCartCount();
 });

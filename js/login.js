@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ------------------------------------------------------------------
-    // ⭐ ĐÂY LÀ PHẦN CODE MỚI ĐƯỢC THÊM VÀO ⭐
+    // ⭐ SỬA 1: Kiểm tra đúng 'localStorage' (thay vì 'sessionStorage') ⭐
     // ------------------------------------------------------------------
-    // Kiểm tra xem người dùng đã đăng nhập chưa (ngay khi tải trang)
-    const loggedInUser = sessionStorage.getItem('loggedInUser');
+    const loggedInUser = localStorage.getItem('currentUser'); // Sửa ở đây
     
     if (loggedInUser) {
         // Nếu đã đăng nhập, không hiển thị form, chuyển thẳng về trang chủ
@@ -13,9 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return; // Dừng chạy toàn bộ code bên dưới
     }
     // ------------------------------------------------------------------
-    // (Nếu không có loggedInUser, code sẽ tiếp tục chạy như bình thường)
-    // ------------------------------------------------------------------
-
 
     // --- Selectors (Chọn các phần tử) ---
     const container = document.querySelector('.container');
@@ -32,10 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const registerForm = document.getElementById('register-form');
     const registerCredentialInput = document.getElementById('register-credential');
     const registerPasswordInput = document.getElementById('register-password');
-    // (Giả sử bạn đã thêm ô "Xác nhận Mật khẩu" vào HTML)
     const registerConfirmPasswordInput = document.getElementById('register-confirm-password');
 
-    // --- "Cơ sở dữ liệu" tạm thời (lưu người dùng trong phiên này) ---
+    // --- "Cơ sở dữ liệu" tạm thời ---
     let registeredUsers = [
         { credential: "user@gmail.com", password: "password123" },
         { credential: "0987654321", password: "password123" }
@@ -97,20 +92,33 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Sai mật khẩu. Vui lòng thử lại.');
         } else {
             alert('Đăng nhập thành công! Đang chuyển đến trang chủ...');
-            const username = user.credential.split('@')[0];
-            sessionStorage.setItem('loggedInUser', username);
+            
+            // ------------------------------------------------------------------
+            // ⭐ SỬA 2: Lưu đúng 'username' (trước dấu @) ⭐
+            // ------------------------------------------------------------------
+            const username = user.credential.split('@')[0]; // Lấy tên user
+            
+            // ------------------------------------------------------------------
+            // ⭐ SỬA 3: Lưu vào 'localStorage' với ĐÚNG ĐỊNH DẠNG 'object' ⭐
+            // ------------------------------------------------------------------
+            const userForStorage = {
+                username: username, // Tên để chào
+                phone: '',    // Trường rỗng để cart.js kiểm tra
+                address: '' // Trường rỗng để cart.js kiểm tra
+            };
+            // Lưu đối tượng dưới dạng chuỗi JSON vào localStorage
+            localStorage.setItem('currentUser', JSON.stringify(userForStorage));
+            
             window.location.href = '../index.html'; 
         }
     }); 
 
-    // 4. Sự kiện Submit Form Đăng Ký (Phiên bản có "Xác nhận Mật khẩu")
+    // 4. Sự kiện Submit Form Đăng Ký
     registerForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const credential = registerCredentialInput.value.trim();
         const password = registerPasswordInput.value.trim();
         
-        // Lấy giá trị từ ô "Xác nhận Mật khẩu"
-        // (Nếu bạn không có ô này trong HTML, nó sẽ báo lỗi, hãy thêm nó vào HTML)
         const confirmPassword = registerConfirmPasswordInput ? registerConfirmPasswordInput.value.trim() : password;
         const passwordCheck = registerConfirmPasswordInput ? password === confirmPassword : true;
 
@@ -127,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Kiểm tra mật khẩu khớp nhau
         if (!passwordCheck) {
             alert('Mật khẩu xác nhận không khớp. Vui lòng thử lại.');
             return;

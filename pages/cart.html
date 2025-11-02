@@ -8,6 +8,16 @@
   <link rel="icon" href="../assets/images/DoVanTien_24130858/logo.png" type="image/png">
   <link rel="stylesheet" href="../styles/cart.css" /> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+   
+    .cart-link { position: relative; }
+    #cart-count {
+      position: absolute; top: -5px; right: -15px; background-color: red;
+      color: white; border-radius: 50%; width: 20px; height: 20px;
+      font-size: 12px; font-weight: bold; display: flex;
+      align-items: center; justify-content: center; display: none;
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -17,7 +27,7 @@
           </a>
       </div>
       <nav class="navbar__menu" aria-label="Điều hướng chính">
-          <a href="menu.html">Thực đơn</a>
+          <a href="all_menu.html">Thực đơn</a>
           <a href="#">Đơn hàng</a>
           <a href="cart.html" class="cart-link">
             Giỏ hàng 
@@ -26,26 +36,21 @@
       </nav>
       
       <div class="navbar__actions auth-section">
-          <a href="login.html">
-              <button class="btn btn--white">Đăng nhập</button>
-          </a>
-          <a href="register.html"> <button class="btn btn--black">Đăng kí</button>
-          </a>
-      </div>
+          </div>
       
       <button id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="overlay">
           <span></span>
       </button>
       
       <div class="menu-overlay" id="overlay" aria-hidden="true">
-      </div>
+        </div>
   </header>
 
   <main class="cart-page">
     <h1>Giỏ hàng của bạn</h1>
     <div class="cart-container">
       <div class="cart-items" id="cart-items-container">
-        </div>
+          </div>
 
       <div class="cart-summary">
         <h3>Tóm tắt đơn hàng</h3>
@@ -143,13 +148,9 @@
     <p class="footer__copyright">© 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.</p>
   </footer>
 
-  <script src="../js/cart-logic.js"></script>
-  <script src="../js/cart.js"></script>
-  <script src="../js/product_drinks.js"></script>
-  <script src="../js/product_food.js"></script>
-  <script src="../js/main.js"></script>
   <script src="../js/logic-cart.js"></script>
-  <script src="../js/profile.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
   <script src="https://kit.fontawesome.com/040bed8739.js" crossorigin="anonymous"></script>
 </body>
 </html>

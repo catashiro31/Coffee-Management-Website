@@ -9,25 +9,13 @@
   <link rel="stylesheet" href="../styles/product_drinks.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* Bạn có thể thêm CSS cho cart-count vào file .css riêng */
-    .cart-link {
-      position: relative;
-    }
+    /* CSS để icon giỏ hàng hiển thị */
+    .cart-link { position: relative; }
     #cart-count {
-      position: absolute;
-      top: -5px;
-      right: -15px;
-      background-color: red;
-      color: white;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      font-size: 12px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      display: none; /* JS sẽ bật lên nếu có hàng */
+      position: absolute; top: -5px; right: -15px; background-color: red;
+      color: white; border-radius: 50%; width: 20px; height: 20px;
+      font-size: 12px; font-weight: bold; display: flex;
+      align-items: center; justify-content: center; display: none;
     }
   </style>
 </head>
@@ -39,7 +27,7 @@
         </a>
     </div>
     <nav class="navbar__menu" aria-label="Main navigation">
-      <a href="menu.html">Thực đơn</a>
+      <a href="all_menu.html">Thực đơn</a>
       <a href="#">Đơn hàng</a>
       <a href="cart.html" class="cart-link">
         Giỏ hàng 
@@ -60,7 +48,7 @@
         <img class="logo" src="../assets/images/DoVanTien_24130858/logo.png" alt="Coffee Since 2025 Logo" width="50" height="50">
         
         <nav class="menu-links" aria-label="Mobile navigation">
-          <a href="menu.html">Thực đơn</a>
+          <a href="all_menu.html">Thực đơn</a>
           <a href="#">Đơn hàng</a>
           <a href="cart.html" class="cart-link">Giỏ hàng</a>
         </nav>
@@ -141,12 +129,9 @@
     </div>
     <p class="footer__copyright">© 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.</p>
   </footer>
-
-  <script src="../js/cart-logic.js"></script>
-  <script src="../js/product_drinks.js"></script>
-  
   <script src="../js/main.js"></script>
-  
+  <script src="../js/logic-cart.js"></script>
+  <script src="../js/product_drinks.js"></script>
   <script src="https://kit.fontawesome.com/040bed8739.js" crossorigin="anonymous"></script>
 </body>
 </html>
