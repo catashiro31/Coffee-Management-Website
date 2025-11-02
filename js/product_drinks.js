@@ -10,7 +10,7 @@ const products = [
     customizers: {
       sizes: true,
       milk: true,
-      roast: true,
+      roast: true, 
       hot: true,
       topping: true,
       flavors: true,
@@ -1246,7 +1246,7 @@ function renderProduct(product) {
       attrs: {
         src: product.image,
         alt: product.name,
-        width: '400px',
+        width: '300px',
         height: '300px',
       },
     });
@@ -1380,7 +1380,7 @@ function renderCustomizer(customizers) {
   }
 
   // Nút Add/Reset
-  if (right.children.length > 1) {
+  if (right.children.length >= 1) {
     const buttonsDiv = createEl('div', { cls: 'cus-res' });
     
     buttonsDiv.innerHTML = `
