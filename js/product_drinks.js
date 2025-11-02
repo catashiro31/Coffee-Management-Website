@@ -425,7 +425,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -529,11 +529,11 @@ const products = [
     },
   },
   {
-    id: 'Cold Brew with Nondairy Vanilla Sweet Cream Cold',
-    name: 'Cold Brew with Nondairy Vanilla Sweet Cream Cold',
+    id: 'Cold Brew with Nondairy Vanilla Sweet Cream Cold Foam',
+    name: 'Cold Brew with Nondairy Vanilla Sweet Cream Cold Foam',
     calories: 150,
     image:
-      '../assets/images/duong-241230692/Cold Brew with Nondairy Vanilla Sweet Cream Cold.jpg',
+      '../assets/images/duong-241230692/Cold Brew with Nondairy Vanilla Sweet Cream Cold Foam.jpg',
     customizers: {
       sizes: true,
       milk: false,
@@ -575,7 +575,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -592,7 +592,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: false,
+      espresso: true,
     },
   },
   {
@@ -694,10 +694,10 @@ const products = [
     },
   },
   {
-    id: 'Iced Caffè Mocha',
-    name: 'Iced Caffè Mocha',
+    id: 'Iced White Chocolate Mocha',
+    name: 'Iced White Chocolate Mocha',
     calories: 350,
-    image: '../assets/images/duong-241230692/Iced Caffè Mocha.jpg',
+    image: '../assets/images/duong-241230692/Iced White Chocolate Mocha.jpg',
     customizers: {
       sizes: true,
       milk: true,
@@ -743,7 +743,7 @@ const products = [
   },
   {
     id: 'Chai Latte',
-    name: 'Chai Latte',
+    name: 'Tea Latte',
     calories: 150,
     image: '../assets/images/duong-241230692/Tea Latte.jpg',
     customizers: {
@@ -886,10 +886,10 @@ const products = [
     },
   },
   {
-    id: 'Iced Passion Tango® Tea',
-    name: 'Iced Passion Tango® Tea',
+    id: 'Iced Passion Tango® Tea Lemonade',
+    name: 'Iced Passion Tango® Tea Lemonade',
     calories: 0,
-    image: '../assets/images/duong-241230692/Iced Passion Tango® Tea.jpg',
+    image: '../assets/images/duong-241230692/Iced Passion Tango® Tea Lemonade.jpg',
     customizers: {
       sizes: true,
       milk: false,

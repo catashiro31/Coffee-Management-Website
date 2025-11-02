@@ -257,11 +257,10 @@ const allCategoryData = {
                     { id: 'Chocolate Cream Protein Cold Brew-brew', name: 'Chocolate Cream Protein Cold Brew', img: '../assets/images/duong-241230692/Chocolate Cream Protein Cold Brew.jpg' },
                     { id: 'Vanilla Sweet Cream Cold Brew', name: 'Vanilla Sweet Cream Cold Brew', img: '../assets/images/duong-241230692/Vanilla Sweet Cream Cold Brew.jpg' },
                     { id: 'Salted Caramel Cream Cold Brew', name: 'Salted Caramel Cream Cold Brew', img: '../assets/images/duong-241230692/Salted Caramel Cream Cold Brew.jpg' },
-                    { id: 'Chocolate Cream Cold Brew', name: 'Chocolate Cream Cold Brew', img: '../assets/images/duong-241230692/Chocolate Cream Cold Brew.jpg' },
+                    { id: 'Nondairy Chocolate Cream Cold Brew', name: 'Nondairy Chocolate Cream Cold Brew', img: '../assets/images/duong-241230692/Nondairy Chocolate Cream Cold Brew.jpg' },
                     { id: 'Nondairy Vanilla Sweet Cream Cold Brew', name: 'Nondairy Vanilla Sweet Cream Cold Brew', img: '../assets/images/duong-241230692/Nondairy Vanilla Sweet Cream Cold Brew.jpg' },
                     { id: 'Nondairy Salted Caramel Cream Cold Brew', name: 'Nondairy Salted Caramel Cream Cold Brew', img: '../assets/images/duong-241230692/Nondairy Salted Caramel Cream Cold Brew.jpg' },
                     { id: 'Cold Brew with Nondairy Vanilla Sweet Cream Cold Foam', name: 'Cold Brew with Nondairy Vanilla Sweet Cream Cold Foam', img: '../assets/images/duong-241230692/Cold Brew with Nondairy Vanilla Sweet Cream Cold Foam.jpg' },
-                    { id: 'Nondairy Chocolate Cream Cold Brew', name: 'Nondairy Chocolate Cream Cold Brew', img: '../assets/images/duong-241230692/Nondairy Chocolate Cream Cold Brew.jpg' },
                 ]
             },
             {
@@ -272,12 +271,7 @@ const allCategoryData = {
 
                 ]
             },
-            {
-                title: 'Iced Coffee',
-                items: [
-                    { id: 'Iced Coffee', name: 'Iced Coffee', img: '../assets/images/duong-241230692/Iced Coffee.jpg' },
-                ]
-            },
+           
             {
                 title: 'Iced Espresso',
                 items: [
@@ -293,7 +287,6 @@ const allCategoryData = {
              {
                 title: ' Iced Latte',
                 items: [
-                    { id: ' Iced Caffè Latte', name: 'Iced Caffè Latte', img: '../assets/images/duong-241230692/Iced Caffè Latte.jpg' },
                     { id: 'Iced Pumpkin Spice Latte', name: 'Iced Pumpkin Spice Latte', img: '../assets/images/duong-241230692/Iced Pumpkin Spice Latte.jpg' },
                     { id: 'Iced Pecan Crunch Oatmilk Latte', name: 'Iced Pecan Crunch Oatmilk Latte', img: '../assets/images/duong-241230692/Iced Pecan Crunch Oatmilk Latte.jpg' },
                     { id: 'Iced Vanilla Protein Latte', name: 'Iced Vanilla Protein Latte', img: '../assets/images/duong-241230692/Iced Vanilla Protein Latte.jpg' },
@@ -303,14 +296,12 @@ const allCategoryData = {
               {
                 title: 'Iced Mocha',
                 items: [
-                    { id: 'Iced Caffè Mocha', name: 'Iced Caffè Mocha', img: '../assets/images/duong-241230692/Iced Caffè Mocha.jpg' },
                     { id: 'Iced White Chocolate Mocha', name: 'Iced White Chocolate Mocha', img: '../assets/images/duong-241230692/Iced White Chocolate Mocha.jpg' },
                 ]
             },
             {
                 title: 'Iced Macchiato',
                 items: [
-                    { id: 'Iced Espresso Macchiato', name: 'Iced Espresso Macchiato', img: '../assets/images/duong-241230692/Iced Espresso Macchiato.jpg' },
                     { id: 'Iced Caramel Macchiato', name: 'Iced Caramel Macchiato', img: '../assets/images/duong-241230692/Iced Caramel Macchiato.jpg' },
                 ]
             },
@@ -440,7 +431,7 @@ const allCategoryData = {
                 title: 'Trà lạnh ',
                 items: [
                     { id: 'Iced Black Tea', name: 'Iced Black Tea', img: '../assets/images/duong-241230692/Iced Black Tea.jpg' },
-                     { id: 'Iced Passion Tango® Tea', name: 'Iced Passion Tango® Tea', img: '../assets/images/duong-241230692/Iced Passion Tango® Tea.jpg' },
+                     { id: 'Iced Passion Tango® Tea Lemonade', name: 'Iced Passion Tango® Tea Lemonade', img: '../assets/images/duong-241230692/Iced Passion Tango® Tea Lemonade.jpg' },
 
                 ]
             },
