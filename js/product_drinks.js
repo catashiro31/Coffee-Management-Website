@@ -425,7 +425,7 @@ const products = [
       topping: false,
       flavors: false,
       shots: false,
-      espresso: true,
+      espresso: false,
     },
   },
   {
