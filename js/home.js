@@ -1,4 +1,52 @@
-// Carousel JavaScript
+
+document.addEventListener('DOMContentLoaded', () => {
+    const currentUserJSON = localStorage.getItem('currentUser');
+    let currentUser = null;
+    
+    if (currentUserJSON) {
+        try {
+            currentUser = JSON.parse(currentUserJSON);
+        } catch (e) {
+            console.error("Lỗi khi đọc JSON từ localStorage", e);
+            localStorage.removeItem('currentUser'); // Xóa nếu JSON bị hỏng
+        }
+    }
+
+    const authLinks = document.getElementById('auth-links');
+    const userInfo = document.getElementById('user-info');
+    const userGreet = document.getElementById('user-greet');
+    const logoutBtn = document.getElementById('logout-btn');
+    const authLinksMobile = document.getElementById('auth-links-mobile');
+    const userInfoMobile = document.getElementById('user-info-mobile');
+    const userGreetMobile = document.getElementById('user-greet-mobile');
+    const logoutBtnMobile = document.getElementById('logout-btn-mobile');
+    const handleLogout = () => {
+        localStorage.removeItem('currentUser');
+        alert('Bạn đã đăng xuất thành công.');
+        window.location.reload(); // Tải lại trang để cập nhật UI
+    };
+    if (currentUser && currentUser.username) {
+        const username = currentUser.username;
+
+        if (authLinks) authLinks.style.display = 'none';
+        if (authLinksMobile) authLinksMobile.style.display = 'none';
+        if (userInfo && userGreet) {
+            userInfo.style.display = 'flex';
+            userGreet.textContent = `Chào, ${username}!`;
+        }
+        if (userInfoMobile && userGreetMobile) {
+            userInfoMobile.style.display = 'block';
+            userGreetMobile.textContent = `Chào, ${username}!`;
+        }
+        if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
+        if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', handleLogout);
+
+    } else {
+        if (userInfo) userInfo.style.display = 'none';
+        if (userInfoMobile) userInfoMobile.style.display = 'none';
+    }
+});
+
 (function () {
     const carousel = document.querySelector('.carousel');
     const items = carousel.querySelectorAll('.carousel__item');
@@ -19,8 +67,6 @@
     });
 
     const dots = dotsContainer.querySelectorAll('.carousel__dot');
-
-    // Function to update carousel state
     function updateCarousel(index) {
         items.forEach((item, i) => {
             item.classList.toggle('active', i === index);

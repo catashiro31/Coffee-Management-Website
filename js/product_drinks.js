@@ -1406,19 +1406,32 @@ function renderCustomizer(customizers) {
 /* ==============================================
     4. CODE CƠ BẢN (Giữ nguyên)
     ============================================== */
+/* [Dán code này vào file product_drinks.js] */
+
+/* [Dán code này vào file product_drinks.js] */
+
 function updatePrice() {
+  // ⭐ THAY ĐỔI: Mặc định giá size là 'short' (bé nhất)
+  let basePrice = sizes.short; // Mặc định là 40.000đ
+
+  // 1. Lấy giá của size (nếu người dùng CÓ chọn)
   if (selectedSize != null && selectedImageIndex != null) {
-    cost = sizes[selectedImageIndex];
-    if (select1) cost += type_milk[select1.selectedIndex];
-    if (select2) cost += type_roast[select2.selectedIndex];
-    if (select3) cost += type_hot[select3.selectedIndex];
-    if (select4) cost += type_topping[select4.selectedIndex];
-    if (select7) cost += type_espresso[select7.selectedIndex];
-    cost += cost_shot * shots + cost_flavor * flavors;
-  } else {
-    cost = 0;
+    basePrice = sizes[selectedImageIndex]; // Ghi đè bằng giá size đã chọn
   }
 
+  // 2. Lấy giá của tất cả các tùy chọn khác
+  let optionsPrice = 0;
+  if (select1) optionsPrice += type_milk[select1.selectedIndex];
+  if (select2) optionsPrice += type_roast[select2.selectedIndex];
+  if (select3) optionsPrice += type_hot[select3.selectedIndex];
+  if (select4) optionsPrice += type_topping[select4.selectedIndex];
+  if (select7) optionsPrice += type_espresso[select7.selectedIndex];
+  optionsPrice += cost_shot * shots + cost_flavor * flavors;
+
+  // 3. Tổng chi phí = giá size (mặc định là 'short') + giá tùy chọn
+  cost = basePrice + optionsPrice;
+
+  // 4. Cập nhật giao diện
   const priceEl = document.getElementById('price');
   if (priceEl) {
     priceEl.textContent = Math.round(cost).toLocaleString('vi-VN');
@@ -1483,17 +1496,33 @@ function changed7() {
 // ===========================================
 // === HÀM add_order() (ĐÚNG YÊU CẦU) ===
 // ===========================================
-function add_order() {
-  if (selectedSize == null) {
-    alert('Bạn chưa chọn Size!');
-    return; // Dừng hàm nếu chưa chọn size
-  }
+/* [Dán code này vào file product_drinks.js] */
 
+// ===========================================
+// === HÀM add_order() (ĐÃ SỬA THEO YÊU CẦU) ===
+// ===========================================
+/* [Dán code này vào file product_drinks.js] */
+
+// ===========================================
+// === HÀM add_order() (ĐÃ SỬA THEO YÊU CẦU) ===
+// ===========================================
+function add_order() {
   // 1. Lấy thông tin sản phẩm cơ bản
   const product = pickProduct();
 
-  // 2. Xây dựng mô tả chi tiết
-  let description = `Size: ${map[selectedSize.toLowerCase()]}`;
+  // 2. Xây dựng mô tả chi tiết (ĐÃ SỬA)
+  let description = "";
+  
+  // ⭐ THAY ĐỔI:
+  if (selectedSize) {
+    // Nếu có chọn size -> Lấy size đã chọn
+    description = `Size: ${map[selectedSize.toLowerCase()]}`;
+  } else {
+    // Nếu không chọn size -> Mặc định là 'Nhỏ'
+    description = "Size: Nhỏ"; 
+  }
+
+  // Thêm các tùy chọn còn lại vào mô tả
   if (select1) description += `, Sữa: ${milk_select[select1.selectedIndex]}`;
   if (select2) description += `, Bọt: ${roast_select[select2.selectedIndex]}`;
   if (select3) description += `, Nhiệt độ: ${hot_select[select3.selectedIndex]}`;
@@ -1503,6 +1532,7 @@ function add_order() {
   if (select7) description += `, Espresso: ${espresso_select[select7.selectedIndex]}`;
 
   // 3. Tạo đối tượng sản phẩm cho giỏ hàng
+  // (Giá 'cost' đã được hàm updatePrice() mới tính toán chính xác)
   const cartItem = {
     lineItemId: `drink-${product.id}-${Date.now()}`,
     productId: product.id,
@@ -1513,7 +1543,7 @@ function add_order() {
     image: product.image
   };
 
-  // 4. Thêm vào giỏ hàng (sử dụng logic chung từ cart-logic.js)
+  // 4. Thêm vào giỏ hàng (sử dụng logic chung từ logic-cart.js)
   Cart.addItem(cartItem);
 
   // 5. Thông báo và cập nhật
@@ -1657,75 +1687,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (flavorsVal) flavorsVal.textContent = flavors;
   if (shotsVal) shotsVal.textContent = shots;
 
-  // --- 3. LOGIC MENU BURGER (ĐÃ DI CHUYỂN VÀO ĐÂY) ---
-  // LƯU Ý: Phần này đã được tích hợp từ main.js, 
-  // hãy đảm bảo bạn không tải main.js một lần nữa trong HTML
-  const burger = document.getElementById('burger');
-  const overlay = document.getElementById('overlay');
-  const drawer = overlay?.querySelector('.drawer');
-
-  const getFocusable = () => {
-    return drawer
-      ? Array.from(
-        drawer.querySelectorAll(
-          'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
-        )
-      )
-      : [];
-  };
-
-  function openMenu() {
-    if (!overlay) return;
-    overlay.classList.add('open');
-    overlay.setAttribute('aria-hidden', 'false');
-    burger?.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('lock');
-    const focusables = getFocusable();
-    if (focusables.length > 0) focusables[0].focus();
-  }
-
-  function closeMenu() {
-    if (!overlay) return;
-    overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden', 'true');
-    burger?.setAttribute('aria-expanded', 'false');
-    document.body.classList.remove('lock'); 
-    burger?.focus();
-  }
-
-  function toggleMenu() {
-    const isOpen = overlay?.classList.contains('open') ?? false;
-    isOpen ? closeMenu() : openMenu();
-  }
-
-  burger?.addEventListener('click', toggleMenu);
-  overlay?.addEventListener('click', (e) => {
-    if (e.target === overlay) closeMenu();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay?.classList.contains('open')) closeMenu();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (!overlay?.classList.contains('open') || e.key !== 'Tab') return;
-    const focusables = getFocusable();
-    if (focusables.length === 0) return;
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
-  });
-
-  const mql = window.matchMedia('(min-width: 960px)');
-  const handleMediaQueryChange = (e) => {
-    if (e.matches && overlay?.classList.contains('open')) closeMenu();
-  };
-  mql.addEventListener('change', handleMediaQueryChange);
-  handleMediaQueryChange(mql);
 
   // --- 4. KHỞI TẠO GIÁ BAN ĐẦU (ĐÃ DI CHUYỂN VÀO ĐÂY) ---
   updatePrice();

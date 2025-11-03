@@ -8,6 +8,7 @@
     <link rel="icon" href="assets\images\DoVanTien_24130858\logo.png" type="image/png">
     <link rel="stylesheet" href="styles/home_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/auth.js" defer></script>
 </head>
 <body>
     <header class="navbar">
@@ -28,7 +29,8 @@
             <a href="#">Đơn hàng</a>
         </nav>
         
-        <div class="navbar__actions auth-section">
+    <div class="navbar__actions">
+        <div class="auth-section" id="auth-links">
             <a href="/pages/login.html">
                 <button class="btn btn--white">Đăng nhập</button>
             </a>
@@ -36,6 +38,11 @@
                 <button class="btn btn--black">Đăng kí</button>
             </a>
         </div>
+        <div class="user-section" id="user-info" style="display: none; align-items: center; color: black;">
+            <span id="user-greet" style="margin-right: 15px; font-weight: bold;"></span>
+            <button class="btn btn--white" id="logout-btn">Đăng xuất</button>
+        </div>
+    </div>
         
         <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay">
             <span></span>
@@ -49,10 +56,16 @@
                     <a href="#">Đơn hàng</a>
                 </nav>
                 
-                <div class="actions-overlay auth-section">
-                    <a href="pages/login.html"><button class="btn white">Đăng nhập</button></a>
-                    <a href="pages/join.html"><button class="btn black">Đăng kí</button></a>
-                </div>
+    <div class="actions-overlay">
+        <div class="auth-section" id="auth-links-mobile">
+        <a href="pages/login.html"><button class="btn white">Đăng nhập</button></a>
+        <a href="pages/join.html"><button class="btn black">Đăng kí</button></a>
+    </div>
+    <div class="user-section" id="user-info-mobile" style="display: none;">
+        <span id="user-greet-mobile" style="display: block; margin-bottom: 10px; font-weight: bold; color: black;"></span>
+        <button class="btn white" id="logout-btn-mobile">Đăng xuất</button>
+    </div>
+    </div>
             </aside>
         </div>
     </header>
@@ -367,6 +380,6 @@
 
     <script src="js/home.js"></script>
     
-    <script src="js/main.js"></script>
+
 </body>
 </html>
