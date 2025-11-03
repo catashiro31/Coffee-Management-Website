@@ -15,9 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="login.html">
             <button class="btn btn--white">Đăng nhập</button>
         </a>
-        <a href="login.html">
-            <button class="btn btn--black">Đăng kí</button>
-        </a>
     `;
 
     const userHTML = (username) => `

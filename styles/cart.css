@@ -11,6 +11,9 @@
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --radius-lg: 12px;
+  --color-bg: #ffffff;
+  --color-text-hover: #1E3932;
+  --color-border: #D5D4D3;
 }
 
 body {
@@ -19,67 +22,254 @@ body {
   color: var(--text-dark);
 }
 
-/* --- Header Navbar --- */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background: var(--white);
-  position: sticky;
-  top: 0;
-  z-index: 900;
-}
-
-.navbar__logo img {
-  height: 50px; 
-  width: auto;
-}
-
-.navbar__menu {
-  display: none;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-@media (min-width: 960px) {
-  .navbar__menu {
     display: flex;
-  }
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px 10px 50px;
+    border-bottom: 1px solid var(--color-border);
 }
 
-.navbar__menu a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: bold;
+.navbar .navbar__logo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar .navbar__logo img {
+    height: 50px;
+    width: 50px;
+}
+
+.navbar .navbar__menu a {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    padding: 8px 16px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: black; /* Màu cam nhạt */
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Đảm bảo padding và hiệu ứng hoạt động */
+    position: relative; /* Để sử dụng pseudo-element */
+}
+
+.navbar .navbar__menu a:hover {
+    color: #ffffff; /* Chữ trắng khi hover */
+    background-color: #ffca28; /* Vàng nhạt khi hover */
+    transform: translateY(-2px); /* Nhấc lên nhẹ */
+}
+
+.navbar .navbar__menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff9800;
+    transition: width 0.3s ease;
+}
+
+.navbar .navbar__menu a:hover::after {
+    width: 100%;
+}
+
+.navbar .navbar__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar .navbar__actions a {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar .navbar__actions a:hover {
+    color: var(--color-text-hover);
 }
 
 .navbar__actions {
-  display: none;
-  gap: 1rem;
-  align-items: center;
-}
-
-@media (min-width: 960px) {
-  .navbar__actions {
     display: flex;
-  }
+    gap: 10px; /* Khoảng cách giữa các nút */
+    .btn {
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        text-decoration: none; /* Loại bỏ gạch chân mặc định của a */
+        display: inline-block; /* Đảm bảo nút hoạt động như một khối inline */
+    }
 }
 
-/* --- Burger Menu --- */
-#burger {
-  display: block;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+.btn--white {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
 }
 
-@media (min-width: 960px) {
-  #burger {
+.btn--white:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn--black {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+.btn--black:hover {
+    background-color: #444444;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .navbar__actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+.navbar #burger {
     display: none;
-  }
+    --bar-gap: -6px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar #burger span,
+.navbar #burger::before,
+.navbar #burger::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #6b7280;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar #burger::before {
+    transform: translateY(calc(-1 * var(--bar-gap)));
+}
+
+.navbar #burger::after {
+    transform: translateY(var(--bar-gap));
+}
+
+.navbar #burger[aria-expanded="true"] span {
+    opacity: 0;
+}
+
+.navbar #burger[aria-expanded="true"]::before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.navbar #burger[aria-expanded="true"]::after {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.navbar .menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+.navbar .menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.navbar .menu-overlay .drawer {
+    position: absolute;
+    inset: 0 0 0 auto;
+    top: 0;
+    width: min(420px, 88vw);
+    height: 100%;
+    background: #ffffff;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 20px 40px;
+    overflow: auto;
+}
+
+.navbar .menu-overlay.open .drawer {
+    transform: translateX(0);
+}
+
+.navbar .menu-overlay .drawer .logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.navbar .menu-overlay .drawer .menu-links {
+    display: grid;
+    gap: 18px;
+    width: 100%;
+    padding: 6px 0 12px;
+    text-align: center;
+    justify-items: center;
+    border-bottom: 1px solid gray;
+    a {
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.navbar .menu-overlay .drawer .actions-overlay {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    a {
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.navbar .menu-overlay .drawer .actions-overlay .btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+}
+
+.navbar .menu-overlay .drawer .actions-overlay .btn.white {
+    background: #fff;
+    border: 2px solid #000;
+}
+
+.navbar .menu-overlay .drawer .actions-overlay .btn.black {
+    background: #000;
+    color: #fff;
 }
 
 /* ==============================================

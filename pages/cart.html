@@ -22,29 +22,40 @@
 </head>
 <body>
   <header class="navbar">
-      <div class="navbar__logo">
-          <a href="../index.html" aria-label="Coffee Since 2025 Home">
-              <img src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo">
-          </a>
-      </div>
-      <nav class="navbar__menu" aria-label="Điều hướng chính">
+    <div class="navbar__logo">
+        <a href="../index.html" aria-label="Coffee Since 2025 Home">
+            <img src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo">
+        </a>
+    </div>
+    <nav class="navbar__menu" aria-label="Main navigation">
+      <a href="all_menu.html">Thực đơn</a>
+      <a href="cart.html" class="cart-link">
+        Giỏ hàng 
+        <span id="cart-count">0</span>
+      </a>
+    </nav>
+    
+    <div class="navbar__actions auth-section">
+
+    </div>
+    
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay"><span></span></button>
+    <div class="menu-overlay" id="overlay" aria-hidden="true">
+      <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+        <h2 id="menu-title" class="sr-only">Mobile Menu</h2>
+        
+        <img class="logo" src="../assets/images/DoVanTien_24130858/logo.png" alt="Coffee Since 2025 Logo" width="50" height="50">
+        
+        <nav class="menu-links" aria-label="Mobile navigation">
           <a href="all_menu.html">Thực đơn</a>
-          <a href="#">Đơn hàng</a>
-          <a href="cart.html" class="cart-link">
-            Giỏ hàng 
-            <span id="cart-count">0</span>
-          </a>
-      </nav>
-      
-      <div class="navbar__actions auth-section">
-          </div>
-      
-      <button id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="overlay">
-          <span></span>
-      </button>
-      
-      <div class="menu-overlay" id="overlay" aria-hidden="true">
+          <a href="cart.html" class="cart-link">Giỏ hàng</a>
+        </nav>
+        
+        <div class="actions-overlay auth-section">
+          <a href="login.html"><button class="btn white">Đăng nhập</button></a>
         </div>
+      </aside>
+    </div>
   </header>
 
   <main class="cart-page">

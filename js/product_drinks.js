@@ -418,7 +418,7 @@ const products = [
     image:
       '../assets/images/duong-241230692/Coffee Traveler – Decaf Pike Place® Roast.jpg',
     customizers: {
-      sizes: false,
+      sizes: true,
       milk: false,
       roast: false,
       hot: false,
@@ -1074,7 +1074,7 @@ const products = [
     calories: 150,
     image: '../assets/images/duong-241230692/Ethos® Water.jpg',
     customizers: {
-      sizes: false,
+      sizes: true,
       milk: false,
       roast: false,
       hot: false,
@@ -1091,7 +1091,7 @@ const products = [
     image:
       '../assets/images/duong-241230692/Spindrift® Lemon Sparkling Water.jpg',
     customizers: {
-      sizes: false,
+      sizes: true,
       milk: false,
       roast: false,
       hot: false,
@@ -1107,7 +1107,7 @@ const products = [
     calories: 150,
     image: '../assets/images/duong-241230692/DASANI® Water.jpg',
     customizers: {
-      sizes: false,
+      sizes: true,
       milk: false,
       roast: false,
       hot: false,
@@ -1123,7 +1123,7 @@ const products = [
     calories: 5,
     image: '../assets/images/duong-241230692/Cold Brew.jpg',
     customizers: {
-      sizes: false,
+      sizes: true,
       milk: false,
       roast: false,
       hot: false,
@@ -1411,27 +1411,30 @@ function renderCustomizer(customizers) {
 /* [Dán code này vào file product_drinks.js] */
 
 function updatePrice() {
-  // ⭐ THAY ĐỔI: Mặc định giá size là 'short' (bé nhất)
-  let basePrice = sizes.short; // Mặc định là 40.000đ
+  // ⭐ THAY ĐỔI: Mặc định tổng chi phí là 0
+  let cost = 0;
 
-  // 1. Lấy giá của size (nếu người dùng CÓ chọn)
+  // 1. Chỉ tính toán bất cứ thứ gì KHI người dùng đã chọn size
   if (selectedSize != null && selectedImageIndex != null) {
-    basePrice = sizes[selectedImageIndex]; // Ghi đè bằng giá size đã chọn
+    
+    // A. Lấy giá của size
+    let basePrice = sizes[selectedImageIndex]; 
+
+    // B. Lấy giá của tất cả các tùy chọn khác
+    let optionsPrice = 0;
+    if (select1) optionsPrice += type_milk[select1.selectedIndex];
+    if (select2) optionsPrice += type_roast[select2.selectedIndex];
+    if (select3) optionsPrice += type_hot[select3.selectedIndex];
+    if (select4) optionsPrice += type_topping[select4.selectedIndex];
+    if (select7) optionsPrice += type_espresso[select7.selectedIndex];
+    optionsPrice += cost_shot * shots + cost_flavor * flavors;
+
+    // C. Tổng chi phí = giá size + giá tùy chọn
+    cost = basePrice + optionsPrice;
   }
+  // ELSE (nếu chưa chọn size), 'cost' sẽ giữ nguyên giá trị 0 đã khai báo ở trên
 
-  // 2. Lấy giá của tất cả các tùy chọn khác
-  let optionsPrice = 0;
-  if (select1) optionsPrice += type_milk[select1.selectedIndex];
-  if (select2) optionsPrice += type_roast[select2.selectedIndex];
-  if (select3) optionsPrice += type_hot[select3.selectedIndex];
-  if (select4) optionsPrice += type_topping[select4.selectedIndex];
-  if (select7) optionsPrice += type_espresso[select7.selectedIndex];
-  optionsPrice += cost_shot * shots + cost_flavor * flavors;
-
-  // 3. Tổng chi phí = giá size (mặc định là 'short') + giá tùy chọn
-  cost = basePrice + optionsPrice;
-
-  // 4. Cập nhật giao diện
+  // 2. Cập nhật giao diện
   const priceEl = document.getElementById('price');
   if (priceEl) {
     priceEl.textContent = Math.round(cost).toLocaleString('vi-VN');
