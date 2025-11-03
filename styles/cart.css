@@ -1,0 +1,814 @@
+/* ==============================================
+    STYLES CHUNG (HEADER/FOOTER/BUTTONS)
+   ============================================== */
+:root {
+  --primary-color: #006241;
+  --secondary-color: #d4e9e2;
+  --text-dark: #1e3932;
+  --border-color: #ccc;
+  --white: #fff;
+  --black: #000;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --radius-lg: 12px;
+  --color-bg: #ffffff;
+  --color-text-hover: #1E3932;
+  --color-border: #D5D4D3;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text-dark);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px 10px 50px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.navbar .navbar__logo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar .navbar__logo img {
+    height: 50px;
+    width: 50px;
+}
+
+.navbar .navbar__menu a {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    padding: 8px 16px;
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: black; /* Màu cam nhạt */
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Đảm bảo padding và hiệu ứng hoạt động */
+    position: relative; /* Để sử dụng pseudo-element */
+}
+
+.navbar .navbar__menu a:hover {
+    color: #ffffff; /* Chữ trắng khi hover */
+    background-color: #ffca28; /* Vàng nhạt khi hover */
+    transform: translateY(-2px); /* Nhấc lên nhẹ */
+}
+
+.navbar .navbar__menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff9800;
+    transition: width 0.3s ease;
+}
+
+.navbar .navbar__menu a:hover::after {
+    width: 100%;
+}
+
+.navbar .navbar__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar .navbar__actions a {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar .navbar__actions a:hover {
+    color: var(--color-text-hover);
+}
+
+.navbar__actions {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+    .btn {
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        text-decoration: none; /* Loại bỏ gạch chân mặc định của a */
+        display: inline-block; /* Đảm bảo nút hoạt động như một khối inline */
+    }
+}
+
+.btn--white {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+}
+
+.btn--white:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn--black {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+.btn--black:hover {
+    background-color: #444444;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .navbar__actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+.navbar #burger {
+    display: none;
+    --bar-gap: -6px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar #burger span,
+.navbar #burger::before,
+.navbar #burger::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #6b7280;
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar #burger::before {
+    transform: translateY(calc(-1 * var(--bar-gap)));
+}
+
+.navbar #burger::after {
+    transform: translateY(var(--bar-gap));
+}
+
+.navbar #burger[aria-expanded="true"] span {
+    opacity: 0;
+}
+
+.navbar #burger[aria-expanded="true"]::before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.navbar #burger[aria-expanded="true"]::after {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.navbar .menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+.navbar .menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.navbar .menu-overlay .drawer {
+    position: absolute;
+    inset: 0 0 0 auto;
+    top: 0;
+    width: min(420px, 88vw);
+    height: 100%;
+    background: #ffffff;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 20px 40px;
+    overflow: auto;
+}
+
+.navbar .menu-overlay.open .drawer {
+    transform: translateX(0);
+}
+
+.navbar .menu-overlay .drawer .logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.navbar .menu-overlay .drawer .menu-links {
+    display: grid;
+    gap: 18px;
+    width: 100%;
+    padding: 6px 0 12px;
+    text-align: center;
+    justify-items: center;
+    border-bottom: 1px solid gray;
+    a {
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.navbar .menu-overlay .drawer .actions-overlay {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    a {
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.navbar .menu-overlay .drawer .actions-overlay .btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+}
+
+.navbar .menu-overlay .drawer .actions-overlay .btn.white {
+    background: #fff;
+    border: 2px solid #000;
+}
+
+.navbar .menu-overlay .drawer .actions-overlay .btn.black {
+    background: #000;
+    color: #fff;
+}
+
+/* ==============================================
+ CSS CHO MENU DI ĐỘNG (MOBILE OVERLAY)
+ ============================================== 
+*/
+.menu-overlay {
+  display: none; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+/* JS should toggle .open on .menu-overlay */
+.menu-overlay.open {
+  display: block;
+}
+
+.menu-overlay .drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background: var(--white);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  box-sizing: border-box; 
+}
+
+.menu-overlay .logo {
+  height: 50px;
+  width: auto;
+  margin-bottom: 2rem;
+}
+
+.menu-overlay .menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.menu-overlay .menu-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.menu-overlay .actions-overlay {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.menu-overlay .actions-overlay .btn {
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+@media (min-width: 960px) {
+  .menu-overlay {
+    display: none !important;
+  }
+}
+
+/* --- Buttons --- */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--black);
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn--white {
+  background-color: var(--white);
+  color: var(--black);
+}
+.btn--black {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+/* ==============================================
+    CSS CHO TRANG GIỎ HÀNG (cart.html)
+   ============================================== */
+
+/* CSS cho #cart-count */
+.cart-link {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: bold;
+}
+#cart-count {
+  position: absolute;
+  top: -5px;
+  right: -15px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none; /* Sẽ được bật bằng JS */
+}
+
+/* Utility class: body.cart-has-items bật cart-count */
+body.cart-has-items #cart-count { display: flex; }
+
+/* Layout chính của trang giỏ hàng */
+.cart-page {
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 2rem; 
+  min-height: 70vh;
+}
+
+.cart-page h1 {
+  color: var(--text-dark);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 1rem;
+  margin-top: 0; 
+}
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 960px) {
+  .cart-container {
+    flex-direction: row;
+  }
+}
+
+/* Cột danh sách sản phẩm */
+.cart-items {
+  flex: 3; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* CSS cho thông báo giỏ hàng rỗng */
+.cart-empty-message {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Cột tóm tắt đơn hàng */
+.cart-summary {
+  flex: 1; 
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  height: fit-content; 
+}
+
+.cart-summary h3 {
+  margin-top: 0;
+  color: var(--text-dark);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.summary-row.total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--primary-color);
+}
+
+.btn-checkout {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-checkout:hover {
+  background-color: var(--text-dark);
+}
+
+.btn-checkout:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+
+/* ==============================================
+    CSS CHO MODAL (POPUP) THANH TOÁN QR
+   ============================================== */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+}
+
+/* JS toggles .open */
+.modal.open { display: flex; }
+
+.modal-content {
+  background-color: var(--white);
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: var(--black);
+}
+
+#qr-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 1rem auto;
+  border: 2px solid var(--secondary-color);
+}
+
+.qr-details h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.btn-confirm {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* CSS cho Welcome Message (Thêm vào) */
+.welcome-message {
+    color: var(--text-dark);
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.btn-logout {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid var(--black);
+    cursor: pointer;
+    font-weight: bold;
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* ==============================================
+    CSS CHO FOOTER
+   ============================================== */
+.footer {
+  background-color: var(--secondary-color);
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+@media (min-width: 960px) {
+  .footer__container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.footer__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__column h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.footer__column a {
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer__column a:hover {
+  text-decoration: underline;
+}
+
+.footer__social {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.footer__social a {
+  margin-right: 1.5rem;
+  color: var(--text-dark);
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.footer__legal {
+  max-width: 1200px;
+  margin: 1rem auto;
+  text-align: left;
+}
+
+.footer__legal a {
+  text-decoration: none;
+  color: #000;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+  line-height: 1.5;
+}
+
+.footer__legal a:hover {
+  text-decoration: underline;
+}
+
+.footer__copyright {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ==============================================
+    CSS CHO DÒNG SẢN PHẨM MỚI (V4)
+   ============================================== */
+.cart-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+  gap: 20px;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  background-color: transparent;
+  text-align: left;
+}
+
+.cart-item-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cart-item-price,
+.cart-item-options {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0;
+}
+
+.cart-item-options {
+  font-style: italic;
+  color: var(--primary-color);
+}
+
+/* Khối bên phải: Tổng tiền, nút Xóa */
+.cart-item-total-block {
+  width: 150px;
+  flex-shrink: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.cart-item-line-total {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Nút xóa */
+.cart-item-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #d00a2c;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0;
+  text-align: right;
+}
+.cart-item-remove:hover {
+  text-decoration: underline;
+}
+
+/* BỘ ĐIỀU KHIỂN SỐ LƯỢNG +/- */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.quantity-btn {
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 400;
+  cursor: pointer;
+  color: #333;
+  line-height: 28px;
+  transition: background-color 0.2s, transform 0.08s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btn:hover {
+  background-color: #f4f4f4;
+  transform: translateY(-1px);
+}
+
+.quantity-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.quantity-display {
+  padding: 0 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ----- Disabled visuals for other interactive elements ----- */
+.cart-item-remove:disabled,
+.btn-checkout:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ----- Focus styles for keyboard accessibility ----- */
+button:focus,
+a:focus { outline: 3px solid rgba(0,98,65,0.18); outline-offset: 3px; border-radius: 8px; }
+
+/* ----- Reduced motion support ----- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ----- Small screen tweak ----- */
+@media (max-width: 420px) {
+  .cart-item { gap: 12px; padding: 16px 0; }
+  .cart-item-image { width: 80px; height: 80px; }
+  .cart-item-total-block { width: 120px; }
+}
+
+/* Utility: aria-live and summary visual hint (put aria-live="polite" on HTML elements) */
+.cart-summary [aria-live] { min-width: 120px; display: inline-block; }
+
+/* End of file */

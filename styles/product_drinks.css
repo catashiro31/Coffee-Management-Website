@@ -442,7 +442,25 @@ main .custom .right .cus-res {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items:center;
+    align-items:stretch; /* Căn cho các nút rộng bằng nhau */
+}
+
+/* =========================================== */
+/* === THAY ĐỔI CSS NẰM Ở ĐÂY === */
+/* =========================================== */
+main .custom .right .cus-res .buy-now {
+    cursor: pointer;
+    padding: 10px 20px 10px 20px;
+    background-color: #ffca28; /* Màu vàng từ navbar hover */
+    border: 1px solid #ffca28;
+    border-radius: 25px;
+    font-weight: bold;
+    color: #1E3932; /* Màu text xanh đậm */
+    transition: background-color 0.2s ease;
+}
+main .custom .right .cus-res .buy-now:hover {
+    background-color: #ffb300; /* Màu vàng đậm hơn khi hover */
+    border-color: #ffb300;
 }
 
 main .custom .right .cus-res .cus{
@@ -453,7 +471,12 @@ main .custom .right .cus-res .cus{
     border-radius: 25px;
     font-weight: bold;
     color: white;
+    transition: background-color 0.2s ease;
 }
+main .custom .right .cus-res .cus:hover {
+    background-color: #162a25; /* Xanh đậm hơn khi hover */
+}
+
 
 main .custom .right .cus-res .res {
     cursor: pointer;
@@ -463,8 +486,14 @@ main .custom .right .cus-res .res {
     color: #00754A;
     font-weight: bold;
     border-radius: 25px;
+    transition: background-color 0.2s ease;
 }
-
+main .custom .right .cus-res .res:hover {
+    background-color: #d4e9e2; /* Màu nền đậm hơn khi hover */
+}
+/* =========================================== */
+/* === KẾT THÚC THAY ĐỔI CSS === */
+/* =========================================== */
 
 
 .footer {
@@ -589,6 +618,11 @@ main .custom .right .cus-res .res {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    
+    /* Căn lề cho 3 nút trên di động */
+    main .custom .right .cus-res {
+        padding: 0px 10px 0px 10px;
     }
 
     .navbar {

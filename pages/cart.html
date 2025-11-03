@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bánh ngọt</title>
+  <title>Giỏ hàng - Coffee Since 2025</title>
+  
   <link rel="icon" href="../assets/images/DoVanTien_24130858/logo.png" type="image/png">
-  <link rel="stylesheet" href="../styles/food_product.css" />
+  <link rel="stylesheet" href="../styles/cart.css" /> 
   <script src="../js/auth.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* CSS để icon giỏ hàng hiển thị */
+   
     .cart-link { position: relative; }
     #cart-count {
       position: absolute; top: -5px; right: -15px; background-color: red;
@@ -21,58 +22,79 @@
 </head>
 <body>
   <header class="navbar">
-      <div class="navbar__logo">
-          <a href="../index.html" aria-label="Coffee Since 2025 Home">
-              <img src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo">
-          </a>
-      </div>
-      <nav class="navbar__menu" aria-label="Điều hướng chính">
-          <a href="all_menu.html">Thực đơn</a>
-          <a href="cart.html" class="cart-link">
-            Giỏ hàng 
-            <span id="cart-count">0</span>
-          </a>
-      </nav>
-      
-      <div class="navbar__actions auth-section">
+    <div class="navbar__logo">
+        <a href="../index.html" aria-label="Coffee Since 2025 Home">
+            <img src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo">
+        </a>
+    </div>
+    <nav class="navbar__menu" aria-label="Main navigation">
+      <a href="all_menu.html">Thực đơn</a>
+      <a href="cart.html" class="cart-link">
+        Giỏ hàng 
+        <span id="cart-count">0</span>
+      </a>
+    </nav>
+    
+    <div class="navbar__actions auth-section">
 
-      </div>
-      
-      <button id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="overlay">
-          <span></span>
-      </button>
-      <div class="menu-overlay" id="overlay" aria-hidden="true">
-          <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
-              <h2 id="menu-title" class="sr-only">Menu Di động</h2>
-              
-              <img class="logo" src="../assets/images/DoVanTien_24130858/logo.png" alt="Logo Coffee Since 2025" width="80" height="80">
-              
-              <nav class="menu-links" aria-label="Điều hướng di động">
-                  <a href="all_menu.html">Thực đơn</a>
-                  <a href="cart.html" class="cart-link">Giỏ hàng</a>
-              </nav>
-              
-              <div class="actions-overlay">
-                  <div class="auth-section" style="display: contents;">
-                    <a href="login.html"><button class="btn white">Đăng nhập</button></a>
-                  </div>
-              </div>
-          </aside>
-      </div>
+    </div>
+    
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="overlay"><span></span></button>
+    <div class="menu-overlay" id="overlay" aria-hidden="true">
+      <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+        <h2 id="menu-title" class="sr-only">Mobile Menu</h2>
+        
+        <img class="logo" src="../assets/images/DoVanTien_24130858/logo.png" alt="Coffee Since 2025 Logo" width="50" height="50">
+        
+        <nav class="menu-links" aria-label="Mobile navigation">
+          <a href="all_menu.html">Thực đơn</a>
+          <a href="cart.html" class="cart-link">Giỏ hàng</a>
+        </nav>
+        
+        <div class="actions-overlay auth-section">
+          <a href="login.html"><button class="btn white">Đăng nhập</button></a>
+        </div>
+      </aside>
+    </div>
   </header>
 
-  <main>
-    <div id="product-container"></div>
+  <main class="cart-page">
+    <h1>Giỏ hàng của bạn</h1>
+    <div class="cart-container">
+      <div class="cart-items" id="cart-items-container">
+          </div>
 
-    <div class="custom">
-      <div class="left">
-        <p>
-          <span><i class="fa-solid fa-location-dot"></i></span>
-          <span>Vui lòng chọn cửa hàng để xem tình trạng còn hàng</span>
-        </p>
+      <div class="cart-summary">
+        <h3>Tóm tắt đơn hàng</h3>
+        <div class="summary-row">
+          <span>Tạm tính</span>
+          <span id="cart-summary-subtotal">0 VNĐ</span>
+        </div>
+        <div class="summary-row total">
+          <span>Tổng cộng</span>
+          <span id="cart-summary-total">0 VNĐ</span>
+        </div>
+        <button class="btn-checkout" id="checkout-btn">
+          Thanh toán
+        </button>
       </div>
     </div>
   </main>
+
+  <div id="qr-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-modal-btn">×</span>
+      <h2>Quét mã để thanh toán</h2>
+      <p>Sử dụng ứng dụng ngân hàng của bạn để quét mã VietQR dưới đây.</p>
+      <img id="qr-image" src="" alt="Mã QR thanh toán" />
+      <div class="qr-details">
+        <p>Số tiền cần thanh toán:</p>
+        <h3 id="qr-total-amount">0 VNĐ</h3>
+        <p>Nội dung: <span id="qr-content">Thanh toan don hang</span></p>
+      </div>
+      <button class="btn-confirm" id="confirm-payment-btn">Tôi đã thanh toán</button>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer__container">
@@ -119,24 +141,12 @@
         </div>
     </div>
     <div class="footer__social">
-        <a href="https://spotify.com" aria-label="Coffee Since 2025 on Spotify">
-            <i class="fa-brands fa-spotify"></i>
-        </a>
-        <a href="https://facebook.com" aria-label="Coffee Since 2025 on Facebook">
-            <i class="fa-brands fa-facebook"></i>
-        </a>
-        <a href="https://pinterest.com" aria-label="Coffee Since 2025 on Pinterest">
-            <i class="fa-brands fa-pinterest"></i>
-        </a>
-        <a href="https://instagram.com" aria-label="Coffee Since 2025 on Instagram">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://youtube.com" aria-label="Coffee Since 2025 on YouTube">
-            <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="https://twitter.com" aria-label="Coffee Since 2025 on Twitter">
-            <i class="fa-brands fa-twitter"></i>
-        </a>
+        <a href="https://spotify.com" aria-label="Coffee Since 2025 on Spotify"><i class="fa-brands fa-spotify"></i></a>
+        <a href="https://facebook.com" aria-label="Coffee Since 2025 on Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://pinterest.com" aria-label="Coffee Since 2025 on Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="https://instagram.com" aria-label="Coffee Since 2025 on Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com" aria-label="Coffee Since 2025 on YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://twitter.com" aria-label="Coffee Since 2025 on Twitter"><i class="fa-brands fa-twitter"></i></a>
     </div>
     <div class="footer__legal">
         <a href="legal/privacy.html">Quyền riêng tư</a>
@@ -147,12 +157,10 @@
         <a href="legal/accessibility.html">Khả năng tiếp cận</a>
         <a href="legal/cookies.html">Tùy chọn Cookie</a>
     </div>
-    <p class="footer__copyright">
-        © 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.
-    </p>
-    </footer>
-    <script src="../js/logic-cart.js"></script>
-    <script src="../js/product_food.js"></script>
-    <script src="https://kit.fontawesome.com/040bed8739.js" crossorigin="anonymous"></script>
+    <p class="footer__copyright">© 2025 Công ty Coffee Since 2025. Mọi quyền được bảo lưu.</p>
+  </footer>
+  <script src="../js/logic-cart.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="https://kit.fontawesome.com/040bed8739.js" crossorigin="anonymous"></script>
 </body>
 </html>

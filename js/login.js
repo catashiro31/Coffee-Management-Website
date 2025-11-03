@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // ------------------------------------------------------------------
+    // ⭐ SỬA 1: Kiểm tra đúng 'localStorage' (thay vì 'sessionStorage') ⭐
+    // ------------------------------------------------------------------
+    const loggedInUser = localStorage.getItem('currentUser'); // Sửa ở đây
+    
+    if (loggedInUser) {
+        // Nếu đã đăng nhập, không hiển thị form, chuyển thẳng về trang chủ
+        alert('Bạn đã đăng nhập rồi. Đang chuyển về trang chủ...');
+        window.location.href = '../index.html';
+        return; // Dừng chạy toàn bộ code bên dưới
+    }
+    // ------------------------------------------------------------------
 
+    // --- Selectors (Chọn các phần tử) ---
     const container = document.querySelector('.container');
     const registerBtn = document.querySelector('.register-btn');
     const loginBtn = document.querySelector('.login-btn');
@@ -14,25 +28,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const registerForm = document.getElementById('register-form');
     const registerCredentialInput = document.getElementById('register-credential');
     const registerPasswordInput = document.getElementById('register-password');
+    const registerConfirmPasswordInput = document.getElementById('register-confirm-password');
 
-    // --- "Cơ sở dữ liệu" tạm thời (lưu người dùng trong phiên này) ---
-    let registeredUsers = [];
+    // --- "Cơ sở dữ liệu" tạm thời ---
+    let registeredUsers = [
+        { credential: "user@gmail.com", password: "password123" },
+        { credential: "0987654321", password: "password123" }
+    ];
 
     // --- Hàm Hỗ trợ (Validation) ---
-
-    // Hàm kiểm tra Email
     function isEmailValid(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());
     }
-
-    // Hàm kiểm tra SĐT (đơn giản: 10 số, bắt đầu bằng 0)
     function isPhoneValid(phone) {
         const re = /^0[0-9]{9}$/;
         return re.test(String(phone));
     }
-
-    // Hàm kiểm tra SĐT hoặc Email
     function isCredentialValid(credential) {
         return isEmailValid(credential) || isPhoneValid(credential);
     }
@@ -48,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         container.classList.remove('active');
     });
 
-    // 2. Sự kiện click vào icon mạng xã hội (như cũ)
+    // 2. Sự kiện click vào icon mạng xã hội
     socialIcons.forEach(icon => {
         icon.addEventListener('click', (event) => {
             event.preventDefault();
@@ -62,31 +74,41 @@ document.addEventListener('DOMContentLoaded', function() {
         const credential = loginCredentialInput.value.trim();
         const password = loginPasswordInput.value.trim();
 
-        // Kiểm tra rỗng
         if (credential === '' || password === '') {
             alert('Vui lòng nhập đầy đủ Email/SĐT và Mật khẩu!');
             return;
         }
-
-        // Kiểm tra định dạng
         if (!isCredentialValid(credential)) {
             alert('Định dạng Email hoặc Số điện thoại không hợp lệ.');
             return;
         }
 
-        // --- Logic kiểm tra tài khoản ---
         const user = registeredUsers.find(u => u.credential === credential);
 
         if (!user) {
-            // YÊU CẦU: Nếu không có tài khoản, chuyển sang Đăng Ký
             alert('Tài khoản không tồn tại. Vui lòng đăng ký.');
-            container.classList.add('active'); // Chuyển sang panel Đăng Ký
+            container.classList.add('active');
         } else if (user.password !== password) {
             alert('Sai mật khẩu. Vui lòng thử lại.');
         } else {
-            // Đăng nhập thành công
             alert('Đăng nhập thành công! Đang chuyển đến trang chủ...');
-            // Chuyển hướng về trang chủ
+            
+            // ------------------------------------------------------------------
+            // ⭐ SỬA 2: Lưu đúng 'username' (trước dấu @) ⭐
+            // ------------------------------------------------------------------
+            const username = user.credential.split('@')[0]; // Lấy tên user
+            
+            // ------------------------------------------------------------------
+            // ⭐ SỬA 3: Lưu vào 'localStorage' với ĐÚNG ĐỊNH DẠNG 'object' ⭐
+            // ------------------------------------------------------------------
+            const userForStorage = {
+                username: username, // Tên để chào
+                phone: '',    // Trường rỗng để cart.js kiểm tra
+                address: '' // Trường rỗng để cart.js kiểm tra
+            };
+            // Lưu đối tượng dưới dạng chuỗi JSON vào localStorage
+            localStorage.setItem('currentUser', JSON.stringify(userForStorage));
+            
             window.location.href = '../index.html'; 
         }
     }); 
@@ -96,42 +118,41 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const credential = registerCredentialInput.value.trim();
         const password = registerPasswordInput.value.trim();
+        
+        const confirmPassword = registerConfirmPasswordInput ? registerConfirmPasswordInput.value.trim() : password;
+        const passwordCheck = registerConfirmPasswordInput ? password === confirmPassword : true;
 
-        // Kiểm tra rỗng
-        if (credential === '' || password === '') {
+        if (credential === '' || password === '' || (registerConfirmPasswordInput && confirmPassword === '')) {
             alert('Vui lòng điền đầy đủ thông tin đăng ký!');
             return;
         }
-
-        // Kiểm tra định dạng
         if (!isCredentialValid(credential)) {
             alert('Email hoặc Số điện thoại không hợp lệ. Vui lòng kiểm tra lại.');
             return;
         }
-
-        // Kiểm tra độ dài mật khẩu
         if (password.length < 6) {
             alert('Mật khẩu phải có ít nhất 6 ký tự.');
             return;
         }
-
-        // --- Logic Đăng Ký ---
         
-        // Kiểm tra xem tài khoản đã tồn tại chưa
-        if (registeredUsers.find(user => user.credential === credential)) {
-            alert('Email hoặc Số điện thoại này đã được đăng ký. Vui lòng đăng nhập.');
-            loginCredentialInput.value = credential; // Điền sẵn vào form đăng nhập
-            container.classList.remove('active'); // Chuyển sang form đăng nhập
+        if (!passwordCheck) {
+            alert('Mật khẩu xác nhận không khớp. Vui lòng thử lại.');
             return;
         }
 
-        // Thêm người dùng mới vào "database"
+        if (registeredUsers.find(user => user.credential === credential)) {
+            alert('Email hoặc Số điện thoại này đã được đăng ký. Vui lòng đăng nhập.');
+            loginCredentialInput.value = credential; 
+            container.classList.remove('active'); 
+            return;
+        }
+
         registeredUsers.push({ credential, password });
+        console.log("Người dùng đã đăng ký:", registeredUsers); 
 
         alert('Đăng ký thành công! Vui lòng đăng nhập.');
-        registerForm.reset(); // Xóa trắng form đăng ký
+        registerForm.reset(); 
         
-        // Tự động chuyển sang form Đăng Nhập và điền sẵn
         loginCredentialInput.value = credential;
         loginPasswordInput.value = ''; 
         container.classList.remove('active');

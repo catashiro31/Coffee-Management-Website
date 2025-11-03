@@ -619,3 +619,97 @@ main .custom .left h3 {
         font-size: 12px;
     }
 }
+.button-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép xuống dòng nếu không đủ chỗ */
+    gap: 10px;       /* Khoảng cách giữa 2 nút */
+    margin-top: 15px;
+}
+.buy-now {
+    display: inline-block;
+    background-color: #ffca28; /* Màu vàng */
+    color: #1E3932;       /* Chữ màu xanh đậm */
+    border: 1px solid #ffca28;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    
+    /* Đảm bảo icon thẳng hàng với chữ */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+.buy-now:hover {
+    background-color: #ffb300; /* Vàng đậm hơn khi hover */
+    border-color: #ffb300;
+    transform: scale(1.05);
+}
+
+/* 3. Cập nhật nút "Thêm vào giỏ hàng" (SỬA) 
+   (Thay thế #addToCart cũ bằng đoạn này) 
+*/
+#addToCart {
+    display: inline-block;
+    /* margin-top: 15px; <-- Xóa dòng này, .button-wrapper đã xử lý */
+    background-color: #1E3932; /* Đổi từ màu đen sang xanh đậm */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.25s ease;
+
+    /* Đảm bảo icon thẳng hàng với chữ */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#addToCart:hover {
+    background-color: #00754A;
+    transform: scale(1.05);
+}
+
+
+/* 4. Căn giữa các nút trên màn hình nhỏ (THÊM VÀO MEDIA QUERY) */
+@media (max-width: 1000px) {
+    .product {
+        /* ... (các style cũ của bạn) ... */
+        text-align: center;
+    }
+
+    .button-wrapper {
+        justify-content: center; /* Căn giữa 2 nút */
+    }
+
+    .quantity-control {
+        /* ... (style cũ của bạn) ... */
+        justify-content: center; /* Căn giữa bộ đếm số lượng */
+    }
+}
+  .cart-link {
+      position: relative;
+    }
+    #cart-count {
+      position: absolute;
+      top: -5px;
+      right: -15px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none; /* JS sẽ bật lên nếu có hàng */
+}
