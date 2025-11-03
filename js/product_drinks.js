@@ -1542,46 +1542,28 @@ function add_order() {
     description: description,
     image: product.image
   };
-
-  // 4. Thêm vào giỏ hàng (sử dụng logic chung từ logic-cart.js)
   Cart.addItem(cartItem);
-
-  // 5. Thông báo và cập nhật
   alert('Đã thêm sản phẩm vào giỏ hàng!');
   Cart.updateCartCount(); // Yêu cầu header cập nhật lại số lượng
 }
-
-// ===========================================
-// === HÀM buy_now() (ĐÃ CẬP NHẬT THEO YÊU CẦU) ===
-// ===========================================
 function buy_now() {
   if (selectedSize == null) {
     alert('Bạn chưa chọn Size!');
-    return; // Dừng hàm nếu chưa chọn size
+    return;
   }
-
-  // Lấy thông tin để hiển thị trong thông báo
   const product = pickProduct();
   const priceString = Math.round(cost).toLocaleString('vi-VN');
-
-  // 1. Hiển thị thông báo thanh toán thành công (theo yêu cầu)
   alert(`Đã thanh toán thành công cho sản phẩm:\n${product.name}\nGiá: ${priceString} VND`);
-
-  // 2. Tự động reset lại các lựa chọn
   reset_val();
 }
 
-
-// (Giữ nguyên các hàm reset_val, increase/decrease)
 function reset_val() {
-  // Reset selects
+
   if (select1) select1.selectedIndex = 1;
   if (select2) select2.selectedIndex = 1;
   if (select3) select3.selectedIndex = 1;
   if (select4) select4.selectedIndex = 3;
   if (select7) select7.selectedIndex = 3;
-
-  // Reset styles
   const boxes = [box1, box2, box3, box4, box5, box6, box7];
   const legs = [leg1, leg2, leg3, leg4, leg5, leg6, leg7];
   boxes.forEach((box) => {
@@ -1590,8 +1572,6 @@ function reset_val() {
   legs.forEach((leg) => {
     if (leg) leg.style.color = 'gray';
   });
-
-  // Reset counters
   const shotsVal = document.getElementById('shots-value');
   const flavorsVal = document.getElementById('flavors-value');
   if (shotsVal) shotsVal.textContent = 0;
@@ -1650,17 +1630,10 @@ function decreaseShots() {
   }
 }
 
-
-/* ==============================================
-    5. KHỞI TẠO TRANG (Giữ nguyên)
-    ============================================== */
 document.addEventListener('DOMContentLoaded', () => {
-  // --- 1. LẤY VÀ RENDER DỮ LIỆU SẢN PHẨM ---
   const product = pickProduct();
   renderProduct(product);
-  renderCustomizer(product.customizers); // Truyền vào các tùy chọn
-
-  // --- 2. GÁN CÁC BIẾN DOM CƠ BẢN (QUAN TRỌNG) ---
+  renderCustomizer(product.customizers);
   box1 = document.getElementById('box1');
   box2 = document.getElementById('box2');
   box3 = document.getElementById('box3');
@@ -1680,14 +1653,9 @@ document.addEventListener('DOMContentLoaded', () => {
   select3 = document.getElementById('select3');
   select4 = document.getElementById('select4');
   select7 = document.getElementById('select7');
-
-  // Khởi tạo giá trị cho counter (nếu tồn tại)
   const flavorsVal = document.getElementById('flavors-value');
   const shotsVal = document.getElementById('shots-value');
   if (flavorsVal) flavorsVal.textContent = flavors;
   if (shotsVal) shotsVal.textContent = shots;
-
-
-  // --- 4. KHỞI TẠO GIÁ BAN ĐẦU (ĐÃ DI CHUYỂN VÀO ĐÂY) ---
   updatePrice();
 });
