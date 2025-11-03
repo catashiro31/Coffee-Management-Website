@@ -1286,7 +1286,7 @@ function renderCustomizer(customizers) {
       const wrapper = createEl('div', {
         cls: `size-option ${size}`,
         attrs: {
-          'data-selected-image': `../assets/images/duong-241230692/${size}_selected.png`,
+          'data-selected-image': `../assets/images/duong-241230692/${size}.png`,
         },
       });
       const btn = createEl('button', { attrs: { onclick: 'changeImage(this)' } });
